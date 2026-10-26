@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { connection } from "next/server";
 import {
   COOKIE,
   createSessionValue,
@@ -8,6 +9,7 @@ import {
 const MAX_AGE_SEC = 60 * 60 * 24 * 7;
 
 export async function POST(request: Request) {
+  await connection();
   let body: { username?: string; password?: string };
   try {
     body = await request.json();
