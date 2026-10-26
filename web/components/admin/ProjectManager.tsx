@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { ProjectCategory } from "@/lib/content";
 import { categoryGroups } from "@/lib/content";
 import type { AdminProjectRow } from "@/lib/published-projects";
@@ -16,6 +16,9 @@ type Props = {
 
 export function ProjectManager({ initialProjects }: Props) {
   const [rows, setRows] = useState(initialProjects);
+  useEffect(() => {
+    setRows(initialProjects);
+  }, [initialProjects]);
   const [filter, setFilter] = useState("");
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { AdminShell } from "@/components/admin/AdminShell";
 import { CategoryOverviewGrid } from "@/components/admin/CategoryOverviewGrid";
 import { getDashboardStats } from "@/lib/published-projects";
 
@@ -9,8 +8,7 @@ export default async function AdminDashboardPage() {
   const stats = await getDashboardStats();
 
   return (
-    <AdminShell>
-      <div className="admin-panel">
+    <div className="admin-panel">
         <h1>Dashboard</h1>
         <p className="meta">Overview of what visitors see on the public portfolio.</p>
 
@@ -39,7 +37,6 @@ export default async function AdminDashboardPage() {
         <p style={{ marginTop: 28 }}>
           <Link className="pill solid" href="/admin/projects">Manage projects</Link>
         </p>
-      </div>
-    </AdminShell>
+    </div>
   );
 }

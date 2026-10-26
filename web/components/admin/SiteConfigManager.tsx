@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { categoryGroups, categoryLabel } from "@/lib/content";
 import type { OrderedToggle, SiteConfigStore } from "@/lib/site-config";
 import type { ProjectCategory } from "@/lib/content";
@@ -129,6 +129,9 @@ function OrderList<T extends string>({
 
 export function SiteConfigManager({ initialConfig }: Props) {
   const [config, setConfig] = useState(initialConfig);
+  useEffect(() => {
+    setConfig(initialConfig);
+  }, [initialConfig]);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
 

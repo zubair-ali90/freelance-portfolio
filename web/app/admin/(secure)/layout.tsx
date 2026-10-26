@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+import { AdminShell } from "@/components/admin/AdminShell";
 import { isAdminSession } from "@/lib/admin-auth";
 
 export const instant = false;
@@ -7,5 +8,5 @@ export default async function SecureAdminLayout({ children }: { children: React.
   if (!(await isAdminSession())) {
     redirect("/admin");
   }
-  return children;
+  return <AdminShell>{children}</AdminShell>;
 }

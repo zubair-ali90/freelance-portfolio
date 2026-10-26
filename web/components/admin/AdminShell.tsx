@@ -35,6 +35,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
               <Link
                 key={item.href}
                 href={item.href}
+                prefetch={false}
                 className={pathname === item.href ? "admin-nav-link active" : "admin-nav-link"}
               >
                 {item.label}
@@ -49,7 +50,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
           ← Public site
         </Link>
       </aside>
-      <div className="admin-main">{children}</div>
+      <div className="admin-main" key={pathname}>{children}</div>
     </div>
   );
 }
