@@ -1,10 +1,9 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 export function AdminLoginForm() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -18,6 +17,7 @@ export function AdminLoginForm() {
     const response = await fetch("/api/admin/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      credentials: "same-origin",
       body: JSON.stringify({ username, password }),
     });
     setLoading(false);
@@ -26,8 +26,7 @@ export function AdminLoginForm() {
       return;
     }
     const next = searchParams.get("next") || "/admin/dashboard";
-    router.push(next);
-    router.refresh();
+    window.location.assign(next);
   }
 
   return (

@@ -1,5 +1,11 @@
 import { NextResponse } from "next/server";
-import { setAdminSession, verifyAdminCredentials } from "@/lib/admin-auth";
+import {
+  COOKIE,
+  createSessionValue,
+  verifyAdminCredentials,
+} from "@/lib/admin-auth";
+
+const MAX_AGE_SEC = 60 * 60 * 24 * 7;
 
 export async function POST(request: Request) {
   let body: { username?: string; password?: string };
@@ -16,6 +22,13 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid username or password" }, { status: 401 });
   }
 
-  await setAdminSession();
-  return NextResponse.json({ ok: true });
+  const response = NextResponse.json({ ok: true });
+  response.cookies.set(COOKIE, createSessionValue(), {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+    path: "/",
+    maxAge: MAX_AGE_SEC,
+  });
+  return response;
 }

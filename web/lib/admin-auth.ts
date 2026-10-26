@@ -22,8 +22,11 @@ export function createSessionValue() {
 
 export function verifySessionValue(token: string | undefined | null) {
   if (!token) return false;
-  const [payload, sig] = token.split(":");
-  if (!payload || !sig) return false;
+  const sep = token.lastIndexOf(":");
+  if (sep <= 0) return false;
+  const payload = token.slice(0, sep);
+  const sig = token.slice(sep + 1);
+  if (!payload.startsWith("admin:") || !sig) return false;
   const expected = sign(payload);
   try {
     const a = Buffer.from(sig, "hex");
@@ -32,9 +35,9 @@ export function verifySessionValue(token: string | undefined | null) {
   } catch {
     return false;
   }
-  const exp = Number(payload.split(":")[1]);
+  const exp = Number(payload.slice("admin:".length));
   if (!Number.isFinite(exp) || exp < Math.floor(Date.now() / 1000)) return false;
-  return payload.startsWith("admin:");
+  return true;
 }
 
 export function verifyAdminCredentials(username: string, password: string) {
