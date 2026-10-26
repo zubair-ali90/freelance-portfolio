@@ -489,5 +489,146 @@
       "/assets/Untiy/character/After/Screenshot%202026-03-05%20003013%20(1).png",
       "/assets/Untiy/character/WhatsApp%20Image%202026-03-03%20at%2020.30.53(1)%20(2).jpeg"
     ]
+  },
+  {
+    "category": "3d",
+    "slug": "3d-configurator",
+    "title": "Configurator",
+    "folder": "Configurator",
+    "summary": "Work from Configurator.",
+    "cover": "/assets/Configurator/1.mp4",
+    "media": [
+      "/assets/Configurator/1.mp4",
+      "/assets/Configurator/2026-05-19%2023-40-10.mp4"
+    ]
+  },
+  {
+    "category": "3d",
+    "slug": "3d-2d",
+    "title": "2d",
+    "folder": "2d",
+    "summary": "Work from 2d.",
+    "cover": "/assets/2d/Blueprint%20Illustrator/vecteezy_isometric-animation-illustrating-industrial-logistics-and_76305360.mp4",
+    "media": [
+      "/assets/2d/Blueprint%20Illustrator/1.png",
+      "/assets/2d/Blueprint%20Illustrator/2.png",
+      "/assets/2d/Blueprint%20Illustrator/vecteezy_isometric-animation-illustrating-industrial-logistics-and_76305360.mp4",
+      "/assets/2d/environment/Car%20Combat/2D-Car-Combat-Scene-2.png",
+      "/assets/2d/environment/Medieval/Medieval-Scene-5.png",
+      "/assets/2d/explainer/Polyurethane%20Leak%20Seal%20Process.mp4"
+    ]
+  },
+  {
+    "category": "3d",
+    "slug": "3d-ai",
+    "title": "AI",
+    "folder": "AI",
+    "summary": "Work from AI.",
+    "cover": "/assets/AI/Product/Gummy%20Bears.mp4",
+    "media": [
+      "/assets/AI/Product/Gummy%20Bears.mp4",
+      "/assets/AI/Product/Gun%20part/Glock_19.mp4",
+      "/assets/AI/Website%20animation/2.mp4",
+      "/assets/AI/Website%20animation/4.mp4"
+    ]
+  },
+  {
+    "category": "3d",
+    "slug": "3d-event-visualization",
+    "title": "event visualization",
+    "folder": "event visualization",
+    "summary": "Work from event visualization.",
+    "cover": "/assets/event%20visualization/stage%202/stage-2-shot_1.png",
+    "media": [
+      "/assets/event%20visualization/stage%202/stage-2-shot_1.png"
+    ]
+  },
+  {
+    "category": "3d",
+    "slug": "3d-horseman-horse",
+    "title": "horseman-horse",
+    "folder": "horseman-horse",
+    "summary": "Work from horseman-horse.",
+    "cover": "/assets/horseman-horse/Horse%20animation/2.mp4",
+    "media": [
+      "/assets/horseman-horse/Horse%20animation/2.mp4",
+      "/assets/horseman-horse/image%20(81).png"
+    ]
+  },
+  {
+    "category": "3d",
+    "slug": "3d-industrial-visualization",
+    "title": "Industrial visualization",
+    "folder": "Industrial visualization",
+    "summary": "Work from Industrial visualization.",
+    "cover": "/assets/Industrial%20visualization/2.mp4",
+    "media": [
+      "/assets/Industrial%20visualization/2.mp4",
+      "/assets/Industrial%20visualization/image%20-%202026-06-16T112514.561.png"
+    ]
+  },
+  {
+    "category": "3d",
+    "slug": "3d-jon",
+    "title": "Jon",
+    "folder": "Jon",
+    "summary": "Work from Jon.",
+    "cover": "/assets/Jon/AI%20Obot%20Cards%20Animation%20-%20Without%20Text%20Animation%20(Without%20Preview).mp4",
+    "media": [
+      "/assets/Jon/AI%20Obot%20Cards%20Animation%20-%20Without%20Text%20Animation%20(Without%20Preview).mp4",
+      "/assets/Jon/Card%20Animation%20(Without%20Preview)%20(160%20x%20601).mp4",
+      "/assets/Jon/Card%20Animation%20(Without%20Preview)%20(336%20x%20280).mp4",
+      "/assets/Jon/GIFs/Card%20Animation%20(160%20x%20601).gif",
+      "/assets/Jon/GIFs/Card%20Animation%20(300%20x%20250).gif",
+      "/assets/Jon/Methodology%204K.mp4"
+    ]
+  },
+  {
+    "category": "3d",
+    "slug": "3d-low-poly",
+    "title": "Low poly",
+    "folder": "Low poly",
+    "summary": "Work from Low poly.",
+    "cover": "/assets/Low%20poly/Low%20poly%20people%20cheering/Copy%20of%20low-poly-people1.jpg",
+    "media": [
+      "/assets/Low%20poly/Low%20poly%20people%20cheering/Copy%20of%20low-poly-people1.jpg",
+      "/assets/Low%20poly/Low%20poly%20people%20cheering/Copy%20of%20rink%20rendering%20idea.jpg"
+    ]
+  },
+  {
+    "category": "3d",
+    "slug": "3d-mascot",
+    "title": "Mascot",
+    "folder": "Mascot",
+    "summary": "Work from Mascot.",
+    "cover": "/assets/Mascot/Copy%20of%20Head-Variations-2.jpg",
+    "media": [
+      "/assets/Mascot/Copy%20of%20Head-Variations-2.jpg"
+    ]
+  },
+  {
+    "category": "3d",
+    "slug": "3d-saas-apple-style-video",
+    "title": "SaaS apple style video",
+    "folder": "SaaS apple style video",
+    "summary": "Work from SaaS apple style video.",
+    "cover": "/assets/SaaS%20apple%20style%20video/DraftSEO.mp4",
+    "media": [
+      "/assets/SaaS%20apple%20style%20video/DraftSEO.mp4",
+      "/assets/SaaS%20apple%20style%20video/Scire.mp4"
+    ]
+  },
+  {
+    "category": "3d",
+    "slug": "3d-sports",
+    "title": "Sports",
+    "folder": "Sports",
+    "summary": "Work from Sports.",
+    "cover": "/assets/Sports/basket%20ball%20hoop/1.webp",
+    "media": [
+      "/assets/Sports/basket%20ball%20hoop/1.webp",
+      "/assets/Sports/Boxing%20helmet/1.webp",
+      "/assets/Sports/cricket%20helmet/2.png"
+    ]
   }
 ]

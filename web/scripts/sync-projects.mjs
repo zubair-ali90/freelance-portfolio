@@ -79,5 +79,24 @@ for (const name of fs.readdirSync(path.join(root, "Untiy")).sort()) {
   if (item) projects.push(item);
 }
 
+// Top-level folders that are whole projects (not already scanned above)
+const topLevelProjects = [
+  "Configurator",
+  "2d",
+  "AI",
+  "event visualization",
+  "horseman-horse",
+  "Industrial visualization",
+  "Jon",
+  "Low poly",
+  "Mascot",
+  "SaaS apple style video",
+  "Sports",
+];
+for (const name of topLevelProjects) {
+  const item = add("3d", name, name);
+  if (item) projects.push(item);
+}
+
 fs.writeFileSync(out, JSON.stringify(projects, null, 2));
 console.log(`Synced ${projects.length} projects to lib/projects.json`);

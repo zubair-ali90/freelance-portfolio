@@ -25,6 +25,3 @@ Desktop.ini
 
 # public/assets is a local junction to /Assets — track Assets/ only once
 web/public/assets/
-
-# Too large for free GitHub LFS (~1.6GB). Keep locally; re-add if you buy LFS storage.
-Assets/Configurator/2026-05-19 23-40-10.mp4
