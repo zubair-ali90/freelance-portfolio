@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { categoryGroups } from "@/lib/content";
-import { projectsByCategoryList, getPublishedProjects } from "@/lib/published-projects";
+import { projectsByCategoryList, getPublishedProjects, getWorkPageLayout } from "@/lib/published-projects";
 import { WorkSections } from "@/components/WorkSections";
 
 export const instant = false;
@@ -8,7 +7,7 @@ export const instant = false;
 export const metadata = { title: "Work | Zubair" };
 
 export default async function WorkPage() {
-  const projects = await getPublishedProjects();
+  const [projects, layout] = await Promise.all([getPublishedProjects(), getWorkPageLayout()]);
 
   return (
     <main>
@@ -18,10 +17,9 @@ export default async function WorkPage() {
           <h1>projects.</h1>
           <p>{projects.length} projects across 3D animation, renders, architectural, and development.</p>
           <div className="chips" style={{ marginTop: 18 }}>
-            {categoryGroups.map((group) => {
+            {layout.map((group) => {
               const count = group.sections.reduce(
-                (total, section) =>
-                  total + projectsByCategoryList(projects, section.id).length,
+                (total, section) => total + projectsByCategoryList(projects, section.id).length,
                 0,
               );
               if (!count) return null;
@@ -34,7 +32,7 @@ export default async function WorkPage() {
           </div>
         </div>
       </section>
-      <WorkSections projects={projects} />
+      <WorkSections projects={projects} layout={layout} />
     </main>
   );
 }

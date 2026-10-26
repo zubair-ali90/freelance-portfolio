@@ -2,6 +2,7 @@ import type { Project, ProjectCategory } from "./content";
 import { categoryGroups } from "./content";
 import { readProjectOverrides, type ProjectOverride } from "./project-overrides";
 import { decorateProjectCategory, getBaseProjects } from "./projects-base";
+import { homeFeaturedCategoryOrder, readSiteConfig } from "./site-config";
 
 export type AdminProjectRow = Project & { active: boolean };
 
@@ -31,29 +32,28 @@ export function projectsByCategoryList(projects: Project[], category: ProjectCat
   return projects.filter((project) => project.category === category);
 }
 
-const featuredCategoryOrder: ProjectCategory[] = [
-  "product-animation",
-  "character",
-  "lifestyle-renders",
-  "exterior",
-  "unreal",
-  "unity",
-];
-
 export async function getFeaturedPublishedProjects(): Promise<Project[]> {
-  const published = await getPublishedProjects();
+  const [published, siteConfig] = await Promise.all([getPublishedProjects(), readSiteConfig()]);
+  const categoryOrder = homeFeaturedCategoryOrder(siteConfig);
+  const max = siteConfig.maxHomeFeatured;
   const picked: Project[] = [];
-  for (const category of featuredCategoryOrder) {
+  for (const category of categoryOrder) {
     const match = published.find((project) => project.category === category);
     if (match) picked.push(match);
   }
-  if (picked.length < 6) {
+  if (picked.length < max) {
     for (const project of published) {
-      if (picked.length >= 6) break;
+      if (picked.length >= max) break;
       if (!picked.some((p) => p.slug === project.slug)) picked.push(project);
     }
   }
-  return picked.slice(0, 6);
+  return picked.slice(0, max);
+}
+
+export async function getWorkPageLayout() {
+  const { resolveWorkLayout } = await import("./site-config");
+  const config = await readSiteConfig();
+  return resolveWorkLayout(config);
 }
 
 export async function getDashboardStats() {

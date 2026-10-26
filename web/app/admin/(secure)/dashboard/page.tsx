@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { AdminShell } from "@/components/admin/AdminShell";
-import { categoryGroups } from "@/lib/content";
+import { CategoryOverviewGrid } from "@/components/admin/CategoryOverviewGrid";
 import { getDashboardStats } from "@/lib/published-projects";
 
 export const metadata = { title: "Dashboard | Admin" };
@@ -30,16 +30,11 @@ export default async function AdminDashboardPage() {
         </div>
 
         <h2 className="admin-subtitle">Visible by category</h2>
-        <ul className="admin-category-stats">
-          {categoryGroups.flatMap((group) =>
-            group.sections.map((section) => (
-              <li key={section.id}>
-                <span>{group.label} · {section.label}</span>
-                <strong>{stats.byCategory[section.id] ?? 0}</strong>
-              </li>
-            )),
-          )}
-        </ul>
+        <p className="meta" style={{ marginBottom: 16 }}>
+          Matches the public <Link href="/work">work page</Link> sections. Click a category to preview on the site.
+        </p>
+
+        <CategoryOverviewGrid byCategory={stats.byCategory} />
 
         <p style={{ marginTop: 28 }}>
           <Link className="pill solid" href="/admin/projects">Manage projects</Link>

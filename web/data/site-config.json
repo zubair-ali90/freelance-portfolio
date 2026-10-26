@@ -1,0 +1,138 @@
+{
+  "version": 1,
+  "homeFeatured": [
+    {
+      "id": "product-animation",
+      "enabled": true
+    },
+    {
+      "id": "character",
+      "enabled": true
+    },
+    {
+      "id": "lifestyle-renders",
+      "enabled": true
+    },
+    {
+      "id": "exterior",
+      "enabled": true
+    },
+    {
+      "id": "unreal",
+      "enabled": true
+    },
+    {
+      "id": "unity",
+      "enabled": true
+    },
+    {
+      "id": "installation",
+      "enabled": false
+    },
+    {
+      "id": "explainer",
+      "enabled": false
+    },
+    {
+      "id": "product-renders",
+      "enabled": false
+    },
+    {
+      "id": "hero-renders",
+      "enabled": false
+    },
+    {
+      "id": "standalone",
+      "enabled": false
+    },
+    {
+      "id": "interior-exterior",
+      "enabled": false
+    },
+    {
+      "id": "interior",
+      "enabled": false
+    },
+    {
+      "id": "arc-viz",
+      "enabled": false
+    }
+  ],
+  "maxHomeFeatured": 6,
+  "workGroups": [
+    {
+      "id": "animation",
+      "enabled": true
+    },
+    {
+      "id": "renders",
+      "enabled": true
+    },
+    {
+      "id": "architectural",
+      "enabled": true
+    },
+    {
+      "id": "development",
+      "enabled": true
+    }
+  ],
+  "workSections": [
+    {
+      "id": "product-animation",
+      "enabled": true
+    },
+    {
+      "id": "character",
+      "enabled": true
+    },
+    {
+      "id": "installation",
+      "enabled": true
+    },
+    {
+      "id": "explainer",
+      "enabled": true
+    },
+    {
+      "id": "product-renders",
+      "enabled": true
+    },
+    {
+      "id": "hero-renders",
+      "enabled": true
+    },
+    {
+      "id": "lifestyle-renders",
+      "enabled": true
+    },
+    {
+      "id": "standalone",
+      "enabled": true
+    },
+    {
+      "id": "interior-exterior",
+      "enabled": true
+    },
+    {
+      "id": "interior",
+      "enabled": true
+    },
+    {
+      "id": "exterior",
+      "enabled": true
+    },
+    {
+      "id": "arc-viz",
+      "enabled": true
+    },
+    {
+      "id": "unity",
+      "enabled": true
+    },
+    {
+      "id": "unreal",
+      "enabled": true
+    }
+  ]
+}

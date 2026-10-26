@@ -1,26 +1,26 @@
 import Link from "next/link";
 import type { Project, ProjectCategory } from "@/lib/content";
-import { categoryGroups } from "@/lib/content";
+import type { ResolvedWorkGroup } from "@/lib/site-config";
 import { ProjectCover } from "@/components/ProjectMedia";
 import { projectsByCategoryList } from "@/lib/published-projects";
 
-export function WorkSections({ projects }: { projects: Project[] }) {
+export function WorkSections({
+  projects,
+  layout,
+}: {
+  projects: Project[];
+  layout: ResolvedWorkGroup[];
+}) {
   return (
     <>
-      {categoryGroups.map((group) => {
-        const sections = group.sections
-          .map((section) => ({
-            section,
-            items: projectsByCategoryList(projects, section.id as ProjectCategory),
-          }))
-          .filter((entry) => entry.items.length > 0);
-        if (!sections.length) return null;
-
-        return (
-          <section key={group.id} className="section paper" id={group.id}>
-            <div className="wrap wrap-wide">
-              <p className="kicker">[ {group.label} ]</p>
-              {sections.map(({ section, items }) => (
+      {layout.map((group) => (
+        <section key={group.id} className="section paper" id={group.id}>
+          <div className="wrap wrap-wide">
+            <p className="kicker">[ {group.label} ]</p>
+            {group.sections.map((section) => {
+              const items = projectsByCategoryList(projects, section.id as ProjectCategory);
+              if (!items.length) return null;
+              return (
                 <div key={section.id} id={section.id} className="category-leaf">
                   <h2 className="category-title">
                     {section.label}
@@ -37,11 +37,11 @@ export function WorkSections({ projects }: { projects: Project[] }) {
                     ))}
                   </div>
                 </div>
-              ))}
-            </div>
-          </section>
-        );
-      })}
+              );
+            })}
+          </div>
+        </section>
+      ))}
     </>
   );
 }

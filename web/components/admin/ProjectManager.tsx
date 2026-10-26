@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import type { ProjectCategory } from "@/lib/content";
 import { categoryGroups } from "@/lib/content";
 import type { AdminProjectRow } from "@/lib/published-projects";
+import { CategoryOverviewGrid } from "@/components/admin/CategoryOverviewGrid";
 
 const categories = categoryGroups.flatMap((group) =>
   group.sections.map((section) => ({ id: section.id, label: section.label, group: group.label })),
@@ -29,6 +30,15 @@ export function ProjectManager({ initialProjects }: Props) {
         row.folder.toLowerCase().includes(q),
     );
   }, [rows, filter]);
+
+  const visibleByCategory = useMemo(() => {
+    const map: Record<string, number> = {};
+    for (const row of rows) {
+      if (!row.active) continue;
+      map[row.category] = (map[row.category] ?? 0) + 1;
+    }
+    return map;
+  }, [rows]);
 
   function updateRow(slug: string, patch: Partial<Pick<AdminProjectRow, "active" | "category">>) {
     setRows((current) => current.map((row) => (row.slug === slug ? { ...row, ...patch } : row)));
@@ -69,6 +79,12 @@ export function ProjectManager({ initialProjects }: Props) {
           {saving ? "Saving…" : "Save changes"}
         </button>
       </header>
+
+      <h2 className="admin-subtitle" style={{ marginTop: 8 }}>Visible by category</h2>
+      <p className="meta" style={{ marginBottom: 12 }}>
+        Updates as you toggle projects (save to publish).
+      </p>
+      <CategoryOverviewGrid byCategory={visibleByCategory} compact />
 
       <input
         className="admin-search"
