@@ -1,4 +1,5 @@
-const BLOB_READ_TIMEOUT_MS = 3_000;
+/** Netlify Blobs often hang on SSR; cap wait and fall back to bundled JSON. */
+const BLOB_READ_TIMEOUT_MS = 800;
 
 /** Netlify Blobs can hang in SSR; never block page render longer than this. */
 export async function readBlobJsonWithTimeout<T>(

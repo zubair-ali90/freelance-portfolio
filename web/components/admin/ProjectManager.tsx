@@ -11,17 +11,55 @@ const categories = categoryGroups.flatMap((group) =>
 );
 
 type Props = {
-  initialProjects: AdminProjectRow[];
+  initialProjects?: AdminProjectRow[];
 };
 
-export function ProjectManager({ initialProjects }: Props) {
-  const [rows, setRows] = useState(initialProjects);
+export function ProjectManager({ initialProjects }: Props = {} as Props) {
+  const [rows, setRows] = useState<AdminProjectRow[]>(initialProjects ?? []);
+  const [ready, setReady] = useState(Boolean(initialProjects));
+  const [loadError, setLoadError] = useState("");
   useEffect(() => {
-    setRows(initialProjects);
+    if (initialProjects) {
+      setRows(initialProjects);
+      setReady(true);
+      return;
+    }
+    let cancelled = false;
+    (async () => {
+      const response = await fetch("/api/admin/projects");
+      if (!response.ok) {
+        if (!cancelled) setLoadError("Could not load projects.");
+        return;
+      }
+      const data = (await response.json()) as { projects: AdminProjectRow[] };
+      if (!cancelled) {
+        setRows(data.projects);
+        setReady(true);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, [initialProjects]);
   const [filter, setFilter] = useState("");
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
+
+  if (loadError) {
+    return (
+      <div className="admin-panel">
+        <p className="admin-error">{loadError}</p>
+      </div>
+    );
+  }
+
+  if (!ready) {
+    return (
+      <div className="admin-panel" aria-busy="true">
+        <p className="meta">Loading projects…</p>
+      </div>
+    );
+  }
 
   const filtered = useMemo(() => {
     const q = filter.trim().toLowerCase();

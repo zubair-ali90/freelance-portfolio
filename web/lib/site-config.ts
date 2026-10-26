@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { unstable_noStore as noStore } from "next/cache";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
@@ -156,13 +157,14 @@ function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, Math.round(value)));
 }
 
-export async function readSiteConfig(): Promise<SiteConfigStore> {
+async function readSiteConfigImpl(): Promise<SiteConfigStore> {
   noStore();
-  const blob = await readBlob();
+  const [local, blob] = await Promise.all([readLocal(), readBlob()]);
   if (blob) return normalizeSiteConfig(blob);
-  const local = await readLocal();
   return normalizeSiteConfig(local);
 }
+
+export const readSiteConfig = cache(readSiteConfigImpl);
 
 export async function writeSiteConfig(data: SiteConfigStore) {
   const normalized = normalizeSiteConfig(data);

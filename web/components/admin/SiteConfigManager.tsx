@@ -21,7 +21,7 @@ import {
 import { ANIMATION_LOOP_OPTIONS } from "@/lib/viewer-animation";
 
 type Props = {
-  initialConfig: SiteConfigStore;
+  initialConfig?: SiteConfigStore;
 };
 
 function moveItem<T extends string>(list: OrderedToggle<T>[], index: number, direction: -1 | 1) {
@@ -127,15 +127,36 @@ function OrderList<T extends string>({
   );
 }
 
-export function SiteConfigManager({ initialConfig }: Props) {
-  const [config, setConfig] = useState(initialConfig);
+export function SiteConfigManager({ initialConfig }: Props = {} as Props) {
+  const [config, setConfig] = useState<SiteConfigStore | null>(initialConfig ?? null);
+  const [ready, setReady] = useState(Boolean(initialConfig));
+  const [loadError, setLoadError] = useState("");
   useEffect(() => {
-    setConfig(initialConfig);
+    if (initialConfig) {
+      setConfig(initialConfig);
+      setReady(true);
+      return;
+    }
+    let cancelled = false;
+    (async () => {
+      const response = await fetch("/api/admin/site-config");
+      if (!response.ok) {
+        if (!cancelled) setLoadError("Could not load configuration.");
+        return;
+      }
+      const data = (await response.json()) as { config: SiteConfigStore };
+      if (!cancelled) {
+        setConfig(data.config);
+        setReady(true);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, [initialConfig]);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
 
-  const groupLabels = new Map(categoryGroups.map((g) => [g.id, g.label]));
   const sectionIdsByGroup = useMemo(
     () =>
       new Map(
@@ -147,12 +168,31 @@ export function SiteConfigManager({ initialConfig }: Props) {
     [],
   );
 
-  const workGroupsInOrder = config.workGroups;
+  if (loadError) {
+    return (
+      <div className="admin-panel">
+        <p className="admin-error">{loadError}</p>
+      </div>
+    );
+  }
+
+  if (!ready || !config) {
+    return (
+      <div className="admin-panel" aria-busy="true">
+        <p className="meta">Loading configuration…</p>
+      </div>
+    );
+  }
+
+  const activeConfig = config;
+  const groupLabels = new Map(categoryGroups.map((g) => [g.id, g.label]));
+
+  const workGroupsInOrder = activeConfig.workGroups;
 
   function sectionsForGroup(groupId: string) {
     const allowed = sectionIdsByGroup.get(groupId);
     if (!allowed) return [];
-    return config.workSections.filter((section) => allowed.has(section.id));
+    return activeConfig.workSections.filter((section) => allowed.has(section.id));
   }
 
   async function save() {
@@ -161,7 +201,7 @@ export function SiteConfigManager({ initialConfig }: Props) {
     const response = await fetch("/api/admin/site-config", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ config }),
+      body: JSON.stringify({ config: activeConfig }),
     });
     setSaving(false);
     if (!response.ok) {
@@ -219,17 +259,17 @@ export function SiteConfigManager({ initialConfig }: Props) {
               max={12}
               value={config.maxHomeFeatured}
               onChange={(e) =>
-                setConfig((current) => ({
-                  ...current,
-                  maxHomeFeatured: Number(e.target.value) || 6,
-                }))
+                setConfig((current) =>
+                  current ? { ...current, maxHomeFeatured: Number(e.target.value) || 6 } : null,
+                )
               }
             />
           </label>
           <OrderList
             items={config.homeFeatured}
             labelFor={(id) => categoryLabel(id as ProjectCategory)}
-            onChange={(homeFeatured) => setConfig((current) => ({ ...current, homeFeatured }))}
+            onChange={(homeFeatured) =>
+              setConfig((current) => (current ? { ...current, homeFeatured } : null))}
             showRank
             grid
           />
@@ -249,7 +289,8 @@ export function SiteConfigManager({ initialConfig }: Props) {
               <OrderList
                 items={config.workGroups}
                 labelFor={(id) => groupLabels.get(id) ?? id}
-                onChange={(workGroups) => setConfig((current) => ({ ...current, workGroups }))}
+                onChange={(workGroups) =>
+                  setConfig((current) => (current ? { ...current, workGroups } : null))}
                 showRank
               />
             </div>
@@ -282,24 +323,32 @@ export function SiteConfigManager({ initialConfig }: Props) {
                         labelFor={(id) => categoryLabel(id as ProjectCategory)}
                         onChange={(nextForGroup) => {
                           const allowed = sectionIdsByGroup.get(orderedGroup.id)!;
-                          setConfig((current) => ({
-                            ...current,
-                            workSections: current.workSections.map((section) => {
-                              if (!allowed.has(section.id)) return section;
-                              return nextForGroup.find((entry) => entry.id === section.id) ?? section;
-                            }),
-                          }));
+                          setConfig((current) =>
+                            current
+                              ? {
+                                  ...current,
+                                  workSections: current.workSections.map((section) => {
+                                    if (!allowed.has(section.id)) return section;
+                                    return nextForGroup.find((entry) => entry.id === section.id) ?? section;
+                                  }),
+                                }
+                              : null,
+                          );
                         }}
                         onMove={(sectionId, direction) =>
-                          setConfig((current) => ({
-                            ...current,
-                            workSections: moveSectionInGroup(
-                              current.workSections,
-                              orderedGroup.id,
-                              sectionId as ProjectCategory,
-                              direction,
-                            ),
-                          }))
+                          setConfig((current) =>
+                            current
+                              ? {
+                                  ...current,
+                                  workSections: moveSectionInGroup(
+                                    current.workSections,
+                                    orderedGroup.id,
+                                    sectionId as ProjectCategory,
+                                    direction,
+                                  ),
+                                }
+                              : null,
+                          )
                         }
                       />
                     </article>
@@ -327,7 +376,9 @@ export function SiteConfigManager({ initialConfig }: Props) {
               placeholder="/assets/3D/your-folder/model.glb"
               value={config.viewerModelSrc}
               onChange={(e) =>
-                setConfig((current) => ({ ...current, viewerModelSrc: e.target.value }))
+                setConfig((current) =>
+                  current ? { ...current, viewerModelSrc: e.target.value } : null,
+                )
               }
               spellCheck={false}
             />
@@ -342,7 +393,9 @@ export function SiteConfigManager({ initialConfig }: Props) {
                   name="viewerBackdrop"
                   checked={config.viewerBackdrop === "solid"}
                   onChange={() =>
-                    setConfig((current) => ({ ...current, viewerBackdrop: "solid" }))
+                    setConfig((current) =>
+                      current ? { ...current, viewerBackdrop: "solid" } : null,
+                    )
                   }
                 />
                 Solid color
@@ -353,7 +406,9 @@ export function SiteConfigManager({ initialConfig }: Props) {
                   name="viewerBackdrop"
                   checked={config.viewerBackdrop === "environment"}
                   onChange={() =>
-                    setConfig((current) => ({ ...current, viewerBackdrop: "environment" }))
+                    setConfig((current) =>
+                      current ? { ...current, viewerBackdrop: "environment" } : null,
+                    )
                   }
                 />
                 HDRI / preset sky
@@ -376,10 +431,9 @@ export function SiteConfigManager({ initialConfig }: Props) {
                 value={previewBackground}
                 disabled={config.viewerBackdrop === "environment"}
                 onChange={(e) =>
-                  setConfig((current) => ({
-                    ...current,
-                    viewerBackgroundColor: e.target.value,
-                  }))
+                  setConfig((current) =>
+                    current ? { ...current, viewerBackgroundColor: e.target.value } : null,
+                  )
                 }
                 aria-label="Viewer background color"
               />
@@ -388,10 +442,9 @@ export function SiteConfigManager({ initialConfig }: Props) {
                 value={config.viewerBackgroundColor}
                 disabled={config.viewerBackdrop === "environment"}
                 onChange={(e) =>
-                  setConfig((current) => ({
-                    ...current,
-                    viewerBackgroundColor: e.target.value,
-                  }))
+                  setConfig((current) =>
+                    current ? { ...current, viewerBackgroundColor: e.target.value } : null,
+                  )
                 }
                 spellCheck={false}
               />
@@ -404,11 +457,15 @@ export function SiteConfigManager({ initialConfig }: Props) {
               value={hdriInCatalog ? lightingSelectValue : `${VIEWER_LIGHTING_HDRI_PREFIX}${config.viewerHdriSrc}`}
               onChange={(e) => {
                 const next = viewerLightingFromSelectValue(e.target.value);
-                setConfig((current) => ({
-                  ...current,
-                  viewerEnvironmentPreset: next.preset,
-                  viewerHdriSrc: next.hdriSrc,
-                }));
+                setConfig((current) =>
+                  current
+                    ? {
+                        ...current,
+                        viewerEnvironmentPreset: next.preset,
+                        viewerHdriSrc: next.hdriSrc,
+                      }
+                    : null,
+                );
               }}
             >
               <optgroup label="Built-in">
@@ -451,10 +508,14 @@ export function SiteConfigManager({ initialConfig }: Props) {
             <select
               value={config.viewerAnimationLoop}
               onChange={(e) =>
-                setConfig((current) => ({
-                  ...current,
-                  viewerAnimationLoop: e.target.value as typeof config.viewerAnimationLoop,
-                }))
+                setConfig((current) =>
+                  current
+                    ? {
+                        ...current,
+                        viewerAnimationLoop: e.target.value as typeof config.viewerAnimationLoop,
+                      }
+                    : null,
+                )
               }
             >
               {ANIMATION_LOOP_OPTIONS.map((option) => (
@@ -470,10 +531,9 @@ export function SiteConfigManager({ initialConfig }: Props) {
               type="checkbox"
               checked={config.viewerAutoPlayAnimation}
               onChange={(e) =>
-                setConfig((current) => ({
-                  ...current,
-                  viewerAutoPlayAnimation: e.target.checked,
-                }))
+                setConfig((current) =>
+                  current ? { ...current, viewerAutoPlayAnimation: e.target.checked } : null,
+                )
               }
             />
             Auto-play animations when model loads

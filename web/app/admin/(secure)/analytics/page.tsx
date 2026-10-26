@@ -1,3 +1,5 @@
+export const instant = false;
+
 export const metadata = { title: "Analytics | Admin" };
 
 export default function AdminAnalyticsPage() {

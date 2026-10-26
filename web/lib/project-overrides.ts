@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { unstable_noStore as noStore } from "next/cache";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
@@ -51,12 +52,13 @@ async function writeBlob(data: ProjectOverridesStore) {
   await store.setJSON(STORE_KEY, data);
 }
 
-export async function readProjectOverrides(): Promise<ProjectOverridesStore> {
+async function readProjectOverridesImpl(): Promise<ProjectOverridesStore> {
   noStore();
-  const blob = await readBlob();
-  if (blob) return blob;
-  return readLocal();
+  const [local, blob] = await Promise.all([readLocal(), readBlob()]);
+  return blob ?? local;
 }
+
+export const readProjectOverrides = cache(readProjectOverridesImpl);
 
 export async function writeProjectOverrides(data: ProjectOverridesStore) {
   let blobSaved = false;
