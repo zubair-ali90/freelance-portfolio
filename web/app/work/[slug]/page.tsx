@@ -1,23 +1,26 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ProjectDetailView } from "@/components/ProjectDetailView";
-import { categoryLabel, getProject, projects } from "@/lib/content";
+import { categoryLabel } from "@/lib/content";
+import { getPublishedProject } from "@/lib/published-projects";
 
 export const instant = false;
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const { getPublishedProjects } = await import("@/lib/published-projects");
+  const projects = await getPublishedProjects();
   return projects.map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const project = getProject(slug);
+  const project = await getPublishedProject(slug);
   return { title: project ? `${project.title} | Zubair` : "Work" };
 }
 
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const project = getProject(slug);
+  const project = await getPublishedProject(slug);
   if (!project) notFound();
 
   const sectionLabel = categoryLabel(project.category);

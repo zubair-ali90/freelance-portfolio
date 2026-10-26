@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { ProjectCover } from "@/components/ProjectMedia";
-import { featuredProjects } from "@/lib/content";
+import { getFeaturedPublishedProjects } from "@/lib/published-projects";
 
-export default function HomePage() {
+export const instant = false;
+
+export default async function HomePage() {
+  const featuredProjects = await getFeaturedPublishedProjects();
   return (
     <main>
       <section className="hero">

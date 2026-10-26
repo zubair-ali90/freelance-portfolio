@@ -1,13 +1,18 @@
 import Link from "next/link";
-import { categoryGroups, projectsByCategory } from "@/lib/content";
+import type { Project, ProjectCategory } from "@/lib/content";
+import { categoryGroups } from "@/lib/content";
 import { ProjectCover } from "@/components/ProjectMedia";
+import { projectsByCategoryList } from "@/lib/published-projects";
 
-export function WorkSections() {
+export function WorkSections({ projects }: { projects: Project[] }) {
   return (
     <>
       {categoryGroups.map((group) => {
         const sections = group.sections
-          .map((section) => ({ section, items: projectsByCategory(section.id) }))
+          .map((section) => ({
+            section,
+            items: projectsByCategoryList(projects, section.id as ProjectCategory),
+          }))
           .filter((entry) => entry.items.length > 0);
         if (!sections.length) return null;
 

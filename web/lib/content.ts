@@ -1,5 +1,3 @@
-import projectsData from "./projects.json";
-
 export type ProjectCategory =
   | "product-animation"
   | "character"
@@ -83,56 +81,6 @@ export const categoryGroups: {
 
 export const categoryOrder: Leaf[] = categoryGroups.flatMap((group) => group.sections);
 
-const leafById = Object.fromEntries(categoryOrder.map((leaf) => [leaf.id, leaf])) as Record<
-  ProjectCategory,
-  Leaf
->;
-
-const raw = projectsData as Array<{
-  category: ProjectCategory;
-  slug: string;
-  title: string;
-  folder: string;
-  summary: string;
-  cover: string;
-  media: string[];
-}>;
-
-export const projects: Project[] = raw.map((item) => {
-  const leaf = leafById[item.category];
-  const group = categoryGroups.find((entry) => entry.sections.some((section) => section.id === item.category));
-  return {
-    ...item,
-    year: "2024–2026",
-    role: "3D artist · lighting · animation",
-    services: [group?.label ?? "Work", leaf?.label ?? item.category],
-    hue: leaf?.hue ?? "#1c2430",
-    accent: leaf?.accent ?? "#e7b15a",
-    kind: leaf?.kind ?? "product",
-  };
-});
-
-export function getProject(slug: string) {
-  return projects.find((project) => project.slug === slug);
-}
-
-export function projectsByCategory(category: ProjectCategory) {
-  return projects.filter((project) => project.category === category);
-}
-
 export function categoryLabel(category: ProjectCategory) {
-  return leafById[category]?.label ?? category;
+  return categoryOrder.find((leaf) => leaf.id === category)?.label ?? category;
 }
-
-const featuredIds: ProjectCategory[] = [
-  "product-animation",
-  "character",
-  "lifestyle-renders",
-  "exterior",
-  "unreal",
-  "unity",
-];
-
-export const featuredProjects = featuredIds
-  .map((id) => projects.find((project) => project.category === id))
-  .filter((project): project is Project => Boolean(project));

@@ -14,9 +14,14 @@ This repo uses a dedicated branch for production deploys so `master` can stay fo
    - **Publish directory:** leave empty / auto (Next.js adapter)
 4. **Site configuration → Build & deploy → Continuous deployment → Branches:**
    - Set **Production branch** to **`netlify-production`** (not `master`).
-5. **Environment variables** (if media is missing after deploy):
-   - `GIT_LFS_ENABLED` = `true` (also set in `netlify.toml`)
+5. **Environment variables** (Site configuration → Environment variables):
+   - `GIT_LFS_ENABLED` = `true` (also in `netlify.toml`)
+   - `ADMIN_USERNAME` = your admin login id
+   - `ADMIN_PASSWORD` = your admin password (never commit this)
+   - `ADMIN_SESSION_SECRET` = long random string (32+ characters)
 6. **Deploy site**.
+
+Admin panel: **https://zubair-ali.netlify.app/admin** (after env vars are set).
 
 Reference: [Deploy from a repository](https://docs.netlify.com/start/quickstarts/deploy-from-repository/)
 
