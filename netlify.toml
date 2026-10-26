@@ -1,10 +1,13 @@
 [build]
   base = "web"
   command = "npm run prepare-assets && npm run build"
-  publish = ".next"
+
+[build.environment]
+  # Portfolio media is stored in Git LFS
+  GIT_LFS_ENABLED = "true"
 
 [dev]
-  command = "npm --prefix web run dev"
+  command = "npm run dev"
   targetPort = 3000
   port = 8889
   framework = "next"

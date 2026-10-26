@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Live site: [https://zubair-ali.netlify.app/](https://zubair-ali.netlify.app/)
+
+This is a [Next.js](https://nextjs.org) portfolio app. Netlify builds from the repo root (`netlify.toml`); `npm run prepare-assets` copies `Assets/` into `public/assets` before `next build`.
 
 ## Getting Started
 
