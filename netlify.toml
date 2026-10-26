@@ -1,10 +1,16 @@
+# Netlify: connect repo → Import project → set Production branch to `netlify-production`.
+# Docs: https://docs.netlify.com/start/quickstarts/deploy-from-repository/
+# Next.js on Netlify (OpenNext, zero extra plugin): https://docs.netlify.com/build/frameworks/framework-setup-guides/nextjs/overview/
+
 [build]
   base = "web"
-  command = "npm run prepare-assets && npm run build"
+  command = "npm ci && npm run netlify-build"
+  # Do not set `publish` — Netlify's Next.js adapter handles output (static .next publish causes 404).
 
 [build.environment]
-  # Portfolio media is stored in Git LFS
+  NODE_VERSION = "20"
   GIT_LFS_ENABLED = "true"
+  NPM_FLAGS = "--no-audit --no-fund"
 
 [dev]
   command = "npm run dev"
