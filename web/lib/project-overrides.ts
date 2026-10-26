@@ -5,6 +5,7 @@ import path from "node:path";
 import { getStore } from "@netlify/blobs";
 import type { ProjectCategory } from "./content";
 import { readBlobJsonWithTimeout } from "./blob-read";
+import { isNetlifyRuntime } from "./netlify-runtime";
 
 export type ProjectOverride = {
   active: boolean;
@@ -54,13 +55,26 @@ async function writeBlob(data: ProjectOverridesStore) {
 
 async function readProjectOverridesImpl(): Promise<ProjectOverridesStore> {
   noStore();
-  const [local, blob] = await Promise.all([readLocal(), readBlob()]);
-  return blob ?? local;
+  const blob = await readBlob();
+  if (blob) return blob;
+  return readLocal();
 }
 
 export const readProjectOverrides = cache(readProjectOverridesImpl);
 
 export async function writeProjectOverrides(data: ProjectOverridesStore) {
+  const onNetlify = isNetlifyRuntime();
+
+  if (onNetlify) {
+    await writeBlob(data);
+    try {
+      await writeLocal(data);
+    } catch {
+      // ephemeral on serverless; blob is source of truth
+    }
+    return;
+  }
+
   let blobSaved = false;
   try {
     await writeBlob(data);

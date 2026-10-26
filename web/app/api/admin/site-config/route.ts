@@ -16,6 +16,7 @@ import {
   writeSiteConfig,
   type SiteConfigStore,
 } from "@/lib/site-config";
+import { revalidatePublicSite } from "@/lib/revalidate-public-site";
 
 const VALID_SECTIONS = new Set(
   buildDefaultSiteConfig().workSections.map((item) => item.id),
@@ -68,6 +69,12 @@ export async function PUT(request: Request) {
     viewerAutoPlayAnimation: incoming.viewerAutoPlayAnimation !== false,
   };
 
-  const saved = await writeSiteConfig(cleaned);
-  return NextResponse.json({ ok: true, config: normalizeSiteConfig(saved) });
+  try {
+    const saved = await writeSiteConfig(cleaned);
+    revalidatePublicSite();
+    return NextResponse.json({ ok: true, config: normalizeSiteConfig(saved), live: true });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Save failed";
+    return NextResponse.json({ error: message }, { status: 503 });
+  }
 }

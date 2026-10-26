@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import type { ProjectCategory } from "@/lib/content";
 import { categoryGroups } from "@/lib/content";
 import type { AdminProjectRow } from "@/lib/published-projects";
@@ -15,6 +16,7 @@ type Props = {
 };
 
 export function ProjectManager({ initialProjects }: Props = {} as Props) {
+  const router = useRouter();
   const [rows, setRows] = useState<AdminProjectRow[]>(initialProjects ?? []);
   const [ready, setReady] = useState(Boolean(initialProjects));
   const [loadError, setLoadError] = useState("");
@@ -101,12 +103,14 @@ export function ProjectManager({ initialProjects }: Props = {} as Props) {
     });
     setSaving(false);
     if (!response.ok) {
-      setMessage("Save failed. Try again.");
+      const body = (await response.json().catch(() => null)) as { error?: string } | null;
+      setMessage(body?.error ?? "Save failed. On Netlify, Blobs must be enabled for live updates.");
       return;
     }
     const data = await response.json();
     setRows(data.projects);
-    setMessage("Saved. Public site updated.");
+    router.refresh();
+    setMessage("Saved. /work and home page updated on the live deploy.");
   }
 
   return (

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import { categoryGroups, categoryLabel } from "@/lib/content";
 import type { OrderedToggle, SiteConfigStore } from "@/lib/site-config";
 import type { ProjectCategory } from "@/lib/content";
@@ -128,6 +129,7 @@ function OrderList<T extends string>({
 }
 
 export function SiteConfigManager({ initialConfig }: Props = {} as Props) {
+  const router = useRouter();
   const [config, setConfig] = useState<SiteConfigStore | null>(initialConfig ?? null);
   const [ready, setReady] = useState(Boolean(initialConfig));
   const [loadError, setLoadError] = useState("");
@@ -205,12 +207,14 @@ export function SiteConfigManager({ initialConfig }: Props = {} as Props) {
     });
     setSaving(false);
     if (!response.ok) {
-      setMessage("Save failed. Try again.");
+      const body = (await response.json().catch(() => null)) as { error?: string } | null;
+      setMessage(body?.error ?? "Save failed. On Netlify, Blobs must be enabled for live updates.");
       return;
     }
     const data = await response.json();
     setConfig(data.config);
-    setMessage("Saved. Site and 3D viewer settings updated.");
+    router.refresh();
+    setMessage("Saved. Public site and /viewer updated on the live deploy.");
   }
 
   const previewModelSrc =

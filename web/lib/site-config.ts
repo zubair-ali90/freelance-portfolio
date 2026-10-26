@@ -14,6 +14,7 @@ import {
 } from "./model-viewer";
 import { sanitizeViewerAnimationLoop } from "./viewer-animation";
 import { readBlobJsonWithTimeout } from "./blob-read";
+import { isNetlifyRuntime } from "./netlify-runtime";
 
 export type OrderedToggle<T extends string = string> = {
   id: T;
@@ -159,8 +160,9 @@ function clamp(value: number, min: number, max: number) {
 
 async function readSiteConfigImpl(): Promise<SiteConfigStore> {
   noStore();
-  const [local, blob] = await Promise.all([readLocal(), readBlob()]);
+  const blob = await readBlob();
   if (blob) return normalizeSiteConfig(blob);
+  const local = await readLocal();
   return normalizeSiteConfig(local);
 }
 
@@ -168,6 +170,18 @@ export const readSiteConfig = cache(readSiteConfigImpl);
 
 export async function writeSiteConfig(data: SiteConfigStore) {
   const normalized = normalizeSiteConfig(data);
+  const onNetlify = isNetlifyRuntime();
+
+  if (onNetlify) {
+    await writeBlob(normalized);
+    try {
+      await writeLocal(normalized);
+    } catch {
+      // ephemeral on serverless; blob is source of truth
+    }
+    return normalized;
+  }
+
   let blobSaved = false;
   try {
     await writeBlob(normalized);

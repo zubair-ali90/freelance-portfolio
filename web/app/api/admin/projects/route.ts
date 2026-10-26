@@ -3,6 +3,7 @@ import type { ProjectCategory } from "@/lib/content";
 import { isAdminSession } from "@/lib/admin-auth";
 import { writeProjectOverrides, type ProjectOverride } from "@/lib/project-overrides";
 import { getAdminProjectRows } from "@/lib/published-projects";
+import { revalidatePublicSite } from "@/lib/revalidate-public-site";
 
 export async function GET() {
   if (!(await isAdminSession())) {
@@ -72,7 +73,13 @@ export async function PUT(request: Request) {
     }
   }
 
-  await writeProjectOverrides({ version: 1, overrides: cleaned });
-  const rows = await getAdminProjectRows();
-  return NextResponse.json({ ok: true, projects: rows });
+  try {
+    await writeProjectOverrides({ version: 1, overrides: cleaned });
+    revalidatePublicSite();
+    const rows = await getAdminProjectRows();
+    return NextResponse.json({ ok: true, projects: rows, live: true });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Save failed";
+    return NextResponse.json({ error: message }, { status: 503 });
+  }
 }
