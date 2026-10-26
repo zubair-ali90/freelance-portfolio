@@ -5,7 +5,8 @@
 [build]
   base = "web"
   command = "npm ci && npm run netlify-build"
-  # Do not set `publish` — Netlify's Next.js adapter handles output (static .next publish causes 404).
+  # Must differ from `base` (not `web`). Used with @netlify/plugin-nextjs — do not point at repo root.
+  publish = ".next"
 
 [build.environment]
   NODE_VERSION = "20"
