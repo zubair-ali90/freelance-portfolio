@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { categoryOrder, projects, projectsByCategory } from "@/lib/content";
+import { categoryGroups, projects, projectsByCategory } from "@/lib/content";
 import { WorkSections } from "@/components/WorkSections";
 
 export const metadata = { title: "Work | Zubair" };
@@ -12,14 +12,21 @@ export default function WorkPage() {
           <p className="kicker">selected work</p>
           <h1>projects.</h1>
           <p>
-            Pulled from your <code>Assets</code> folder — {projects.length} projects across 3D, Unreal, and Unity.
+            {projects.length} projects across 3D animation, renders, architectural, and development.
           </p>
           <div className="chips" style={{ marginTop: 18 }}>
-            {categoryOrder.map((section) => (
-              <Link key={section.id} className="chip" href={`#${section.id}`}>
-                {section.label} ({projectsByCategory(section.id).length})
-              </Link>
-            ))}
+            {categoryGroups.map((group) => {
+              const count = group.sections.reduce(
+                (total, section) => total + projectsByCategory(section.id).length,
+                0,
+              );
+              if (!count) return null;
+              return (
+                <Link key={group.id} className="chip" href={`#${group.id}`}>
+                  {group.label} ({count})
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

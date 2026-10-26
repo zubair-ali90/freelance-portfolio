@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ProjectDetailView } from "@/components/ProjectDetailView";
-import { categoryOrder, getProject, projects } from "@/lib/content";
+import { categoryLabel, getProject, projects } from "@/lib/content";
 
 export const instant = false;
 
@@ -20,7 +20,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const project = getProject(slug);
   if (!project) notFound();
 
-  const sectionLabel = categoryOrder.find((s) => s.id === project.category)?.label ?? project.category;
+  const sectionLabel = categoryLabel(project.category);
 
   return (
     <main>

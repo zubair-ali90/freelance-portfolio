@@ -1,10 +1,10 @@
 [
   {
-    "category": "3d",
-    "slug": "3d-3d-product-gif",
+    "category": "product-animation",
+    "slug": "product-animation-3d-product-gif",
     "title": "3D product GIF",
     "folder": "3D/3D product GIF",
-    "summary": "Work from 3D/3D product GIF.",
+    "summary": "3D product GIF — 3D/3D product GIF.",
     "cover": "/assets/3D/3D%20product%20GIF/1787346447566.gif",
     "media": [
       "/assets/3D/3D%20product%20GIF/1787346447566.gif",
@@ -12,11 +12,64 @@
     ]
   },
   {
-    "category": "3d",
-    "slug": "3d-anime",
+    "category": "product-animation",
+    "slug": "product-animation-cars",
+    "title": "Cars",
+    "folder": "3D/Cars",
+    "summary": "Cars — 3D/Cars.",
+    "cover": "/assets/3D/Cars/Porsche%20911%20Turbo%20CGI%20Animation.mp4",
+    "media": [
+      "/assets/3D/Cars/Porsche%20911%20Turbo%20CGI%20Animation.mp4"
+    ]
+  },
+  {
+    "category": "product-animation",
+    "slug": "product-animation-product-animation",
+    "title": "Product animation",
+    "folder": "3D/Product animation",
+    "summary": "Product animation — 3D/Product animation.",
+    "cover": "/assets/3D/Product%20animation/1.mp4",
+    "media": [
+      "/assets/3D/Product%20animation/1.mp4",
+      "/assets/3D/Product%20animation/airpods.mp4",
+      "/assets/3D/Product%20animation/Bottle/2/5.jpg",
+      "/assets/3D/Product%20animation/Chess/1.jpg",
+      "/assets/3D/Product%20animation/GOpresso.mp4",
+      "/assets/3D/Product%20animation/LED%20Mask.mp4",
+      "/assets/3D/Product%20animation/LED%20Therapy.mp4",
+      "/assets/3D/Product%20animation/PS5%20Unoffical%20Commercial%20AD.mp4",
+      "/assets/3D/Product%20animation/StiX%20380.mp4"
+    ]
+  },
+  {
+    "category": "product-animation",
+    "slug": "product-animation-organic",
+    "title": "Organic",
+    "folder": "3D/organic",
+    "summary": "Organic — 3D/organic.",
+    "cover": "/assets/3D/organic/3.mp4",
+    "media": [
+      "/assets/3D/organic/3.mp4"
+    ]
+  },
+  {
+    "category": "product-animation",
+    "slug": "product-animation-ai-product",
+    "title": "AI product",
+    "folder": "AI/Product",
+    "summary": "AI product — AI/Product.",
+    "cover": "/assets/AI/Product/Gummy%20Bears.mp4",
+    "media": [
+      "/assets/AI/Product/Gummy%20Bears.mp4",
+      "/assets/AI/Product/Gun%20part/Glock_19.mp4"
+    ]
+  },
+  {
+    "category": "character",
+    "slug": "character-anime",
     "title": "Anime",
     "folder": "3D/Anime_",
-    "summary": "Work from 3D/Anime_.",
+    "summary": "Anime — 3D/Anime_.",
     "cover": "/assets/3D/Anime_/2/turnable.mp4",
     "media": [
       "/assets/3D/Anime_/2/turnable.mp4",
@@ -26,22 +79,85 @@
     ]
   },
   {
-    "category": "3d",
-    "slug": "3d-app-animation",
-    "title": "App Animation",
-    "folder": "3D/App Animation",
-    "summary": "Work from 3D/App Animation.",
-    "cover": "/assets/3D/App%20Animation/1.mp4",
+    "category": "character",
+    "slug": "character-character-animation",
+    "title": "Character animation",
+    "folder": "3D/character animation",
+    "summary": "Character animation — 3D/character animation.",
+    "cover": "/assets/3D/character%20animation/dancing%20animation.mp4",
     "media": [
-      "/assets/3D/App%20Animation/1.mp4"
+      "/assets/3D/character%20animation/dancing%20animation.mp4",
+      "/assets/3D/character%20animation/Mocha_50sec_Beauty%20Render.mp4"
     ]
   },
   {
-    "category": "3d",
-    "slug": "3d-bird",
+    "category": "character",
+    "slug": "character-robert-creatures",
+    "title": "Robert creatures",
+    "folder": "3D/Robert creatures",
+    "summary": "Robert creatures — 3D/Robert creatures.",
+    "cover": "/assets/3D/Robert%20creatures/Crocodile.jpg",
+    "media": [
+      "/assets/3D/Robert%20creatures/Crocodile.jpg",
+      "/assets/3D/Robert%20creatures/Dino.jpg",
+      "/assets/3D/Robert%20creatures/Dino1.jpg",
+      "/assets/3D/Robert%20creatures/Skyward.jpg",
+      "/assets/3D/Robert%20creatures/Skyward_Wireframe.jpg"
+    ]
+  },
+  {
+    "category": "character",
+    "slug": "character-ryan-character",
+    "title": "Ryan character",
+    "folder": "3D/Ryan character Animation",
+    "summary": "Ryan character — 3D/Ryan character Animation.",
+    "cover": "/assets/3D/Ryan%20character%20Animation/Belly_Charge%20Animation.mp4",
+    "media": [
+      "/assets/3D/Ryan%20character%20Animation/Belly_Charge%20Animation.mp4",
+      "/assets/3D/Ryan%20character%20Animation/image%20(49).png"
+    ]
+  },
+  {
+    "category": "character",
+    "slug": "character-thomas-bee",
+    "title": "Thomas bee",
+    "folder": "3D/Thomas bee",
+    "summary": "Thomas bee — 3D/Thomas bee.",
+    "cover": "/assets/3D/Thomas%20bee/alian_1.jpg",
+    "media": [
+      "/assets/3D/Thomas%20bee/alian_1.jpg",
+      "/assets/3D/Thomas%20bee/alian_2.jpg",
+      "/assets/3D/Thomas%20bee/monkey_1.jpg",
+      "/assets/3D/Thomas%20bee/monkey_2.jpg",
+      "/assets/3D/Thomas%20bee/phazrim_1.jpg",
+      "/assets/3D/Thomas%20bee/phazrim_2.jpg",
+      "/assets/3D/Thomas%20bee/realm%20knight_1.jpg",
+      "/assets/3D/Thomas%20bee/realm%20knight_2.jpg",
+      "/assets/3D/Thomas%20bee/the%20chaplain_1.jpg",
+      "/assets/3D/Thomas%20bee/the%20chaplain_2.jpg",
+      "/assets/3D/Thomas%20bee/witch_1.jpg",
+      "/assets/3D/Thomas%20bee/witch_2.jpg",
+      "/assets/3D/Thomas%20bee/xanthrikrok_1.jpg",
+      "/assets/3D/Thomas%20bee/xanthrikrok_2.jpg"
+    ]
+  },
+  {
+    "category": "character",
+    "slug": "character-trey-anime-character",
+    "title": "Trey anime character",
+    "folder": "3D/Trey Anime character",
+    "summary": "Trey anime character — 3D/Trey Anime character.",
+    "cover": "/assets/3D/Trey%20Anime%20character/Fox_Girl_Vrm%20Test.mp4",
+    "media": [
+      "/assets/3D/Trey%20Anime%20character/Fox_Girl_Vrm%20Test.mp4"
+    ]
+  },
+  {
+    "category": "character",
+    "slug": "character-bird",
     "title": "Bird",
     "folder": "3D/Bird",
-    "summary": "Work from 3D/Bird.",
+    "summary": "Bird — 3D/Bird.",
     "cover": "/assets/3D/Bird/red%20kite.mp4",
     "media": [
       "/assets/3D/Bird/1.png",
@@ -49,123 +165,178 @@
     ]
   },
   {
-    "category": "3d",
-    "slug": "3d-cgi",
-    "title": "CGI",
-    "folder": "3D/CGI",
-    "summary": "Work from 3D/CGI.",
-    "cover": "/assets/3D/CGI/3.mp4",
+    "category": "character",
+    "slug": "character-mascot",
+    "title": "Mascot",
+    "folder": "Mascot",
+    "summary": "Mascot — Mascot.",
+    "cover": "/assets/Mascot/Copy%20of%20Head-Variations-2.jpg",
     "media": [
-      "/assets/3D/CGI/3.mp4",
-      "/assets/3D/CGI/4.mp4",
-      "/assets/3D/CGI/5.mp4"
+      "/assets/Mascot/Copy%20of%20Head-Variations-2.jpg"
     ]
   },
   {
-    "category": "3d",
-    "slug": "3d-cars",
-    "title": "Cars",
-    "folder": "3D/Cars",
-    "summary": "Work from 3D/Cars.",
-    "cover": "/assets/3D/Cars/Porsche%20911%20Turbo%20CGI%20Animation.mp4",
+    "category": "character",
+    "slug": "character-horseman",
+    "title": "Horseman",
+    "folder": "horseman-horse",
+    "summary": "Horseman — horseman-horse.",
+    "cover": "/assets/horseman-horse/Horse%20animation/2.mp4",
     "media": [
-      "/assets/3D/Cars/Porsche%20911%20Turbo%20CGI%20Animation.mp4"
+      "/assets/horseman-horse/Horse%20animation/2.mp4",
+      "/assets/horseman-horse/image%20(81).png"
     ]
   },
   {
-    "category": "3d",
-    "slug": "3d-exterior-interior",
-    "title": "Exterior-Interior",
-    "folder": "3D/Exterior-Interior",
-    "summary": "Work from 3D/Exterior-Interior.",
-    "cover": "/assets/3D/Exterior-Interior/Ex%2BIn/1/FRONT%202.png",
+    "category": "character",
+    "slug": "character-low-poly",
+    "title": "Low poly",
+    "folder": "Low poly",
+    "summary": "Low poly — Low poly.",
+    "cover": "/assets/Low%20poly/Low%20poly%20people%20cheering/Copy%20of%20low-poly-people1.jpg",
     "media": [
-      "/assets/3D/Exterior-Interior/Ex%2BIn/1/FRONT%202.png",
-      "/assets/3D/Exterior-Interior/Exterior/Exterior-2/10.jpg",
-      "/assets/3D/Exterior-Interior/Exterior/Exterior-2/6.jpg",
-      "/assets/3D/Exterior-Interior/Exterior/Exterior-3/jagdev-raghav-3-3.jpg",
-      "/assets/3D/Exterior-Interior/Exterior/Exterior-3/jagdev-raghav-5.jpg",
-      "/assets/3D/Exterior-Interior/Exterior/Exterior-4/1758463677041.jpg",
-      "/assets/3D/Exterior-Interior/Exterior/Villa-Exterior/Villa-Exterior-4.jpg",
-      "/assets/3D/Exterior-Interior/Game%20room/Game%20room/streaming-room-gaming-setup-template-3d-model-ac9bc0a618.jpg",
-      "/assets/3D/Exterior-Interior/Game%20room/Game%20room%201/game-room-interior-3d-model-3d-model-2e5355a01a.jpg",
-      "/assets/3D/Exterior-Interior/Game%20room/Game%20room%201/game-room-interior-3d-model-3d-model-95d572faca.jpg",
-      "/assets/3D/Exterior-Interior/Game%20room/Game%20room%202/game-room-3d-model-2.jpg",
-      "/assets/3D/Exterior-Interior/Game%20room/Game%20room%202/game-room-3d-model-4.jpg",
-      "/assets/3D/Exterior-Interior/Game%20room/Game%20room%202/game-room-3d-model-5.jpg",
-      "/assets/3D/Exterior-Interior/Interior/Interior-1/Apartment10.jpg",
-      "/assets/3D/Exterior-Interior/Interior/Interior-1/Apartment3.jpg",
-      "/assets/3D/Exterior-Interior/Interior/interior-3/3.jpg",
-      "/assets/3D/Exterior-Interior/Interior/interior-4/4.jpg"
+      "/assets/Low%20poly/Low%20poly%20people%20cheering/Copy%20of%20low-poly-people1.jpg",
+      "/assets/Low%20poly/Low%20poly%20people%20cheering/Copy%20of%20rink%20rendering%20idea.jpg"
     ]
   },
   {
-    "category": "3d",
-    "slug": "3d-furniture",
-    "title": "Furniture",
-    "folder": "3D/Furniture",
-    "summary": "Work from 3D/Furniture.",
-    "cover": "/assets/3D/Furniture/Appliances/lifestyle/1.jpg",
+    "category": "installation",
+    "slug": "installation-event-visualization",
+    "title": "Event visualization",
+    "folder": "event visualization",
+    "summary": "Event visualization — event visualization.",
+    "cover": "/assets/event%20visualization/stage%202/stage-2-shot_1.png",
     "media": [
-      "/assets/3D/Furniture/Appliances/lifestyle/1.jpg",
-      "/assets/3D/Furniture/lifestyle%20renders/1/1.jpg",
-      "/assets/3D/Furniture/lifestyle%20renders/1/5.jpg",
-      "/assets/3D/Furniture/lifestyle%20renders/1/8.jpg",
-      "/assets/3D/Furniture/lifestyle%20renders/2/2.jpg"
+      "/assets/event%20visualization/stage%202/stage-2-shot_1.png"
     ]
   },
   {
-    "category": "3d",
-    "slug": "3d-lighting-showcase",
-    "title": "Lighting Showcase",
-    "folder": "3D/Lighting Showcase",
-    "summary": "Work from 3D/Lighting Showcase.",
-    "cover": "/assets/3D/Lighting%20Showcase/1.jpg",
+    "category": "installation",
+    "slug": "installation-industrial-visualization",
+    "title": "Industrial visualization",
+    "folder": "Industrial visualization",
+    "summary": "Industrial visualization — Industrial visualization.",
+    "cover": "/assets/Industrial%20visualization/2.mp4",
     "media": [
-      "/assets/3D/Lighting%20Showcase/1.jpg",
-      "/assets/3D/Lighting%20Showcase/2.jpg",
-      "/assets/3D/Lighting%20Showcase/6.jpg"
+      "/assets/Industrial%20visualization/2.mp4",
+      "/assets/Industrial%20visualization/image%20-%202026-06-16T112514.561.png"
     ]
   },
   {
-    "category": "3d",
-    "slug": "3d-luxury-bridal-boutique",
-    "title": "Luxury-Bridal-Boutique",
-    "folder": "3D/Luxury-Bridal-Boutique",
-    "summary": "Work from 3D/Luxury-Bridal-Boutique.",
-    "cover": "/assets/3D/Luxury-Bridal-Boutique/2.jpg",
+    "category": "explainer",
+    "slug": "explainer-blueprint-illustrator",
+    "title": "Blueprint illustrator",
+    "folder": "2d/Blueprint Illustrator",
+    "summary": "Blueprint illustrator — 2d/Blueprint Illustrator.",
+    "cover": "/assets/2d/Blueprint%20Illustrator/vecteezy_isometric-animation-illustrating-industrial-logistics-and_76305360.mp4",
     "media": [
-      "/assets/3D/Luxury-Bridal-Boutique/2.jpg"
+      "/assets/2d/Blueprint%20Illustrator/1.png",
+      "/assets/2d/Blueprint%20Illustrator/2.png",
+      "/assets/2d/Blueprint%20Illustrator/vecteezy_isometric-animation-illustrating-industrial-logistics-and_76305360.mp4"
     ]
   },
   {
-    "category": "3d",
-    "slug": "3d-oil-refinery-vessel",
-    "title": "Oil Refinery Vessel",
-    "folder": "3D/Oil Refinery Vessel",
-    "summary": "Work from 3D/Oil Refinery Vessel.",
-    "cover": "/assets/3D/Oil%20Refinery%20Vessel/3.jpg",
+    "category": "explainer",
+    "slug": "explainer-process-explainer",
+    "title": "Process explainer",
+    "folder": "2d/explainer",
+    "summary": "Process explainer — 2d/explainer.",
+    "cover": "/assets/2d/explainer/Polyurethane%20Leak%20Seal%20Process.mp4",
     "media": [
-      "/assets/3D/Oil%20Refinery%20Vessel/3.jpg"
+      "/assets/2d/explainer/Polyurethane%20Leak%20Seal%20Process.mp4"
     ]
   },
   {
-    "category": "3d",
-    "slug": "3d-packaging",
-    "title": "Packaging",
-    "folder": "3D/Packaging",
-    "summary": "Work from 3D/Packaging.",
-    "cover": "/assets/3D/Packaging/Copy%20of%20Omega3Gummies_60_V1.png",
+    "category": "explainer",
+    "slug": "explainer-app-animation",
+    "title": "App animation",
+    "folder": "3D/App Animation",
+    "summary": "App animation — 3D/App Animation.",
+    "cover": "/assets/3D/App%20Animation/1.mp4",
     "media": [
-      "/assets/3D/Packaging/Copy%20of%20Omega3Gummies_60_V1.png"
+      "/assets/3D/App%20Animation/1.mp4"
     ]
   },
   {
-    "category": "3d",
-    "slug": "3d-product",
+    "category": "explainer",
+    "slug": "explainer-training-video",
+    "title": "Training video",
+    "folder": "3D/training video",
+    "summary": "Training video — 3D/training video.",
+    "cover": "/assets/3D/training%20video/1.mp4",
+    "media": [
+      "/assets/3D/training%20video/1.mp4"
+    ]
+  },
+  {
+    "category": "explainer",
+    "slug": "explainer-website-animation",
+    "title": "Website animation",
+    "folder": "3D/website animation",
+    "summary": "Website animation — 3D/website animation.",
+    "cover": "/assets/3D/website%20animation/1.mp4",
+    "media": [
+      "/assets/3D/website%20animation/1.mp4"
+    ]
+  },
+  {
+    "category": "explainer",
+    "slug": "explainer-ai-website-animation",
+    "title": "AI website animation",
+    "folder": "AI/Website animation",
+    "summary": "AI website animation — AI/Website animation.",
+    "cover": "/assets/AI/Website%20animation/2.mp4",
+    "media": [
+      "/assets/AI/Website%20animation/2.mp4",
+      "/assets/AI/Website%20animation/4.mp4"
+    ]
+  },
+  {
+    "category": "explainer",
+    "slug": "explainer-configurator",
+    "title": "Configurator",
+    "folder": "Configurator",
+    "summary": "Configurator — Configurator.",
+    "cover": "/assets/Configurator/1.mp4",
+    "media": [
+      "/assets/Configurator/1.mp4",
+      "/assets/Configurator/2026-05-19%2023-40-10.mp4"
+    ]
+  },
+  {
+    "category": "explainer",
+    "slug": "explainer-jon",
+    "title": "Jon",
+    "folder": "Jon",
+    "summary": "Jon — Jon.",
+    "cover": "/assets/Jon/AI%20Obot%20Cards%20Animation%20-%20Without%20Text%20Animation%20(Without%20Preview).mp4",
+    "media": [
+      "/assets/Jon/AI%20Obot%20Cards%20Animation%20-%20Without%20Text%20Animation%20(Without%20Preview).mp4",
+      "/assets/Jon/Card%20Animation%20(Without%20Preview)%20(160%20x%20601).mp4",
+      "/assets/Jon/Card%20Animation%20(Without%20Preview)%20(336%20x%20280).mp4",
+      "/assets/Jon/GIFs/Card%20Animation%20(160%20x%20601).gif",
+      "/assets/Jon/GIFs/Card%20Animation%20(300%20x%20250).gif",
+      "/assets/Jon/Methodology%204K.mp4"
+    ]
+  },
+  {
+    "category": "explainer",
+    "slug": "explainer-saas-films",
+    "title": "SaaS films",
+    "folder": "SaaS apple style video",
+    "summary": "SaaS films — SaaS apple style video.",
+    "cover": "/assets/SaaS%20apple%20style%20video/DraftSEO.mp4",
+    "media": [
+      "/assets/SaaS%20apple%20style%20video/DraftSEO.mp4",
+      "/assets/SaaS%20apple%20style%20video/Scire.mp4"
+    ]
+  },
+  {
+    "category": "product-renders",
+    "slug": "product-renders-product",
     "title": "Product",
     "folder": "3D/Product",
-    "summary": "Work from 3D/Product.",
+    "summary": "Product — 3D/Product.",
     "cover": "/assets/3D/Product/Camera/Panasonic%20LUMIX%20GH6/1.webp",
     "media": [
       "/assets/3D/Product/Beauty/1/1785495482874.jpg",
@@ -207,114 +378,110 @@
     ]
   },
   {
-    "category": "3d",
-    "slug": "3d-product-animation",
-    "title": "Product animation",
-    "folder": "3D/Product animation",
-    "summary": "Work from 3D/Product animation.",
-    "cover": "/assets/3D/Product%20animation/1.mp4",
+    "category": "product-renders",
+    "slug": "product-renders-packaging",
+    "title": "Packaging",
+    "folder": "3D/Packaging",
+    "summary": "Packaging — 3D/Packaging.",
+    "cover": "/assets/3D/Packaging/Copy%20of%20Omega3Gummies_60_V1.png",
     "media": [
-      "/assets/3D/Product%20animation/1.mp4",
-      "/assets/3D/Product%20animation/airpods.mp4",
-      "/assets/3D/Product%20animation/Bottle/2/5.jpg",
-      "/assets/3D/Product%20animation/Chess/1.jpg",
-      "/assets/3D/Product%20animation/GOpresso.mp4",
-      "/assets/3D/Product%20animation/LED%20Mask.mp4",
-      "/assets/3D/Product%20animation/LED%20Therapy.mp4",
-      "/assets/3D/Product%20animation/PS5%20Unoffical%20Commercial%20AD.mp4",
-      "/assets/3D/Product%20animation/StiX%20380.mp4"
+      "/assets/3D/Packaging/Copy%20of%20Omega3Gummies_60_V1.png"
     ]
   },
   {
-    "category": "3d",
-    "slug": "3d-robert-creatures",
-    "title": "Robert creatures",
-    "folder": "3D/Robert creatures",
-    "summary": "Work from 3D/Robert creatures.",
-    "cover": "/assets/3D/Robert%20creatures/Crocodile.jpg",
+    "category": "product-renders",
+    "slug": "product-renders-sports",
+    "title": "Sports",
+    "folder": "Sports",
+    "summary": "Sports — Sports.",
+    "cover": "/assets/Sports/basket%20ball%20hoop/1.webp",
     "media": [
-      "/assets/3D/Robert%20creatures/Crocodile.jpg",
-      "/assets/3D/Robert%20creatures/Dino.jpg",
-      "/assets/3D/Robert%20creatures/Dino1.jpg",
-      "/assets/3D/Robert%20creatures/Skyward.jpg",
-      "/assets/3D/Robert%20creatures/Skyward_Wireframe.jpg"
+      "/assets/Sports/basket%20ball%20hoop/1.webp",
+      "/assets/Sports/Boxing%20helmet/1.webp",
+      "/assets/Sports/cricket%20helmet/2.png"
     ]
   },
   {
-    "category": "3d",
-    "slug": "3d-ryan-character-animation",
-    "title": "Ryan character Animation",
-    "folder": "3D/Ryan character Animation",
-    "summary": "Work from 3D/Ryan character Animation.",
-    "cover": "/assets/3D/Ryan%20character%20Animation/Belly_Charge%20Animation.mp4",
+    "category": "hero-renders",
+    "slug": "hero-renders-cgi",
+    "title": "CGI",
+    "folder": "3D/CGI",
+    "summary": "CGI — 3D/CGI.",
+    "cover": "/assets/3D/CGI/3.mp4",
     "media": [
-      "/assets/3D/Ryan%20character%20Animation/Belly_Charge%20Animation.mp4",
-      "/assets/3D/Ryan%20character%20Animation/image%20(49).png"
+      "/assets/3D/CGI/3.mp4",
+      "/assets/3D/CGI/4.mp4",
+      "/assets/3D/CGI/5.mp4"
     ]
   },
   {
-    "category": "3d",
-    "slug": "3d-sculpture",
-    "title": "Sculpture",
-    "folder": "3D/Sculpture",
-    "summary": "Work from 3D/Sculpture.",
-    "cover": "/assets/3D/Sculpture/1.jpg",
+    "category": "hero-renders",
+    "slug": "hero-renders-jets",
+    "title": "Jets",
+    "folder": "3D/jets",
+    "summary": "Jets — 3D/jets.",
+    "cover": "/assets/3D/jets/8.jpg",
     "media": [
-      "/assets/3D/Sculpture/1.jpg"
+      "/assets/3D/jets/8.jpg"
     ]
   },
   {
-    "category": "3d",
-    "slug": "3d-thomas-bee",
-    "title": "Thomas bee",
-    "folder": "3D/Thomas bee",
-    "summary": "Work from 3D/Thomas bee.",
-    "cover": "/assets/3D/Thomas%20bee/alian_1.jpg",
+    "category": "hero-renders",
+    "slug": "hero-renders-lighting-showcase",
+    "title": "Lighting showcase",
+    "folder": "3D/Lighting Showcase",
+    "summary": "Lighting showcase — 3D/Lighting Showcase.",
+    "cover": "/assets/3D/Lighting%20Showcase/1.jpg",
     "media": [
-      "/assets/3D/Thomas%20bee/alian_1.jpg",
-      "/assets/3D/Thomas%20bee/alian_2.jpg",
-      "/assets/3D/Thomas%20bee/monkey_1.jpg",
-      "/assets/3D/Thomas%20bee/monkey_2.jpg",
-      "/assets/3D/Thomas%20bee/phazrim_1.jpg",
-      "/assets/3D/Thomas%20bee/phazrim_2.jpg",
-      "/assets/3D/Thomas%20bee/realm%20knight_1.jpg",
-      "/assets/3D/Thomas%20bee/realm%20knight_2.jpg",
-      "/assets/3D/Thomas%20bee/the%20chaplain_1.jpg",
-      "/assets/3D/Thomas%20bee/the%20chaplain_2.jpg",
-      "/assets/3D/Thomas%20bee/witch_1.jpg",
-      "/assets/3D/Thomas%20bee/witch_2.jpg",
-      "/assets/3D/Thomas%20bee/xanthrikrok_1.jpg",
-      "/assets/3D/Thomas%20bee/xanthrikrok_2.jpg"
+      "/assets/3D/Lighting%20Showcase/1.jpg",
+      "/assets/3D/Lighting%20Showcase/2.jpg",
+      "/assets/3D/Lighting%20Showcase/6.jpg"
     ]
   },
   {
-    "category": "3d",
-    "slug": "3d-trey-anime-character",
-    "title": "Trey Anime character",
-    "folder": "3D/Trey Anime character",
-    "summary": "Work from 3D/Trey Anime character.",
-    "cover": "/assets/3D/Trey%20Anime%20character/Fox_Girl_Vrm%20Test.mp4",
+    "category": "lifestyle-renders",
+    "slug": "lifestyle-renders-furniture",
+    "title": "Furniture",
+    "folder": "3D/Furniture",
+    "summary": "Furniture — 3D/Furniture.",
+    "cover": "/assets/3D/Furniture/Appliances/lifestyle/1.jpg",
     "media": [
-      "/assets/3D/Trey%20Anime%20character/Fox_Girl_Vrm%20Test.mp4"
+      "/assets/3D/Furniture/Appliances/lifestyle/1.jpg",
+      "/assets/3D/Furniture/lifestyle%20renders/1/1.jpg",
+      "/assets/3D/Furniture/lifestyle%20renders/1/5.jpg",
+      "/assets/3D/Furniture/lifestyle%20renders/1/8.jpg",
+      "/assets/3D/Furniture/lifestyle%20renders/2/2.jpg"
     ]
   },
   {
-    "category": "3d",
-    "slug": "3d-weapon",
-    "title": "Weapon",
-    "folder": "3D/Weapon",
-    "summary": "Work from 3D/Weapon.",
-    "cover": "/assets/3D/Weapon/Shotgun/Animated-FPS-American-Shotgun-Gun-Pack-Unreal-Engine-2-768x432.jpg",
+    "category": "lifestyle-renders",
+    "slug": "lifestyle-renders-luxury-bridal-boutique",
+    "title": "Luxury bridal boutique",
+    "folder": "3D/Luxury-Bridal-Boutique",
+    "summary": "Luxury bridal boutique — 3D/Luxury-Bridal-Boutique.",
+    "cover": "/assets/3D/Luxury-Bridal-Boutique/2.jpg",
     "media": [
-      "/assets/3D/Weapon/Shotgun/Animated-FPS-American-Shotgun-Gun-Pack-Unreal-Engine-2-768x432.jpg"
+      "/assets/3D/Luxury-Bridal-Boutique/2.jpg"
     ]
   },
   {
-    "category": "3d",
-    "slug": "3d-art-pieces",
-    "title": "art pieces",
+    "category": "standalone",
+    "slug": "standalone-2d-environments",
+    "title": "2D environments",
+    "folder": "2d/environment",
+    "summary": "2D environments — 2d/environment.",
+    "cover": "/assets/2d/environment/Car%20Combat/2D-Car-Combat-Scene-2.png",
+    "media": [
+      "/assets/2d/environment/Car%20Combat/2D-Car-Combat-Scene-2.png",
+      "/assets/2d/environment/Medieval/Medieval-Scene-5.png"
+    ]
+  },
+  {
+    "category": "standalone",
+    "slug": "standalone-art-pieces",
+    "title": "Art pieces",
     "folder": "3D/art pieces",
-    "summary": "Work from 3D/art pieces.",
+    "summary": "Art pieces — 3D/art pieces.",
     "cover": "/assets/3D/art%20pieces/ballon%20(2).png",
     "media": [
       "/assets/3D/art%20pieces/ballon%20(2).png",
@@ -322,101 +489,106 @@
     ]
   },
   {
-    "category": "3d",
-    "slug": "3d-character-animation",
-    "title": "character animation",
-    "folder": "3D/character animation",
-    "summary": "Work from 3D/character animation.",
-    "cover": "/assets/3D/character%20animation/dancing%20animation.mp4",
+    "category": "standalone",
+    "slug": "standalone-sculpture",
+    "title": "Sculpture",
+    "folder": "3D/Sculpture",
+    "summary": "Sculpture — 3D/Sculpture.",
+    "cover": "/assets/3D/Sculpture/1.jpg",
     "media": [
-      "/assets/3D/character%20animation/dancing%20animation.mp4",
-      "/assets/3D/character%20animation/Mocha_50sec_Beauty%20Render.mp4"
+      "/assets/3D/Sculpture/1.jpg"
     ]
   },
   {
-    "category": "3d",
-    "slug": "3d-jets",
-    "title": "jets",
-    "folder": "3D/jets",
-    "summary": "Work from 3D/jets.",
-    "cover": "/assets/3D/jets/8.jpg",
+    "category": "standalone",
+    "slug": "standalone-weapon",
+    "title": "Weapon",
+    "folder": "3D/Weapon",
+    "summary": "Weapon — 3D/Weapon.",
+    "cover": "/assets/3D/Weapon/Shotgun/Animated-FPS-American-Shotgun-Gun-Pack-Unreal-Engine-2-768x432.jpg",
     "media": [
-      "/assets/3D/jets/8.jpg"
+      "/assets/3D/Weapon/Shotgun/Animated-FPS-American-Shotgun-Gun-Pack-Unreal-Engine-2-768x432.jpg"
     ]
   },
   {
-    "category": "3d",
-    "slug": "3d-organic",
-    "title": "organic",
-    "folder": "3D/organic",
-    "summary": "Work from 3D/organic.",
-    "cover": "/assets/3D/organic/3.mp4",
+    "category": "interior-exterior",
+    "slug": "interior-exterior-interior-exterior",
+    "title": "Interior + exterior",
+    "folder": "3D/Exterior-Interior/Ex+In",
+    "summary": "Interior + exterior — 3D/Exterior-Interior/Ex+In.",
+    "cover": "/assets/3D/Exterior-Interior/Ex%2BIn/1/FRONT%202.png",
     "media": [
-      "/assets/3D/organic/3.mp4"
+      "/assets/3D/Exterior-Interior/Ex%2BIn/1/FRONT%202.png"
     ]
   },
   {
-    "category": "3d",
-    "slug": "3d-training-video",
-    "title": "training video",
-    "folder": "3D/training video",
-    "summary": "Work from 3D/training video.",
-    "cover": "/assets/3D/training%20video/1.mp4",
+    "category": "interior",
+    "slug": "interior-interior",
+    "title": "Interior",
+    "folder": "3D/Exterior-Interior/Interior",
+    "summary": "Interior — 3D/Exterior-Interior/Interior.",
+    "cover": "/assets/3D/Exterior-Interior/Interior/Interior-1/Apartment10.jpg",
     "media": [
-      "/assets/3D/training%20video/1.mp4"
+      "/assets/3D/Exterior-Interior/Interior/Interior-1/Apartment10.jpg",
+      "/assets/3D/Exterior-Interior/Interior/Interior-1/Apartment3.jpg",
+      "/assets/3D/Exterior-Interior/Interior/interior-3/3.jpg",
+      "/assets/3D/Exterior-Interior/Interior/interior-4/4.jpg"
     ]
   },
   {
-    "category": "3d",
-    "slug": "3d-website-animation",
-    "title": "website animation",
-    "folder": "3D/website animation",
-    "summary": "Work from 3D/website animation.",
-    "cover": "/assets/3D/website%20animation/1.mp4",
+    "category": "interior",
+    "slug": "interior-game-room",
+    "title": "Game room",
+    "folder": "3D/Exterior-Interior/Game room",
+    "summary": "Game room — 3D/Exterior-Interior/Game room.",
+    "cover": "/assets/3D/Exterior-Interior/Game%20room/Game%20room/streaming-room-gaming-setup-template-3d-model-ac9bc0a618.jpg",
     "media": [
-      "/assets/3D/website%20animation/1.mp4"
+      "/assets/3D/Exterior-Interior/Game%20room/Game%20room/streaming-room-gaming-setup-template-3d-model-ac9bc0a618.jpg",
+      "/assets/3D/Exterior-Interior/Game%20room/Game%20room%201/game-room-interior-3d-model-3d-model-2e5355a01a.jpg",
+      "/assets/3D/Exterior-Interior/Game%20room/Game%20room%201/game-room-interior-3d-model-3d-model-95d572faca.jpg",
+      "/assets/3D/Exterior-Interior/Game%20room/Game%20room%202/game-room-3d-model-2.jpg",
+      "/assets/3D/Exterior-Interior/Game%20room/Game%20room%202/game-room-3d-model-4.jpg",
+      "/assets/3D/Exterior-Interior/Game%20room/Game%20room%202/game-room-3d-model-5.jpg"
     ]
   },
   {
-    "category": "unreal",
-    "slug": "unreal-castle-interior",
-    "title": "Castle interior",
-    "folder": "Unreal/enviornment/Castle interior",
-    "summary": "Work from Unreal/enviornment/Castle interior.",
-    "cover": "/assets/Unreal/enviornment/Castle%20interior/Copy%20of%20Stylized-Fantasy-Castle-Environment-Unreal-Engine-16.jpg",
+    "category": "exterior",
+    "slug": "exterior-exterior",
+    "title": "Exterior",
+    "folder": "3D/Exterior-Interior/Exterior",
+    "summary": "Exterior — 3D/Exterior-Interior/Exterior.",
+    "cover": "/assets/3D/Exterior-Interior/Exterior/Exterior-2/10.jpg",
     "media": [
-      "/assets/Unreal/enviornment/Castle%20interior/Copy%20of%20Stylized-Fantasy-Castle-Environment-Unreal-Engine-16.jpg",
-      "/assets/Unreal/enviornment/Castle%20interior/Copy%20of%20Stylized-Fantasy-Castle-Environment-Unreal-Engine-19.jpg",
-      "/assets/Unreal/enviornment/Castle%20interior/Copy%20of%20Stylized-Fantasy-Castle-Environment-Unreal-Engine-21.jpg",
-      "/assets/Unreal/enviornment/Castle%20interior/Copy%20of%20Stylized-Fantasy-Castle-Environment-Unreal-Engine-23.jpg"
+      "/assets/3D/Exterior-Interior/Exterior/Exterior-2/10.jpg",
+      "/assets/3D/Exterior-Interior/Exterior/Exterior-2/6.jpg",
+      "/assets/3D/Exterior-Interior/Exterior/Exterior-3/jagdev-raghav-3-3.jpg",
+      "/assets/3D/Exterior-Interior/Exterior/Exterior-3/jagdev-raghav-5.jpg",
+      "/assets/3D/Exterior-Interior/Exterior/Exterior-4/1758463677041.jpg",
+      "/assets/3D/Exterior-Interior/Exterior/Villa-Exterior/Villa-Exterior-4.jpg"
     ]
   },
   {
-    "category": "unreal",
-    "slug": "unreal-fantasy-castle-environment",
-    "title": "Fantasy Castle Environment",
-    "folder": "Unreal/enviornment/Fantasy Castle Environment",
-    "summary": "Work from Unreal/enviornment/Fantasy Castle Environment.",
-    "cover": "/assets/Unreal/enviornment/Fantasy%20Castle%20Environment/12.jpg",
+    "category": "arc-viz",
+    "slug": "arc-viz-oil-refinery-vessel",
+    "title": "Oil refinery vessel",
+    "folder": "3D/Oil Refinery Vessel",
+    "summary": "Oil refinery vessel — 3D/Oil Refinery Vessel.",
+    "cover": "/assets/3D/Oil%20Refinery%20Vessel/3.jpg",
     "media": [
-      "/assets/Unreal/enviornment/Fantasy%20Castle%20Environment/12.jpg",
-      "/assets/Unreal/enviornment/Fantasy%20Castle%20Environment/15.jpg",
-      "/assets/Unreal/enviornment/Fantasy%20Castle%20Environment/18.jpg",
-      "/assets/Unreal/enviornment/Fantasy%20Castle%20Environment/19.jpg",
-      "/assets/Unreal/enviornment/Fantasy%20Castle%20Environment/22.jpg",
-      "/assets/Unreal/enviornment/Fantasy%20Castle%20Environment/3.jpg",
-      "/assets/Unreal/enviornment/Fantasy%20Castle%20Environment/4.jpg"
+      "/assets/3D/Oil%20Refinery%20Vessel/3.jpg"
     ]
   },
   {
-    "category": "unreal",
-    "slug": "unreal-michaela-enviornment",
-    "title": "Michaela Enviornment",
-    "folder": "Unreal/enviornment/Michaela Enviornment",
-    "summary": "Work from Unreal/enviornment/Michaela Enviornment.",
-    "cover": "/assets/Unreal/enviornment/Michaela%20Enviornment/house/image%20(4).png",
+    "category": "unity",
+    "slug": "unity-unity-character",
+    "title": "Unity character",
+    "folder": "Untiy/character",
+    "summary": "Unity character — Untiy/character.",
+    "cover": "/assets/Untiy/character/After/Screenshot%202026-03-05%20002121%20(1).png",
     "media": [
-      "/assets/Unreal/enviornment/Michaela%20Enviornment/house/image%20(4).png"
+      "/assets/Untiy/character/After/Screenshot%202026-03-05%20002121%20(1).png",
+      "/assets/Untiy/character/After/Screenshot%202026-03-05%20003013%20(1).png",
+      "/assets/Untiy/character/WhatsApp%20Image%202026-03-03%20at%2020.30.53(1)%20(2).jpeg"
     ]
   },
   {
@@ -424,7 +596,7 @@
     "slug": "unity-nature",
     "title": "Nature",
     "folder": "Untiy/Nature",
-    "summary": "Work from Untiy/Nature.",
+    "summary": "Nature — Untiy/Nature.",
     "cover": "/assets/Untiy/Nature/1/Summer-Forest-3-768x432.webp",
     "media": [
       "/assets/Untiy/Nature/1/Summer-Forest-3-768x432.webp",
@@ -435,22 +607,10 @@
   },
   {
     "category": "unity",
-    "slug": "unity-unity-game",
-    "title": "Unity Game",
-    "folder": "Untiy/Unity Game",
-    "summary": "Work from Untiy/Unity Game.",
-    "cover": "/assets/Untiy/Unity%20Game/CrackMatch.mp4",
-    "media": [
-      "/assets/Untiy/Unity%20Game/CrackMatch.mp4",
-      "/assets/Untiy/Unity%20Game/Movie_002.mp4"
-    ]
-  },
-  {
-    "category": "unity",
     "slug": "unity-unity-environment",
     "title": "Unity environment",
     "folder": "Untiy/Unity environment",
-    "summary": "Work from Untiy/Unity environment.",
+    "summary": "Unity environment — Untiy/Unity environment.",
     "cover": "/assets/Untiy/Unity%20environment/Moon/Moon1.webp",
     "media": [
       "/assets/Untiy/Unity%20environment/Moon/Moon1.webp",
@@ -465,10 +625,22 @@
   },
   {
     "category": "unity",
+    "slug": "unity-unity-game",
+    "title": "Unity game",
+    "folder": "Untiy/Unity Game",
+    "summary": "Unity game — Untiy/Unity Game.",
+    "cover": "/assets/Untiy/Unity%20Game/CrackMatch.mp4",
+    "media": [
+      "/assets/Untiy/Unity%20Game/CrackMatch.mp4",
+      "/assets/Untiy/Unity%20Game/Movie_002.mp4"
+    ]
+  },
+  {
+    "category": "unity",
     "slug": "unity-viva-play",
     "title": "Viva Play",
     "folder": "Untiy/Viva Play",
-    "summary": "Work from Untiy/Viva Play.",
+    "summary": "Viva Play — Untiy/Viva Play.",
     "cover": "/assets/Untiy/Viva%20Play/72df27e4-0d5d-4ffc-84d8-168b439db605.png",
     "media": [
       "/assets/Untiy/Viva%20Play/72df27e4-0d5d-4ffc-84d8-168b439db605.png",
@@ -478,157 +650,45 @@
     ]
   },
   {
-    "category": "unity",
-    "slug": "unity-character",
-    "title": "character",
-    "folder": "Untiy/character",
-    "summary": "Work from Untiy/character.",
-    "cover": "/assets/Untiy/character/After/Screenshot%202026-03-05%20002121%20(1).png",
+    "category": "unreal",
+    "slug": "unreal-castle-interior",
+    "title": "Castle interior",
+    "folder": "Unreal/enviornment/Castle interior",
+    "summary": "Castle interior — Unreal/enviornment/Castle interior.",
+    "cover": "/assets/Unreal/enviornment/Castle%20interior/Copy%20of%20Stylized-Fantasy-Castle-Environment-Unreal-Engine-16.jpg",
     "media": [
-      "/assets/Untiy/character/After/Screenshot%202026-03-05%20002121%20(1).png",
-      "/assets/Untiy/character/After/Screenshot%202026-03-05%20003013%20(1).png",
-      "/assets/Untiy/character/WhatsApp%20Image%202026-03-03%20at%2020.30.53(1)%20(2).jpeg"
+      "/assets/Unreal/enviornment/Castle%20interior/Copy%20of%20Stylized-Fantasy-Castle-Environment-Unreal-Engine-16.jpg",
+      "/assets/Unreal/enviornment/Castle%20interior/Copy%20of%20Stylized-Fantasy-Castle-Environment-Unreal-Engine-19.jpg",
+      "/assets/Unreal/enviornment/Castle%20interior/Copy%20of%20Stylized-Fantasy-Castle-Environment-Unreal-Engine-21.jpg",
+      "/assets/Unreal/enviornment/Castle%20interior/Copy%20of%20Stylized-Fantasy-Castle-Environment-Unreal-Engine-23.jpg"
     ]
   },
   {
-    "category": "3d",
-    "slug": "3d-configurator",
-    "title": "Configurator",
-    "folder": "Configurator",
-    "summary": "Work from Configurator.",
-    "cover": "/assets/Configurator/1.mp4",
+    "category": "unreal",
+    "slug": "unreal-fantasy-castle",
+    "title": "Fantasy castle",
+    "folder": "Unreal/enviornment/Fantasy Castle Environment",
+    "summary": "Fantasy castle — Unreal/enviornment/Fantasy Castle Environment.",
+    "cover": "/assets/Unreal/enviornment/Fantasy%20Castle%20Environment/12.jpg",
     "media": [
-      "/assets/Configurator/1.mp4",
-      "/assets/Configurator/2026-05-19%2023-40-10.mp4"
+      "/assets/Unreal/enviornment/Fantasy%20Castle%20Environment/12.jpg",
+      "/assets/Unreal/enviornment/Fantasy%20Castle%20Environment/15.jpg",
+      "/assets/Unreal/enviornment/Fantasy%20Castle%20Environment/18.jpg",
+      "/assets/Unreal/enviornment/Fantasy%20Castle%20Environment/19.jpg",
+      "/assets/Unreal/enviornment/Fantasy%20Castle%20Environment/22.jpg",
+      "/assets/Unreal/enviornment/Fantasy%20Castle%20Environment/3.jpg",
+      "/assets/Unreal/enviornment/Fantasy%20Castle%20Environment/4.jpg"
     ]
   },
   {
-    "category": "3d",
-    "slug": "3d-2d",
-    "title": "2d",
-    "folder": "2d",
-    "summary": "Work from 2d.",
-    "cover": "/assets/2d/Blueprint%20Illustrator/vecteezy_isometric-animation-illustrating-industrial-logistics-and_76305360.mp4",
+    "category": "unreal",
+    "slug": "unreal-michaela-environment",
+    "title": "Michaela environment",
+    "folder": "Unreal/enviornment/Michaela Enviornment",
+    "summary": "Michaela environment — Unreal/enviornment/Michaela Enviornment.",
+    "cover": "/assets/Unreal/enviornment/Michaela%20Enviornment/house/image%20(4).png",
     "media": [
-      "/assets/2d/Blueprint%20Illustrator/1.png",
-      "/assets/2d/Blueprint%20Illustrator/2.png",
-      "/assets/2d/Blueprint%20Illustrator/vecteezy_isometric-animation-illustrating-industrial-logistics-and_76305360.mp4",
-      "/assets/2d/environment/Car%20Combat/2D-Car-Combat-Scene-2.png",
-      "/assets/2d/environment/Medieval/Medieval-Scene-5.png",
-      "/assets/2d/explainer/Polyurethane%20Leak%20Seal%20Process.mp4"
-    ]
-  },
-  {
-    "category": "3d",
-    "slug": "3d-ai",
-    "title": "AI",
-    "folder": "AI",
-    "summary": "Work from AI.",
-    "cover": "/assets/AI/Product/Gummy%20Bears.mp4",
-    "media": [
-      "/assets/AI/Product/Gummy%20Bears.mp4",
-      "/assets/AI/Product/Gun%20part/Glock_19.mp4",
-      "/assets/AI/Website%20animation/2.mp4",
-      "/assets/AI/Website%20animation/4.mp4"
-    ]
-  },
-  {
-    "category": "3d",
-    "slug": "3d-event-visualization",
-    "title": "event visualization",
-    "folder": "event visualization",
-    "summary": "Work from event visualization.",
-    "cover": "/assets/event%20visualization/stage%202/stage-2-shot_1.png",
-    "media": [
-      "/assets/event%20visualization/stage%202/stage-2-shot_1.png"
-    ]
-  },
-  {
-    "category": "3d",
-    "slug": "3d-horseman-horse",
-    "title": "horseman-horse",
-    "folder": "horseman-horse",
-    "summary": "Work from horseman-horse.",
-    "cover": "/assets/horseman-horse/Horse%20animation/2.mp4",
-    "media": [
-      "/assets/horseman-horse/Horse%20animation/2.mp4",
-      "/assets/horseman-horse/image%20(81).png"
-    ]
-  },
-  {
-    "category": "3d",
-    "slug": "3d-industrial-visualization",
-    "title": "Industrial visualization",
-    "folder": "Industrial visualization",
-    "summary": "Work from Industrial visualization.",
-    "cover": "/assets/Industrial%20visualization/2.mp4",
-    "media": [
-      "/assets/Industrial%20visualization/2.mp4",
-      "/assets/Industrial%20visualization/image%20-%202026-06-16T112514.561.png"
-    ]
-  },
-  {
-    "category": "3d",
-    "slug": "3d-jon",
-    "title": "Jon",
-    "folder": "Jon",
-    "summary": "Work from Jon.",
-    "cover": "/assets/Jon/AI%20Obot%20Cards%20Animation%20-%20Without%20Text%20Animation%20(Without%20Preview).mp4",
-    "media": [
-      "/assets/Jon/AI%20Obot%20Cards%20Animation%20-%20Without%20Text%20Animation%20(Without%20Preview).mp4",
-      "/assets/Jon/Card%20Animation%20(Without%20Preview)%20(160%20x%20601).mp4",
-      "/assets/Jon/Card%20Animation%20(Without%20Preview)%20(336%20x%20280).mp4",
-      "/assets/Jon/GIFs/Card%20Animation%20(160%20x%20601).gif",
-      "/assets/Jon/GIFs/Card%20Animation%20(300%20x%20250).gif",
-      "/assets/Jon/Methodology%204K.mp4"
-    ]
-  },
-  {
-    "category": "3d",
-    "slug": "3d-low-poly",
-    "title": "Low poly",
-    "folder": "Low poly",
-    "summary": "Work from Low poly.",
-    "cover": "/assets/Low%20poly/Low%20poly%20people%20cheering/Copy%20of%20low-poly-people1.jpg",
-    "media": [
-      "/assets/Low%20poly/Low%20poly%20people%20cheering/Copy%20of%20low-poly-people1.jpg",
-      "/assets/Low%20poly/Low%20poly%20people%20cheering/Copy%20of%20rink%20rendering%20idea.jpg"
-    ]
-  },
-  {
-    "category": "3d",
-    "slug": "3d-mascot",
-    "title": "Mascot",
-    "folder": "Mascot",
-    "summary": "Work from Mascot.",
-    "cover": "/assets/Mascot/Copy%20of%20Head-Variations-2.jpg",
-    "media": [
-      "/assets/Mascot/Copy%20of%20Head-Variations-2.jpg"
-    ]
-  },
-  {
-    "category": "3d",
-    "slug": "3d-saas-apple-style-video",
-    "title": "SaaS apple style video",
-    "folder": "SaaS apple style video",
-    "summary": "Work from SaaS apple style video.",
-    "cover": "/assets/SaaS%20apple%20style%20video/DraftSEO.mp4",
-    "media": [
-      "/assets/SaaS%20apple%20style%20video/DraftSEO.mp4",
-      "/assets/SaaS%20apple%20style%20video/Scire.mp4"
-    ]
-  },
-  {
-    "category": "3d",
-    "slug": "3d-sports",
-    "title": "Sports",
-    "folder": "Sports",
-    "summary": "Work from Sports.",
-    "cover": "/assets/Sports/basket%20ball%20hoop/1.webp",
-    "media": [
-      "/assets/Sports/basket%20ball%20hoop/1.webp",
-      "/assets/Sports/Boxing%20helmet/1.webp",
-      "/assets/Sports/cricket%20helmet/2.png"
+      "/assets/Unreal/enviornment/Michaela%20Enviornment/house/image%20(4).png"
     ]
   }
 ]
