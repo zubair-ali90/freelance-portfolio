@@ -45,22 +45,6 @@ export function ProjectManager({ initialProjects }: Props = {} as Props) {
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
 
-  if (loadError) {
-    return (
-      <div className="admin-panel">
-        <p className="admin-error">{loadError}</p>
-      </div>
-    );
-  }
-
-  if (!ready) {
-    return (
-      <div className="admin-panel" aria-busy="true">
-        <p className="meta">Loading projects…</p>
-      </div>
-    );
-  }
-
   const filtered = useMemo(() => {
     const q = filter.trim().toLowerCase();
     if (!q) return rows;
@@ -80,6 +64,22 @@ export function ProjectManager({ initialProjects }: Props = {} as Props) {
     }
     return map;
   }, [rows]);
+
+  if (loadError) {
+    return (
+      <div className="admin-panel">
+        <p className="admin-error">{loadError}</p>
+      </div>
+    );
+  }
+
+  if (!ready) {
+    return (
+      <div className="admin-panel" aria-busy="true">
+        <p className="meta">Loading projects…</p>
+      </div>
+    );
+  }
 
   function updateRow(slug: string, patch: Partial<Pick<AdminProjectRow, "active" | "category">>) {
     setRows((current) => current.map((row) => (row.slug === slug ? { ...row, ...patch } : row)));
