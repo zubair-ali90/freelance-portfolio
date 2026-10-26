@@ -16,6 +16,14 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# If this hostname is added as a domain alias on this site, send traffic to the canonical URL.
+[[redirects]]
+  from = "/*"
+  to = "https://zubair-ali.netlify.app/:splat"
+  status = 308
+  force = true
+  conditions = { Host = ["zubair-ai.netlify.app"] }
+
 [dev]
   command = "npm run dev"
   targetPort = 3000
