@@ -12,6 +12,7 @@ import {
   type ModelViewerEnvironment,
 } from "./model-viewer";
 import { sanitizeViewerAnimationLoop } from "./viewer-animation";
+import { readBlobJsonWithTimeout } from "./blob-read";
 
 export type OrderedToggle<T extends string = string> = {
   id: T;
@@ -95,14 +96,13 @@ async function writeLocal(data: SiteConfigStore) {
 }
 
 async function readBlob(): Promise<SiteConfigStore | null> {
-  try {
+  const data = await readBlobJsonWithTimeout(async () => {
     const store = getStore("portfolio-admin");
-    const data = await store.get(STORE_KEY, { type: "json" });
-    if (!data) return null;
-    return data as SiteConfigStore;
-  } catch {
-    return null;
-  }
+    const value = await store.get(STORE_KEY, { type: "json" });
+    if (!value) return null;
+    return value as SiteConfigStore;
+  });
+  return data;
 }
 
 async function writeBlob(data: SiteConfigStore) {

@@ -3,6 +3,7 @@ import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 import { getStore } from "@netlify/blobs";
 import type { ProjectCategory } from "./content";
+import { readBlobJsonWithTimeout } from "./blob-read";
 
 export type ProjectOverride = {
   active: boolean;
@@ -37,14 +38,12 @@ async function writeLocal(data: ProjectOverridesStore) {
 }
 
 async function readBlob(): Promise<ProjectOverridesStore | null> {
-  try {
+  return readBlobJsonWithTimeout(async () => {
     const store = getStore("portfolio-admin");
     const data = await store.get(STORE_KEY, { type: "json" });
     if (!data) return null;
     return data as ProjectOverridesStore;
-  } catch {
-    return null;
-  }
+  });
 }
 
 async function writeBlob(data: ProjectOverridesStore) {
