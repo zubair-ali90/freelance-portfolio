@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { UpworkHireLink } from "@/components/UpworkHireLink";
 
 export function SiteFooter() {
   return (
@@ -7,30 +8,31 @@ export function SiteFooter() {
         <Link href="/" className="mark" style={{ color: "#f4f0e6", borderColor: "#f4f0e6" }}>
           Z
         </Link>
-        <p>3D, motion, and product visuals for founders who hire on Upwork.</p>
+        <p className="footer-name">Zubair Ali</p>
+        <p>3D Art. Animation. Interactive Experiences.</p>
       </div>
       <nav className="footer-links" aria-label="Site map">
         <div>
-          <h4>work</h4>
-          <Link href="/work">projects</Link>
-          <Link href="/services">services</Link>
-          <Link href="/contact">start a project</Link>
-        </div>
-        <div>
-          <h4>studio</h4>
-          <Link href="/about">about</Link>
-          <Link href="/contact">availability</Link>
+          <h4>navigate</h4>
+          <Link href="/work">Work</Link>
+          <Link href="/services">Services</Link>
+          <Link href="/about">About</Link>
+          <Link href="/contact">Contact</Link>
         </div>
         <div>
           <h4>upwork</h4>
-          <a href="https://www.upwork.com" target="_blank" rel="noreferrer">
-            profile link goes here
-          </a>
-          <Link href="/contact">email</Link>
+          <UpworkHireLink>View My Upwork Profile</UpworkHireLink>
+        </div>
+        <div>
+          <h4>contact</h4>
+          <Link href="/contact">Message</Link>
+          <UpworkHireLink>Hire on Upwork</UpworkHireLink>
         </div>
       </nav>
-      <p className="legal">
-        Dummy portfolio for layout review. Artwork on this site is placeholder, not client work.
+      <p className="legal">Made with imagination. Built with precision.</p>
+      <p className="legal footer-note">
+        Selected freelance work from live client collaborations. Contact form on this site stores
+        messages locally only and does not email yet — hire via Upwork for a real conversation.
       </p>
     </footer>
   );

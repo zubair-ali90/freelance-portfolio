@@ -788,6 +788,17 @@ img {
   gap: 12px;
 }
 
+.footer-name {
+  margin: 14px 0 6px;
+  font-family: var(--font-display), sans-serif;
+  font-size: 22px;
+  letter-spacing: -0.03em;
+}
+
+.footer-note {
+  margin-top: 0;
+}
+
 .site-footer h4 {
   margin: 0 0 10px;
   color: #b7aea3;
