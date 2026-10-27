@@ -7,10 +7,13 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 WEB="$ROOT/web"
 PM2_APP="${PM2_APP:-Zubair-portfolio}"
 BRANCH="${DEPLOY_BRANCH:-production}"
+LOG="${ROOT}/scripts/last-deploy.log"
 
 export PATH="/usr/local/bin:/usr/bin:/bin:${PATH:-}"
 
-echo "==> Deploy root: $ROOT"
+exec > >(tee -a "$LOG") 2>&1
+
+echo "==> $(date -Is) Deploy root: $ROOT"
 cd "$ROOT"
 
 echo "==> Fetch + reset to origin/$BRANCH"
@@ -39,5 +42,5 @@ echo "==> Health check"
 sleep 2
 curl -fsS -o /dev/null -w "HTTP %{http_code}\n" "http://127.0.0.1:3001/"
 
-echo "==> Deploy complete"
+echo "==> $(date -Is) Deploy complete"
 pm2 list | grep -E "Zubair|name" || pm2 list

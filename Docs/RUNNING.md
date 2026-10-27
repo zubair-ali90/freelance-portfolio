@@ -75,7 +75,7 @@ After reboot, processes come back from `pm2 save` / startup if configured (`pm2 
 
 Workflow: `.github/workflows/deploy-production.yml`
 
-On every push to **`production`** (or manual **Run workflow**), GitHub SSHs into this server and runs:
+On every push to **`production`** (or manual **Run workflow**), GitHub calls `POST /api/admin/deploy`, which starts:
 
 1. `git fetch` + hard reset to `origin/production`
 2. `npm ci` in `web/`
@@ -84,13 +84,26 @@ On every push to **`production`** (or manual **Run workflow**), GitHub SSHs into
 
 Deploy script: `scripts/deploy-production.sh`
 
-Repo secrets used: `SSH_HOST`, `SSH_USER`, `SSH_PORT`, `SSH_PRIVATE_KEY`, `DEPLOY_PATH`.
+### GitHub secrets
 
-Manual run on the server:
+| Secret | Purpose |
+|--------|---------|
+| `DEPLOY_HOOK_SECRET` | Bearer token (same value as in `web/.env.local`) — already set |
+| `DEPLOY_HOOK_URL` | `https://<your-cloudflare-hostname>/api/admin/deploy` — **set this once hostname exists** |
+
+```bash
+gh secret set DEPLOY_HOOK_URL --repo zubair-ali90/freelance-portfolio \
+  --body 'https://YOUR_HOST/api/admin/deploy'
+```
+
+### Local fallback watcher
+
+PM2 **`Zubair-portfolio-watch`** polls GitHub every 60s and runs the same deploy when `production` moves (works even if Actions cannot reach the server).
 
 ```bash
 /mnt/1TB-EXT/ZubairPortfolio/freelance-portfolio/scripts/deploy-production.sh
 ```
+
 
 ## Manual (without PM2)
 
