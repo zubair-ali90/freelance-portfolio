@@ -12,7 +12,7 @@ export function HomeHero({ mediaSrc }: { mediaSrc: string }) {
         <div className="home-hero-veil" />
       </div>
 
-      <div className="home-hero-content wrap">
+      <div className="home-hero-content">
         <p className="home-eyebrow home-eyebrow-light">Zubair Ali / 3D Artist &amp; Interactive Developer</p>
         <h1 className="home-hero-title">
           3D that goes beyond the <span>render.</span>

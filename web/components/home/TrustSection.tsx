@@ -1,65 +1,37 @@
 "use client";
 
 import Link from "next/link";
-import type { Project } from "@/lib/content";
-import type { ProjectClientInfo } from "@/lib/project-client-details";
+import type { PortfolioReview } from "@/lib/portfolio-reviews";
+import { ReviewCarousel } from "./ReviewCarousel";
 
-export type TrustCard = {
-  project: Project;
-  client: ProjectClientInfo;
-};
-
-function evidenceLead(client: ProjectClientInfo) {
-  const lead = client.scope.split(/(?<=[.!?])\s+/)[0]?.trim();
-  return lead && lead.length > 20 ? lead : client.scope;
-}
-
-/**
- * Project-based collaboration evidence only.
- * Paraphrased “review” strings are not shown as testimonials until verified client quotes exist.
- */
-export function TrustSection({ cards }: { cards: TrustCard[] }) {
-  if (cards.length === 0) return null;
-
+export function TrustSection({ reviews }: { reviews: PortfolioReview[] }) {
   return (
     <section className="home-section home-trust cream" id="client-trust" aria-labelledby="trust-title">
-      <div className="wrap home-section-intro">
+      <div className="home-wrap home-section-intro">
         <p className="home-eyebrow">Client Trust / 04</p>
         <h2 id="trust-title" className="manifesto home-section-title">
-          Good work is built on trust.
+          The work matters. So does the experience.
         </h2>
         <p className="home-section-sub">
-          The final result should do more than look impressive. It should communicate clearly, meet the
-          project&apos;s needs, and work in the real world.
+          From first concept to final delivery, I focus on clear communication, thoughtful execution, and
+          results clients feel confident sharing.
         </p>
-        <p className="home-section-sub home-trust-support">
-          Explore the work, the details behind it, and feedback from previous collaborations.
-        </p>
+        <p className="home-section-sub home-trust-support">Feedback from real client projects.</p>
       </div>
 
-      <div className="wrap home-trust-grid">
-        {cards.map(({ project, client }) => (
-          <article key={project.slug} className="home-trust-card">
-            <p className="home-eyebrow">{client.clientName}</p>
-            <h3 className="home-trust-quote">{project.title}</h3>
-            <p className="home-trust-evidence">{evidenceLead(client)}</p>
-            {client.clientUrl && (
-              <p className="meta">
-                <a href={client.clientUrl} target="_blank" rel="noopener noreferrer">
-                  {client.clientUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")}
-                </a>
-              </p>
-            )}
-            <p style={{ marginTop: 14 }}>
-              <Link href={`/work/${project.slug}`}>View project</Link>
-            </p>
-          </article>
-        ))}
+      <div className="home-wrap-wide home-trust-carousel-wrap">
+        <ReviewCarousel reviews={reviews} />
       </div>
-      <div className="wrap">
+
+      <div className="home-wrap home-trust-footer">
         <p className="home-trust-disclaimer">
-          Verified client quotes are not published on this page yet. Cards above cite named
-          collaborations and project scope from studio records — open each project for full details.
+          Quotes are transcribed from Upwork contract feedback provided in studio records. No public
+          review permalink is claimed. Ratings-only contracts are excluded from this carousel.
+        </p>
+        <p style={{ marginTop: 18 }}>
+          <Link className="pill" href="/reviews">
+            Browse all client feedback
+          </Link>
         </p>
       </div>
     </section>

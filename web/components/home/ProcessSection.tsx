@@ -50,7 +50,7 @@ export function ProcessSection() {
       id="process"
       aria-labelledby="process-title"
     >
-      <div className="wrap home-section-intro">
+      <div className="home-wrap home-section-intro">
         <p className="home-eyebrow">My Process / 03</p>
         <h2 id="process-title" className="manifesto home-section-title">
           From first idea to final frame.
@@ -61,7 +61,7 @@ export function ProcessSection() {
         </p>
       </div>
 
-      <div className="wrap home-process-track">
+      <div className="home-process-track">
         <div className="home-process-line" aria-hidden>
           <span className="home-process-line-fill" style={{ transform: `scaleX(${progress})` }} />
         </div>

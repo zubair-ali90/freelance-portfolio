@@ -30,7 +30,7 @@ function ChapterCopy({
       <p className="home-featured-index">
         {pad} / {totalPad}
       </p>
-      <p className="home-eyebrow">{chapter.clientLabel}</p>
+      <p className="home-featured-client">{chapter.clientLabel}</p>
       <h3 className="home-featured-headline">{chapter.headline}</h3>
       <p className="home-featured-body">{chapter.body}</p>
       <Link className="pill solid" href={`/work/${chapter.slug}`}>
@@ -83,7 +83,7 @@ function StickyDesktopStage({ chapters }: { chapters: FeaturedChapter[] }) {
       style={{ height: `${chapters.length * 75}vh` }}
     >
       <div className="home-featured-sticky">
-        <div className="home-featured-stage wrap wrap-wide">
+        <div className="home-featured-stage">
           <div className="home-featured-visual">
             {chapters.map((chapter, index) => (
               <div
@@ -160,7 +160,7 @@ export function FeaturedWorkStage({ chapters }: { chapters: FeaturedChapter[] })
 
   return (
     <section className="home-section home-featured" id="selected-work" aria-labelledby="selected-work-title">
-      <div className="wrap home-section-intro">
+      <div className="home-wrap home-section-intro">
         <p className="home-eyebrow">Selected Work / 01</p>
         <h2 id="selected-work-title" className="manifesto home-section-title">
           See the idea come to life.
@@ -172,7 +172,7 @@ export function FeaturedWorkStage({ chapters }: { chapters: FeaturedChapter[] })
 
       {useSticky ? <StickyDesktopStage chapters={chapters} /> : <StackedMobileStage chapters={chapters} />}
 
-      <div className="wrap home-featured-footer">
+      <div className="home-wrap home-featured-footer">
         <Link className="pill" href="/work">
           View All Projects
         </Link>

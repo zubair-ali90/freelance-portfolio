@@ -35,7 +35,7 @@ export function ExpertiseSection({ mediaBySlug }: { mediaBySlug: Record<string, 
 
   return (
     <section className="home-section home-expertise cream" id="expertise" aria-labelledby="expertise-title">
-      <div className="wrap home-section-intro">
+      <div className="home-wrap home-section-intro">
         <p className="home-eyebrow">What I Create / 02</p>
         <h2 id="expertise-title" className="manifesto home-section-title">
           The right visual for the right idea.
@@ -46,7 +46,7 @@ export function ExpertiseSection({ mediaBySlug }: { mediaBySlug: Record<string, 
         </p>
       </div>
 
-      <div className="wrap wrap-wide home-expertise-layout">
+      <div className="home-expertise-layout">
         <div className="home-expertise-visual" aria-hidden>
           {expertiseItems.map((item, index) => {
             const project = mediaBySlug[item.mediaSlug];
@@ -94,7 +94,7 @@ export function ExpertiseSection({ mediaBySlug }: { mediaBySlug: Record<string, 
         </ol>
       </div>
 
-      <div className="wrap" style={{ marginTop: 36 }}>
+      <div className="home-expertise-cta">
         <Link className="pill" href="/services">
           Explore My Services
         </Link>
