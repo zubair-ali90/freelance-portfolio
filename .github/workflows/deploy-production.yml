@@ -1,0 +1,37 @@
+name: Deploy production (PM2)
+
+on:
+  push:
+    branches:
+      - production
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Trigger server deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Call deploy hook on techversol-server
+        env:
+          DEPLOY_HOOK_URL: ${{ secrets.DEPLOY_HOOK_URL }}
+          DEPLOY_HOOK_SECRET: ${{ secrets.DEPLOY_HOOK_SECRET }}
+        run: |
+          set -euo pipefail
+          if [ -z "${DEPLOY_HOOK_URL:-}" ] || [ -z "${DEPLOY_HOOK_SECRET:-}" ]; then
+            echo "Missing DEPLOY_HOOK_URL or DEPLOY_HOOK_SECRET repo secrets."
+            echo "Set DEPLOY_HOOK_URL to https://<your-cloudflare-host>/api/admin/deploy"
+            exit 1
+          fi
+          curl -fsS -X POST "$DEPLOY_HOOK_URL" \
+            -H "Authorization: Bearer ${DEPLOY_HOOK_SECRET}" \
+            -H "Content-Type: application/json" \
+            --retry 3 \
+            --retry-delay 5 \
+            --max-time 60
+          echo
+          echo "Deploy started on the server (pull + npm ci + build + pm2 restart)."
