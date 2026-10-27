@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Project, ProjectCategory } from "@/lib/content";
 import type { ResolvedWorkGroup } from "@/lib/site-config";
 import { ProjectCover } from "@/components/ProjectMedia";
+import { projectClientCredit } from "@/lib/project-client-details";
 import { projectsByCategoryList } from "@/lib/published-projects";
 
 export function WorkSections({
@@ -31,6 +32,9 @@ export function WorkSections({
                       <Link key={project.slug} href={`/work/${project.slug}`} className="project-card">
                         <ProjectCover project={project} />
                         <h3>{project.title}</h3>
+                        {projectClientCredit(project.slug) && (
+                          <p className="meta">{projectClientCredit(project.slug)}</p>
+                        )}
                         <p>{project.summary}</p>
                         <p className="meta">{project.media.length} files</p>
                       </Link>

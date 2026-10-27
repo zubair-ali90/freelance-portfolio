@@ -741,6 +741,29 @@ img {
   margin-top: 18px;
 }
 
+.quote-meta {
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.project-client-block {
+  max-width: 720px;
+}
+
+.project-client-quote {
+  margin-top: 28px;
+}
+
+.project-resource-list {
+  margin: 20px 0 0;
+  padding-left: 1.2rem;
+  color: var(--ink-soft);
+}
+
+.project-resource-list li {
+  margin-top: 8px;
+}
+
 .cta {
   text-align: center;
   padding-bottom: 40px;

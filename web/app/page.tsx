@@ -1,11 +1,17 @@
 import Link from "next/link";
+import { ClientReviewsSection } from "@/components/ProjectClientBlock";
 import { ProjectCover } from "@/components/ProjectMedia";
-import { getFeaturedPublishedProjects } from "@/lib/published-projects";
+import { getFeaturedClientReviews, projectClientCredit } from "@/lib/project-client-details";
+import { getFeaturedPublishedProjects, getPublishedProjects } from "@/lib/published-projects";
 
 export const instant = false;
 
 export default async function HomePage() {
-  const featuredProjects = await getFeaturedPublishedProjects();
+  const [featuredProjects, allPublished] = await Promise.all([
+    getFeaturedPublishedProjects(),
+    getPublishedProjects(),
+  ]);
+  const clientReviews = getFeaturedClientReviews(allPublished);
   return (
     <main>
       <section className="hero">
@@ -24,6 +30,9 @@ export default async function HomePage() {
           </Link>
           <Link className="pill ghost-light" href="/work">
             see the work
+          </Link>
+          <Link className="pill ghost-light" href="#client-reviews">
+            client reviews
           </Link>
         </div>
         <svg className="monogram" viewBox="0 0 640 280" aria-hidden>
@@ -98,6 +107,9 @@ export default async function HomePage() {
               <Link key={project.slug} href={`/work/${project.slug}`} className="project-card">
                 <ProjectCover project={project} />
                 <h3>{project.title}</h3>
+                {projectClientCredit(project.slug) && (
+                  <p className="meta" style={{ marginTop: 4 }}>{projectClientCredit(project.slug)}</p>
+                )}
                 <p>{project.summary}</p>
               </Link>
             ))}
@@ -139,24 +151,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="section paper">
-        <div className="wrap">
-          <h2 className="manifesto">sample notes, not real clients.</h2>
-          <div className="quotes">
-            <blockquote className="quote">
-              <p>
-                &ldquo;The turntable matched the photos we already had. We dropped it on the product page the
-                same day.&rdquo;
-              </p>
-              <strong>Sample client &middot; product brand</strong>
-            </blockquote>
-            <blockquote className="quote">
-              <p>&ldquo;Clear milestones. The explainer was short enough to actually finish.&rdquo;</p>
-              <strong>Sample client &middot; SaaS</strong>
-            </blockquote>
-          </div>
-        </div>
-      </section>
+      <ClientReviewsSection reviews={clientReviews} />
 
       <section className="section cream cta">
         <div className="wrap">

@@ -1,5 +1,6 @@
 import type { Project, ProjectCategory } from "./content";
 import { categoryGroups } from "./content";
+import { mergeProjectSummary } from "./project-client-details";
 import { readProjectOverrides, type ProjectOverride } from "./project-overrides";
 import { decorateProjectCategory, getBaseProjects } from "./projects-base";
 import { homeFeaturedCategoryOrder, readSiteConfig } from "./site-config";
@@ -18,9 +19,13 @@ export async function getAdminProjectRows(): Promise<AdminProjectRow[]> {
   return getBaseProjects().map((project) => mergeOne(project, overrides[project.slug]));
 }
 
+function publishRow({ active: _a, ...project }: AdminProjectRow): Project {
+  return mergeProjectSummary(project);
+}
+
 export async function getPublishedProjects(): Promise<Project[]> {
   const rows = await getAdminProjectRows();
-  return rows.filter((project) => project.active).map(({ active: _a, ...project }) => project);
+  return rows.filter((project) => project.active).map(publishRow);
 }
 
 export async function getPublishedProject(slug: string) {

@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ProjectClientBlock } from "@/components/ProjectClientBlock";
 import { ProjectDetailView } from "@/components/ProjectDetailView";
 import { categoryLabel } from "@/lib/content";
+import { getProjectClientInfo } from "@/lib/project-client-details";
 import { getPublishedProject } from "@/lib/published-projects";
 
 export const instant = false;
@@ -24,6 +26,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   if (!project) notFound();
 
   const sectionLabel = categoryLabel(project.category);
+  const clientInfo = getProjectClientInfo(slug);
 
   return (
     <main>
@@ -57,6 +60,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           }
         />
       </section>
+      {clientInfo && (
+        <section className="section paper">
+          <div className="wrap wrap-wide">
+            <ProjectClientBlock info={clientInfo} />
+          </div>
+        </section>
+      )}
     </main>
   );
 }
