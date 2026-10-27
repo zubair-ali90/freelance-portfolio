@@ -10,6 +10,7 @@ import { HomeMedia } from "./HomeMedia";
 
 export type FeaturedChapter = FeaturedChapterCopy & {
   project: Project;
+  mediaSrc?: string;
 };
 
 function ChapterCopy({
@@ -91,7 +92,7 @@ function StickyDesktopStage({ chapters }: { chapters: FeaturedChapter[] }) {
                 className={`home-featured-frame ${index === active ? "is-active" : ""}`}
               >
                 <HomeMedia
-                  src={chapter.project.cover}
+                  src={chapter.mediaSrc || chapter.project.cover}
                   title={chapter.project.title}
                   className="home-featured-media"
                   priority={index === 0}
@@ -137,7 +138,7 @@ function StackedMobileStage({ chapters }: { chapters: FeaturedChapter[] }) {
         <article key={chapter.slug} className="home-featured-card">
           <div className="home-featured-card-media">
             <HomeMedia
-              src={chapter.project.cover}
+              src={chapter.mediaSrc || chapter.project.cover}
               title={chapter.project.title}
               className="home-featured-media"
               priority={index === 0}

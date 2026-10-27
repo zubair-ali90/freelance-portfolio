@@ -2,9 +2,18 @@
 
 import Link from "next/link";
 import { UpworkHireLink } from "@/components/UpworkHireLink";
+import type { HomepageStore } from "@/lib/cms/homepage-defaults";
 import { HomeMedia } from "./HomeMedia";
 
-export function HomeHero({ mediaSrc }: { mediaSrc: string }) {
+export function HomeHero({
+  mediaSrc,
+  content,
+}: {
+  mediaSrc: string;
+  content: HomepageStore["hero"];
+}) {
+  const secondaryIsUpwork = /upwork\.com/i.test(content.secondaryCtaHref);
+
   return (
     <section className="home-hero" aria-label="Introduction">
       <div className="home-hero-media" aria-hidden>
@@ -13,26 +22,37 @@ export function HomeHero({ mediaSrc }: { mediaSrc: string }) {
       </div>
 
       <div className="home-hero-content">
-        <p className="home-eyebrow home-eyebrow-light">Zubair Ali / 3D Artist &amp; Interactive Developer</p>
+        <p className="home-eyebrow home-eyebrow-light">{content.eyebrow}</p>
         <h1 className="home-hero-title">
-          3D that goes beyond the <span>render.</span>
+          {content.headline.includes("render") ? (
+            <>
+              {content.headline.replace(/render\.?$/i, "").trim()}{" "}
+              <span>render.</span>
+            </>
+          ) : (
+            content.headline
+          )}
         </h1>
-        <p className="home-hero-lede">
-          I create product visuals, character animation, immersive spaces, and interactive 3D
-          experiences—helping brands and teams turn ideas into something people can see, understand, and
-          explore.
-        </p>
+        <p className="home-hero-lede">{content.description}</p>
         <div className="hero-actions home-hero-actions">
-          <Link className="pill on-dark" href="#selected-work">
-            Explore My Work
+          <Link className="pill on-dark" href={content.primaryCtaHref}>
+            {content.primaryCtaLabel}
           </Link>
-          <UpworkHireLink className="pill ghost-light">Hire Me on Upwork</UpworkHireLink>
+          {secondaryIsUpwork ? (
+            <UpworkHireLink className="pill ghost-light" href={content.secondaryCtaHref}>
+              {content.secondaryCtaLabel}
+            </UpworkHireLink>
+          ) : (
+            <Link className="pill ghost-light" href={content.secondaryCtaHref}>
+              {content.secondaryCtaLabel}
+            </Link>
+          )}
         </div>
       </div>
 
-      <a className="home-scroll-indicator" href="#selected-work">
+      <a className="home-scroll-indicator" href={content.primaryCtaHref || "#selected-work"}>
         <span className="home-scroll-line" aria-hidden />
-        <span>Scroll to Explore</span>
+        <span>{content.scrollLabel}</span>
       </a>
     </section>
   );

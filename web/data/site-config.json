@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "homeFeatured": [
     {
       "id": "product-animation",
@@ -134,5 +134,220 @@
       "id": "unreal",
       "enabled": true
     }
-  ]
+  ],
+  "viewerModelSrc": "",
+  "viewerBackgroundColor": "#e7e0d2",
+  "viewerEnvironmentPreset": "studio",
+  "viewerHdriSrc": "",
+  "viewerBackdrop": "solid",
+  "viewerAnimationLoop": "repeat",
+  "viewerAutoPlayAnimation": true,
+  "homepage": {
+    "hero": {
+      "eyebrow": "Zubair Ali / 3D Artist & Interactive Developer",
+      "headline": "3D that goes beyond the render.",
+      "description": "I create product visuals, character animation, immersive spaces, and interactive 3D experiences—helping brands and teams turn ideas into something people can see, understand, and explore.",
+      "primaryCtaLabel": "Explore My Work",
+      "primaryCtaHref": "#selected-work",
+      "secondaryCtaLabel": "Hire Me on Upwork",
+      "secondaryCtaHref": "https://www.upwork.com/freelancers/zubaira27",
+      "scrollLabel": "Scroll to Explore",
+      "mediaSrc": "/assets/3D/Cars/Porsche%20911%20Turbo%20CGI%20Animation.mp4"
+    },
+    "featuredProjects": [
+      {
+        "slug": "character-anime",
+        "enabled": true,
+        "clientLabel": "MNSTR Assoc — 360° Product Animation",
+        "headline": "Every detail. Every angle.",
+        "body": "360-degree product animation for anime-inspired jewelry, created to showcase design, materials, and craftsmanship from every perspective.",
+        "cta": "Explore Project",
+        "mediaSrc": ""
+      },
+      {
+        "slug": "explainer-configurator",
+        "enabled": true,
+        "clientLabel": "Interactive Configurators — Adam AI, Engo Planet & Blue Bird",
+        "headline": "Don't just show it. Let people explore it.",
+        "body": "Interactive 3D experiences that transform static product presentations into customizable, engaging experiences that users can explore directly in their browser.",
+        "cta": "Explore Project",
+        "mediaSrc": ""
+      },
+      {
+        "slug": "explainer-app-animation",
+        "enabled": true,
+        "clientLabel": "Artscapes — Augmented Reality",
+        "headline": "Beyond the screen. Into the real world.",
+        "body": "An interactive AR experience developed with Unity for iOS and Android, bringing digital content into real-world environments.",
+        "cta": "Explore Project",
+        "mediaSrc": ""
+      }
+    ],
+    "expertise": {
+      "eyebrow": "What I Create / 02",
+      "title": "The right visual for the right idea.",
+      "description": "From the first frame to the final interactive experience, I combine creativity and technology to bring complex ideas to life.",
+      "items": [
+        {
+          "id": "product",
+          "index": "01",
+          "title": "Product CGI & Animation",
+          "body": "Photorealistic product renders, detailed 3D models, and animations that make every angle count.",
+          "href": "/work#animation",
+          "mediaSlug": "product-animation-product-animation",
+          "enabled": true
+        },
+        {
+          "id": "character",
+          "index": "02",
+          "title": "Characters & Motion",
+          "body": "Expressive characters, stylized animations, and carefully crafted 3D assets for stories, games, and digital experiences.",
+          "href": "/work#animation",
+          "mediaSlug": "character-mascot",
+          "enabled": true
+        },
+        {
+          "id": "spaces",
+          "index": "03",
+          "title": "Spaces & Environments",
+          "body": "Architectural visualization, interiors, exteriors, and immersive environments that bring spaces to life before they're built.",
+          "href": "/work#architectural",
+          "mediaSlug": "interior-interior",
+          "enabled": true
+        },
+        {
+          "id": "interactive",
+          "index": "04",
+          "title": "Interactive 3D & AR",
+          "body": "Real-time 3D experiences, interactive configurators, and augmented reality applications that turn viewers into participants.",
+          "href": "/work#development",
+          "mediaSlug": "explainer-configurator",
+          "enabled": true
+        }
+      ]
+    },
+    "process": {
+      "eyebrow": "My Process / 03",
+      "title": "From first idea to final frame.",
+      "description": "Great results start with understanding the idea. I keep the process collaborative, focused, and clear from the first conversation to final delivery.",
+      "steps": [
+        {
+          "index": "01",
+          "title": "Discover",
+          "body": "We define your vision, goals, visual references, and project requirements.",
+          "enabled": true
+        },
+        {
+          "index": "02",
+          "title": "Create",
+          "body": "I bring your idea to life through design, development, and carefully reviewed iterations.",
+          "enabled": true
+        },
+        {
+          "index": "03",
+          "title": "Deliver",
+          "body": "You receive organized, production-ready assets prepared for their intended platform and purpose.",
+          "enabled": true
+        }
+      ]
+    },
+    "trust": {
+      "eyebrow": "Client Trust / 04",
+      "title": "The work matters. So does the experience.",
+      "description": "From first concept to final delivery, I focus on clear communication, thoughtful execution, and results clients feel confident sharing.",
+      "support": "Feedback from real client projects.",
+      "enabled": true,
+      "reviewIds": [
+        "r22",
+        "r24",
+        "r03",
+        "r08",
+        "r01",
+        "r20",
+        "r12",
+        "r18"
+      ]
+    },
+    "about": {
+      "eyebrow": "Behind the Work / 06",
+      "title": "One creative partner. From concept to delivery.",
+      "paragraph1": "I'm Zubair Ali, a 3D artist and interactive developer working across product visualization, animation, digital environments, and real-time experiences.",
+      "paragraph2": "I enjoy combining visual craftsmanship with technical problem-solving to create work that is not only beautiful but genuinely useful.",
+      "ctaLabel": "More About Me",
+      "ctaHref": "/about"
+    },
+    "finalCta": {
+      "eyebrow": "Your Idea, Brought to Life / 05",
+      "title": "Have an idea? Let's make it real.",
+      "description": "Whether you need a standout product render, an engaging animation, or an interactive 3D experience, I'd love to hear what you're building.",
+      "closing": "Let's turn your next idea into something people remember.",
+      "primaryLabel": "Hire Me on Upwork",
+      "primaryHref": "https://www.upwork.com/freelancers/zubaira27",
+      "secondaryLabel": "Explore All Work",
+      "secondaryHref": "/work"
+    }
+  },
+  "pages": {
+    "about": {
+      "eyebrow": "about",
+      "headline": "a one-person studio for pictures that have to move.",
+      "intro": "Zubair makes 3D and motion for product brands, apps, and small studios. The work on this site is dummy layout content so the design can be reviewed before real projects go in.",
+      "startTitle": "How jobs start",
+      "startBody": "A short brief, two references, and the place the file will live. That is enough to price a first round.",
+      "finishTitle": "How jobs finish",
+      "finishBody": "Preview stills, one revision pass on the approved frames, then final exports for web and a master file.",
+      "hireTitle": "Where to hire",
+      "hireBody": "Upwork is the front door. Start a conversation with a clear brief and references.",
+      "editorialFlag": "Needs editorial review: biography still contains placeholder wording."
+    },
+    "services": {
+      "eyebrow": "services",
+      "headline": "what you can hire.",
+      "intro": "Written the way an Upwork client scans a profile: outcome first, then the files they receive.",
+      "offers": [
+        {
+          "title": "Product stills and turntables",
+          "detail": "One hero angle, three supporting angles, and a 4–6 second loop. Useful for Shopify, Amazon, and pitch decks.",
+          "enabled": true
+        },
+        {
+          "title": "Character and mascot",
+          "detail": "A model, a simple rig, and three poses or a short loop. Built so later shots stay on-model.",
+          "enabled": true
+        },
+        {
+          "title": "Spaces",
+          "detail": "Interior or exterior stills with lighting that matches the brand, not a default studio HDRI.",
+          "enabled": true
+        },
+        {
+          "title": "Explainers and app motion",
+          "detail": "A short film or UI animation with a storyboard first, so the edit does not wander.",
+          "enabled": true
+        }
+      ]
+    },
+    "contact": {
+      "eyebrow": "contact",
+      "headline": "tell me the frame you need.",
+      "intro": "Use this while the site is local. It does not email anyone yet.",
+      "formVisible": true,
+      "formNote": "Messages are stored locally for testing and are not emailed.",
+      "successMessage": "Message saved locally. This form does not send email yet.",
+      "errorMessage": "Could not save your message. Please try again.",
+      "upworkLabel": "Prefer Upwork? Open my profile"
+    }
+  },
+  "reviews": {
+    "hiddenIds": []
+  },
+  "global": {
+    "upworkUrl": "https://www.upwork.com/freelancers/zubaira27",
+    "footerLabel": "Zubair Ali / Independent Creative",
+    "footerHeadline": "Ideas deserve dimension.",
+    "footerDescription": "I create 3D visuals, animation, and interactive experiences that turn ambitious ideas into something people can see, feel, and explore.",
+    "footerTagline": "Made with imagination. Built with precision.",
+    "siteTitle": "Zubair Ali | 3D Artist & Interactive Developer"
+  },
+  "updatedAt": "2026-10-27T18:12:05.190Z"
 }

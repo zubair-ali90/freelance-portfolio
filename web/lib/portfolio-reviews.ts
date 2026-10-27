@@ -75,15 +75,25 @@ export function getWrittenReviews(): PortfolioReview[] {
   return getAllReviews().filter((review) => review.hasWrittenReview && Boolean(review.quote?.trim()));
 }
 
-export function getHomepageReviews(): PortfolioReview[] {
+export function getHomepageReviews(reviewIds?: string[], hiddenIds: string[] = []): PortfolioReview[] {
   const byId = new Map(getWrittenReviews().map((review) => [review.id, review]));
+  const hidden = new Set(hiddenIds);
+  const ids =
+    reviewIds?.length
+      ? reviewIds
+      : source.recommendedHomepageReviewIds.filter((id) => id !== "r25");
   const ordered: PortfolioReview[] = [];
-  for (const id of source.recommendedHomepageReviewIds) {
-    if (id === "r25") continue;
+  for (const id of ids) {
+    if (hidden.has(id)) continue;
     const review = byId.get(id);
     if (review?.quote) ordered.push(review);
   }
   return ordered;
+}
+
+export function getPublicWrittenReviews(hiddenIds: string[] = []): PortfolioReview[] {
+  const hidden = new Set(hiddenIds);
+  return getWrittenReviews().filter((review) => !hidden.has(review.id));
 }
 
 export function getReviewsForSlug(slug: string): PortfolioReview[] {

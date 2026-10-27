@@ -1,8 +1,16 @@
 import { cache } from "react";
 import { unstable_noStore as noStore } from "next/cache";
-import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { readFile, writeFile, mkdir, access } from "node:fs/promises";
 import path from "node:path";
 import { categoryGroups, type ProjectCategory } from "./content";
+import {
+  buildDefaultGlobal,
+  buildDefaultHomepage,
+  buildDefaultPages,
+  type GlobalSiteSettings,
+  type HomepageStore,
+  type PagesStore,
+} from "./cms/homepage-defaults";
 import {
   isModelViewerEnvironment,
   sanitizeViewerBackgroundColor,
@@ -12,30 +20,31 @@ import {
   type ModelViewerEnvironment,
 } from "./model-viewer";
 import { sanitizeViewerAnimationLoop } from "./viewer-animation";
+
 export type OrderedToggle<T extends string = string> = {
   id: T;
   enabled: boolean;
 };
 
 export type SiteConfigStore = {
-  version: 1;
-  /** Order = priority for picking one project per category on the home page */
+  version: 2;
+  /** Legacy: category-priority home picks (still used as fallback). */
   homeFeatured: OrderedToggle<ProjectCategory>[];
   maxHomeFeatured: number;
-  /** Order of main blocks on /work (3D animation, Renders, …) */
   workGroups: OrderedToggle<string>[];
-  /** Order of leaf categories within /work (grouped under their parent) */
   workSections: OrderedToggle<ProjectCategory>[];
-  /** Optional GLB/GLTF under /assets/… for the portfolio 3D viewer lab */
   viewerModelSrc: string;
   viewerBackgroundColor: string;
   viewerEnvironmentPreset: ModelViewerEnvironment;
-  /** Custom equirectangular HDR/EXR under /assets/hdri/ — overrides preset when set */
   viewerHdriSrc: string;
-  /** `solid` = flat color behind model; `environment` = show HDRI/preset as 360° sky */
   viewerBackdrop: "solid" | "environment";
   viewerAnimationLoop: import("./viewer-animation").ViewerAnimationLoop;
   viewerAutoPlayAnimation: boolean;
+  homepage: HomepageStore;
+  pages: PagesStore;
+  reviews: { hiddenIds: string[] };
+  global: GlobalSiteSettings;
+  updatedAt?: string;
 };
 
 export function buildDefaultSiteConfig(): SiteConfigStore {
@@ -57,7 +66,7 @@ export function buildDefaultSiteConfig(): SiteConfigStore {
     }
   }
   return {
-    version: 1,
+    version: 2,
     homeFeatured,
     maxHomeFeatured: 6,
     workGroups,
@@ -69,48 +78,34 @@ export function buildDefaultSiteConfig(): SiteConfigStore {
     viewerBackdrop: "solid",
     viewerAnimationLoop: "repeat",
     viewerAutoPlayAnimation: true,
+    homepage: buildDefaultHomepage(),
+    pages: buildDefaultPages(),
+    reviews: { hiddenIds: [] },
+    global: buildDefaultGlobal(),
   };
 }
 
-function localPath() {
+function publishedPath() {
   return path.join(process.cwd(), "data", "site-config.json");
 }
 
-async function readLocal(): Promise<SiteConfigStore | null> {
+function draftPath() {
+  return path.join(process.cwd(), "data", "site-config.draft.json");
+}
+
+async function readJsonFile(filePath: string): Promise<unknown | null> {
   try {
-    const raw = await readFile(localPath(), "utf8");
-    return JSON.parse(raw) as SiteConfigStore;
+    const raw = await readFile(filePath, "utf8");
+    return JSON.parse(raw) as unknown;
   } catch {
     return null;
   }
 }
 
-async function writeLocal(data: SiteConfigStore) {
-  const dir = path.dirname(localPath());
+async function writeJsonFile(filePath: string, data: unknown) {
+  const dir = path.dirname(filePath);
   await mkdir(dir, { recursive: true });
-  await writeFile(localPath(), JSON.stringify(data, null, 2), "utf8");
-}
-
-export function normalizeSiteConfig(partial: SiteConfigStore | null | undefined): SiteConfigStore {
-  const defaults = buildDefaultSiteConfig();
-  if (!partial || partial.version !== 1) return defaults;
-
-  return {
-    version: 1,
-    homeFeatured: mergeOrdered(defaults.homeFeatured, partial.homeFeatured),
-    maxHomeFeatured: clamp(partial.maxHomeFeatured ?? defaults.maxHomeFeatured, 1, 12),
-    workGroups: mergeOrdered(defaults.workGroups, partial.workGroups),
-    workSections: mergeOrdered(defaults.workSections, partial.workSections),
-    viewerModelSrc: sanitizeViewerModelSrc(partial.viewerModelSrc),
-    viewerBackgroundColor: sanitizeViewerBackgroundColor(partial.viewerBackgroundColor),
-    viewerEnvironmentPreset: isModelViewerEnvironment(partial.viewerEnvironmentPreset)
-      ? partial.viewerEnvironmentPreset
-      : defaults.viewerEnvironmentPreset,
-    viewerHdriSrc: sanitizeViewerHdriSrc(partial.viewerHdriSrc),
-    viewerBackdrop: sanitizeViewerBackdrop(partial.viewerBackdrop),
-    viewerAnimationLoop: sanitizeViewerAnimationLoop(partial.viewerAnimationLoop),
-    viewerAutoPlayAnimation: partial.viewerAutoPlayAnimation !== false,
-  };
+  await writeFile(filePath, JSON.stringify(data, null, 2), "utf8");
 }
 
 function mergeOrdered<T extends string>(
@@ -137,18 +132,185 @@ function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, Math.round(value)));
 }
 
+function mergeHomepage(partial: Partial<HomepageStore> | undefined): HomepageStore {
+  const defaults = buildDefaultHomepage();
+  if (!partial) return defaults;
+  return {
+    hero: { ...defaults.hero, ...partial.hero },
+    featuredProjects:
+      partial.featuredProjects?.length
+        ? partial.featuredProjects.map((item) => ({
+            slug: String(item.slug ?? ""),
+            enabled: item.enabled !== false,
+            clientLabel: String(item.clientLabel ?? ""),
+            headline: String(item.headline ?? ""),
+            body: String(item.body ?? ""),
+            cta: String(item.cta ?? "Explore Project"),
+            mediaSrc: String(item.mediaSrc ?? ""),
+          }))
+        : defaults.featuredProjects,
+    expertise: {
+      ...defaults.expertise,
+      ...partial.expertise,
+      items: partial.expertise?.items?.length
+        ? partial.expertise.items.map((item, index) => ({
+            ...defaults.expertise.items[index],
+            ...item,
+            enabled: item.enabled !== false,
+          }))
+        : defaults.expertise.items,
+    },
+    process: {
+      ...defaults.process,
+      ...partial.process,
+      steps: partial.process?.steps?.length
+        ? partial.process.steps.map((step, index) => ({
+            ...defaults.process.steps[index],
+            ...step,
+            enabled: step.enabled !== false,
+          }))
+        : defaults.process.steps,
+    },
+    trust: {
+      ...defaults.trust,
+      ...partial.trust,
+      reviewIds: Array.isArray(partial.trust?.reviewIds)
+        ? partial.trust!.reviewIds.map(String)
+        : defaults.trust.reviewIds,
+      enabled: partial.trust?.enabled !== false,
+    },
+    about: { ...defaults.about, ...partial.about },
+    finalCta: { ...defaults.finalCta, ...partial.finalCta },
+  };
+}
+
+function mergePages(partial: Partial<PagesStore> | undefined): PagesStore {
+  const defaults = buildDefaultPages();
+  if (!partial) return defaults;
+  return {
+    about: { ...defaults.about, ...partial.about },
+    services: {
+      ...defaults.services,
+      ...partial.services,
+      offers: partial.services?.offers?.length
+        ? partial.services.offers.map((offer, index) => ({
+            ...defaults.services.offers[index],
+            ...offer,
+            enabled: offer.enabled !== false,
+          }))
+        : defaults.services.offers,
+    },
+    contact: { ...defaults.contact, ...partial.contact },
+  };
+}
+
+export function normalizeSiteConfig(partial: unknown): SiteConfigStore {
+  const defaults = buildDefaultSiteConfig();
+  if (!partial || typeof partial !== "object") return defaults;
+  const raw = partial as Partial<SiteConfigStore> & { version?: number };
+
+  return {
+    version: 2,
+    homeFeatured: mergeOrdered(defaults.homeFeatured, raw.homeFeatured),
+    maxHomeFeatured: clamp(raw.maxHomeFeatured ?? defaults.maxHomeFeatured, 1, 12),
+    workGroups: mergeOrdered(defaults.workGroups, raw.workGroups),
+    workSections: mergeOrdered(defaults.workSections, raw.workSections),
+    viewerModelSrc: sanitizeViewerModelSrc(raw.viewerModelSrc),
+    viewerBackgroundColor: sanitizeViewerBackgroundColor(raw.viewerBackgroundColor),
+    viewerEnvironmentPreset: isModelViewerEnvironment(raw.viewerEnvironmentPreset)
+      ? raw.viewerEnvironmentPreset
+      : defaults.viewerEnvironmentPreset,
+    viewerHdriSrc: sanitizeViewerHdriSrc(raw.viewerHdriSrc),
+    viewerBackdrop: sanitizeViewerBackdrop(raw.viewerBackdrop),
+    viewerAnimationLoop: sanitizeViewerAnimationLoop(raw.viewerAnimationLoop),
+    viewerAutoPlayAnimation: raw.viewerAutoPlayAnimation !== false,
+    homepage: mergeHomepage(raw.homepage),
+    pages: mergePages(raw.pages),
+    reviews: {
+      hiddenIds: Array.isArray(raw.reviews?.hiddenIds)
+        ? raw.reviews!.hiddenIds.map(String)
+        : [],
+    },
+    global: { ...defaults.global, ...raw.global },
+    updatedAt: typeof raw.updatedAt === "string" ? raw.updatedAt : undefined,
+  };
+}
+
 async function readSiteConfigImpl(): Promise<SiteConfigStore> {
   noStore();
-  const local = await readLocal();
+  const local = await readJsonFile(publishedPath());
   return normalizeSiteConfig(local);
 }
 
 export const readSiteConfig = cache(readSiteConfigImpl);
 
 export async function writeSiteConfig(data: SiteConfigStore) {
-  const normalized = normalizeSiteConfig(data);
-  await writeLocal(normalized);
+  const normalized = normalizeSiteConfig({
+    ...data,
+    updatedAt: new Date().toISOString(),
+  });
+  await writeJsonFile(publishedPath(), normalized);
   return normalized;
+}
+
+export async function readSiteConfigDraft(): Promise<SiteConfigStore | null> {
+  noStore();
+  try {
+    await access(draftPath());
+  } catch {
+    return null;
+  }
+  const raw = await readJsonFile(draftPath());
+  return normalizeSiteConfig(raw);
+}
+
+export async function writeSiteConfigDraft(data: SiteConfigStore) {
+  const normalized = normalizeSiteConfig({
+    ...data,
+    updatedAt: new Date().toISOString(),
+  });
+  await writeJsonFile(draftPath(), normalized);
+  return normalized;
+}
+
+export async function publishSiteConfigDraft() {
+  const draft = await readSiteConfigDraft();
+  if (!draft) {
+    const published = await readSiteConfig();
+    return { config: published, hadDraft: false };
+  }
+  const published = await writeSiteConfig(draft);
+  try {
+    const { unlink } = await import("node:fs/promises");
+    await unlink(draftPath());
+  } catch {
+    /* ignore */
+  }
+  return { config: published, hadDraft: true };
+}
+
+export async function discardSiteConfigDraft() {
+  try {
+    const { unlink } = await import("node:fs/promises");
+    await unlink(draftPath());
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+export async function readEditableSiteConfig(): Promise<{
+  config: SiteConfigStore;
+  published: SiteConfigStore;
+  hasDraft: boolean;
+}> {
+  const published = await readSiteConfig();
+  const draft = await readSiteConfigDraft();
+  return {
+    published,
+    hasDraft: Boolean(draft),
+    config: draft ?? published,
+  };
 }
 
 export type ResolvedWorkGroup = {

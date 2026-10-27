@@ -1,6 +1,7 @@
 import Link from "next/link";
+import type { HomepageStore } from "@/lib/cms/homepage-defaults";
 
-export function AboutTeaser() {
+export function AboutTeaser({ content }: { content: HomepageStore["about"] }) {
   return (
     <section className="home-section home-about paper" id="behind-the-work" aria-labelledby="about-teaser-title">
       <div className="home-about-layout">
@@ -8,21 +9,15 @@ export function AboutTeaser() {
           <span>ZA</span>
         </div>
         <div>
-          <p className="home-eyebrow">Behind the Work / 06</p>
+          <p className="home-eyebrow">{content.eyebrow}</p>
           <h2 id="about-teaser-title" className="manifesto home-section-title">
-            One creative partner. From concept to delivery.
+            {content.title}
           </h2>
-          <p className="home-section-sub">
-            I&apos;m Zubair Ali, a 3D artist and interactive developer working across product visualization,
-            animation, digital environments, and real-time experiences.
-          </p>
-          <p className="home-section-sub">
-            I enjoy combining visual craftsmanship with technical problem-solving to create work that is
-            not only beautiful but genuinely useful.
-          </p>
+          <p className="home-section-sub">{content.paragraph1}</p>
+          <p className="home-section-sub">{content.paragraph2}</p>
           <p style={{ marginTop: 28 }}>
-            <Link className="pill" href="/about">
-              More About Me
+            <Link className="pill" href={content.ctaHref}>
+              {content.ctaLabel}
             </Link>
           </p>
         </div>

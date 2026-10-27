@@ -1,23 +1,37 @@
 import Link from "next/link";
 import { UpworkHireLink } from "@/components/UpworkHireLink";
+import type { HomepageStore } from "@/lib/cms/homepage-defaults";
 
-export function FinalCta() {
+export function FinalCta({ content }: { content: HomepageStore["finalCta"] }) {
+  const primaryIsUpwork = /upwork\.com/i.test(content.primaryHref);
+
   return (
     <section className="home-section home-final-cta" aria-labelledby="final-cta-title">
       <div className="home-final-inner">
-        <p className="home-eyebrow home-eyebrow-light">Your Idea, Brought to Life / 05</p>
+        <p className="home-eyebrow home-eyebrow-light">{content.eyebrow}</p>
         <h2 id="final-cta-title" className="home-final-title">
-          Have an idea? Let&apos;s make it <span>real.</span>
+          {content.title.includes("real") ? (
+            <>
+              {content.title.replace(/real\.?$/i, "").trim()} <span>real.</span>
+            </>
+          ) : (
+            content.title
+          )}
         </h2>
-        <p className="home-final-body">
-          Whether you need a standout product render, an engaging animation, or an interactive 3D
-          experience, I&apos;d love to hear what you&apos;re building.
-        </p>
-        <p className="home-final-body">Let&apos;s turn your next idea into something people remember.</p>
+        <p className="home-final-body">{content.description}</p>
+        <p className="home-final-body">{content.closing}</p>
         <div className="hero-actions home-final-actions">
-          <UpworkHireLink className="pill solid home-final-hire">Hire Me on Upwork</UpworkHireLink>
-          <Link className="pill ghost-light" href="/work">
-            Explore All Work
+          {primaryIsUpwork ? (
+            <UpworkHireLink className="pill solid home-final-hire" href={content.primaryHref}>
+              {content.primaryLabel}
+            </UpworkHireLink>
+          ) : (
+            <Link className="pill solid home-final-hire" href={content.primaryHref}>
+              {content.primaryLabel}
+            </Link>
+          )}
+          <Link className="pill ghost-light" href={content.secondaryHref}>
+            {content.secondaryLabel}
           </Link>
         </div>
       </div>

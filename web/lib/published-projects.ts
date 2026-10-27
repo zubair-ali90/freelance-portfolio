@@ -68,10 +68,43 @@ export async function getDashboardStats() {
   for (const leaf of categoryGroups.flatMap((g) => g.sections)) {
     byCategory[leaf.id] = active.filter((r) => r.category === leaf.id).length;
   }
+
+  const { mediaStats } = await import("./cms/media-catalog");
+  const { getWrittenReviews, getHomepageReviews } = await import("./portfolio-reviews");
+  const { readEditableSiteConfig } = await import("./site-config");
+  const media = mediaStats();
+  const editable = await readEditableSiteConfig();
+  const homepage = editable.config.homepage;
+  const featuredSlugs = homepage.featuredProjects.filter((item) => item.enabled).map((item) => item.slug);
+  const missingCovers = active.filter((project) => !project.cover).length;
+  const brokenFeatured = featuredSlugs.filter((slug) => !rows.some((row) => row.slug === slug));
+
   return {
     total: rows.length,
     active: active.length,
     hidden: rows.length - active.length,
     byCategory,
+    mediaImages: media.images,
+    mediaVideos: media.videos,
+    mediaTotal: media.total,
+    writtenReviews: getWrittenReviews().length,
+    homepageReviews: getHomepageReviews().length,
+    featuredOnHomepage: featuredSlugs.length,
+    hasDraft: editable.hasDraft,
+    missingHeroMedia: !homepage.hero.mediaSrc,
+    missingCovers,
+    brokenFeatured,
+    categoryGroupCounts: {
+      animation: active.filter((r) =>
+        ["product-animation", "character", "installation", "explainer"].includes(r.category),
+      ).length,
+      renders: active.filter((r) =>
+        ["product-renders", "hero-renders", "lifestyle-renders", "standalone"].includes(r.category),
+      ).length,
+      architectural: active.filter((r) =>
+        ["interior-exterior", "interior", "exterior", "arc-viz"].includes(r.category),
+      ).length,
+      development: active.filter((r) => ["unity", "unreal"].includes(r.category)).length,
+    },
   };
 }

@@ -1,31 +1,40 @@
+import { readSiteConfig } from "@/lib/site-config";
+
+export const instant = false;
+
 export const metadata = { title: "About | Zubair" };
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const { pages } = await readSiteConfig();
+  const about = pages.about;
+
   return (
     <main>
       <section className="page-hero">
         <div className="wrap">
-          <p className="kicker">about</p>
-          <h1>a one-person studio for pictures that have to move.</h1>
-          <p>
-            Zubair makes 3D and motion for product brands, apps, and small studios. The work on this
-            site is dummy layout content so the design can be reviewed before real projects go in.
-          </p>
+          <p className="kicker">{about.eyebrow}</p>
+          <h1>{about.headline}</h1>
+          <p>{about.intro}</p>
+          {about.editorialFlag ? (
+            <p className="meta" style={{ marginTop: 16, color: "#8a5a2b" }}>
+              {about.editorialFlag}
+            </p>
+          ) : null}
         </div>
       </section>
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="wrap reason-grid">
           <article className="reason">
-            <h3>How jobs start</h3>
-            <p>A short brief, two references, and the place the file will live. That is enough to price a first round.</p>
+            <h3>{about.startTitle}</h3>
+            <p>{about.startBody}</p>
           </article>
           <article className="reason">
-            <h3>How jobs finish</h3>
-            <p>Preview stills, one revision pass on the approved frames, then final exports for web and a master file.</p>
+            <h3>{about.finishTitle}</h3>
+            <p>{about.finishBody}</p>
           </article>
           <article className="reason">
-            <h3>Where to hire</h3>
-            <p>Upwork is the front door. Drop your profile URL into the footer when the account is ready.</p>
+            <h3>{about.hireTitle}</h3>
+            <p>{about.hireBody}</p>
           </article>
         </div>
       </section>
