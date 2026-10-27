@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { ProjectClientInfo } from "@/lib/project-client-details";
 
 export function ProjectClientBlock({ info }: { info: ProjectClientInfo }) {
@@ -16,12 +15,6 @@ export function ProjectClientBlock({ info }: { info: ProjectClientInfo }) {
         </p>
       )}
       <p style={{ marginTop: 16, maxWidth: "52ch" }}>{info.scope}</p>
-      {info.review && (
-        <blockquote className="quote project-client-quote">
-          <p>&ldquo;{info.review}&rdquo;</p>
-          <strong>{info.clientName}</strong>
-        </blockquote>
-      )}
       {info.resources && info.resources.length > 0 && (
         <ul className="project-resource-list">
           {info.resources.map((link) => (
@@ -34,36 +27,5 @@ export function ProjectClientBlock({ info }: { info: ProjectClientInfo }) {
         </ul>
       )}
     </div>
-  );
-}
-
-export function ClientReviewsSection({
-  reviews,
-}: {
-  reviews: { quote: string; clientName: string; subtitle: string; projectSlug: string }[];
-}) {
-  if (reviews.length === 0) return null;
-
-  return (
-    <section className="section paper" id="client-reviews">
-      <div className="wrap">
-        <p className="kicker">[ reviews from clients ]</p>
-        <h2 className="manifesto">what clients say after the files land.</h2>
-        <div className="quotes">
-          {reviews.map((item) => (
-            <blockquote key={item.projectSlug} className="quote">
-              <p>&ldquo;{item.quote}&rdquo;</p>
-              <strong>
-                {item.clientName}
-                <span className="quote-meta"> · {item.subtitle}</span>
-              </strong>
-              <p style={{ marginTop: 12 }}>
-                <Link href={`/work/${item.projectSlug}`}>view project</Link>
-              </p>
-            </blockquote>
-          ))}
-        </div>
-      </div>
-    </section>
   );
 }

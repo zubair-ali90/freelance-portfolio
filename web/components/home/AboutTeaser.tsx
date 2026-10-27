@@ -3,12 +3,12 @@ import Link from "next/link";
 export function AboutTeaser() {
   return (
     <section className="home-section home-about paper" id="behind-the-work" aria-labelledby="about-teaser-title">
-      <div className="wrap home-about-layout">
+      <div className="home-about-layout">
         <div className="home-about-mark" aria-hidden>
           <span>ZA</span>
         </div>
         <div>
-          <p className="home-eyebrow">Behind the Work / 05</p>
+          <p className="home-eyebrow">Behind the Work / 06</p>
           <h2 id="about-teaser-title" className="manifesto home-section-title">
             One creative partner. From concept to delivery.
           </h2>

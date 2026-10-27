@@ -1,0 +1,765 @@
+{
+  "schemaVersion": "1.0.0",
+  "source": {
+    "filename": "Project with reviews.docx",
+    "pages": 11,
+    "evidenceType": "user-supplied document and embedded Upwork screenshots",
+    "important": "No public verification of reviews is claimed. Do not fabricate reviewer identities or profile metrics."
+  },
+  "projects": [
+    {
+      "id": "creative-group-events",
+      "title": "Creative Group — Event Visualization",
+      "category": "Architectural & Event Visualization",
+      "summary": "Conceptual 3D renders for event experiences, including three alternative visual directions for a single event.",
+      "details": "Worked with Creative Group, an experience design company serving meetings, incentive programs, and brand activations. Produced event visualization options and spatial concepts to help its team present creative directions to clients. The document describes this as an ongoing collaboration.",
+      "externalLinks": {
+        "clientWebsite": "https://creativegroupinc.com/"
+      },
+      "sourceMediaLinks": {
+        "threeConceptOptions": "https://drive.google.com/open?id=1EXQrYPdS6cZcyfN5TnQJw5sYKRVCds3L&usp=drive_copy",
+        "eventRender01": "https://drive.google.com/open?id=1jYxBTc3m3Mo3cnIUEOiY3vMKvkosfrrh&usp=drive_copy",
+        "eventRender02": "https://drive.google.com/open?id=1ZSThwVlI0ljg60KinsSCCD7pb10RUqT3&usp=drive_copy"
+      },
+      "featuredCandidate": true,
+      "sourcePages": [
+        1
+      ],
+      "status": "documented",
+      "notes": null
+    },
+    {
+      "id": "stylized-fox-vrm",
+      "title": "Stylized Fox — VRM Character & Rig",
+      "category": "Character Modeling & Rigging",
+      "summary": "Modeled, rigged, and prepared a stylized fox character for real-time avatar use within a 50,000-polygon budget.",
+      "details": "Scope included optimized geometry and topology, skeleton creation, skin weight painting, deformation for the body, limbs, head, ears, and tail, humanoid bone mapping, fox-specific bones, VRM conversion and spring bones for secondary motion where required.",
+      "externalLinks": {},
+      "sourceMediaLinks": {
+        "finalLook": "https://drive.google.com/open?id=1pkmN-UYB_N93VR-B1liILj4MjUvulFS4&usp=drive_copy",
+        "details": "https://drive.google.com/open?id=1j73b_QMjfh0UUQE9VUnh7n8TkzvG1Kzl&usp=drive_copy",
+        "reference": "https://drive.google.com/open?id=1L3H26OZ-KN-gozv5_KzXwFHs5tuDJz-W&usp=drive_copy",
+        "additionalFile": "https://drive.google.com/open?id=1MS9pGp8eG3zBvbz8AgDclV5fPBj584AO&usp=drive_copy"
+      },
+      "featuredCandidate": false,
+      "sourcePages": [
+        2
+      ],
+      "status": "documented",
+      "notes": "The source states delivery objectives; do not assert external publication or commercial deployment without verification."
+    },
+    {
+      "id": "zaffiri-precision",
+      "title": "Zaffiri Precision — Automated Product Visualization",
+      "category": "Product CGI & Rendering Automation",
+      "summary": "Precision 3D product modeling, animation, and a custom rendering workflow used to create more than 5,000 product renders.",
+      "details": "Created detailed visualizations of precision-machined components with accurate geometry, material surfaces, and finishes. Developed custom-built production pipelines for large-scale rendering and produced animation illustrating component details.",
+      "externalLinks": {
+        "clientWebsite": "https://zaffiriprecision.com/"
+      },
+      "sourceMediaLinks": {
+        "componentWork": "https://drive.google.com/open?id=1tfsZTOuT4ZaH2rI6PoF0W9gJLmLmNKNM&usp=drive_copy"
+      },
+      "featuredCandidate": false,
+      "sourcePages": [
+        3
+      ],
+      "status": "documented",
+      "notes": "Client sells firearm components. Keep coverage limited to high-level portfolio visualization and render workflow. Confirm permission before publishing client product imagery."
+    },
+    {
+      "id": "adam-ai-architectural-configurator",
+      "title": "Adam AI — Architectural Configurator",
+      "category": "Interactive 3D / Architectural Technology",
+      "summary": "AI architectural configurator concept with an interactive demonstration and floor-plan materials.",
+      "details": "Document provides a live test website, floor plan, video demo, and configurator asset links but no detailed verified scope of individual responsibilities. Describe conservatively until the existing portfolio records establish specifics.",
+      "externalLinks": {
+        "liveDemo": "https://adamaitest.techversoldevops.com/"
+      },
+      "sourceMediaLinks": {
+        "floorPlan": "https://drive.google.com/open?id=11-nVo1nQsXh2xF9zVIfyUrWHKTH9rKV8&usp=drive_copy",
+        "demo": "https://drive.google.com/open?id=1hbPQFiXl-utznwRtuCaU8_b4Oey2jhdR&usp=drive_copy",
+        "configurator": "https://drive.google.com/open?id=1i8E2NQJ-HXheR4knDb2uGAHVyOsO1lP3&usp=drive_copy"
+      },
+      "featuredCandidate": false,
+      "sourcePages": [
+        4
+      ],
+      "status": "documented",
+      "notes": "No verified review directly linked to Adam AI; HEXANEST PRODUCTION review appears near this entry but association is unclear."
+    },
+    {
+      "id": "mnstr-assoc",
+      "title": "MNSTR Assoc — 360° Jewelry Animation",
+      "category": "Product CGI & 3D Animation",
+      "summary": "360-degree product animations for anime-inspired jewelry, highlighting form, details, and craftsmanship from every angle.",
+      "details": "Prepared detailed meshes and rotational visualizations, preserving proportions and fine geometry to create polished product content for e-commerce and marketing.",
+      "externalLinks": {
+        "clientWebsite": "https://mnstrassoc.com/"
+      },
+      "sourceMediaLinks": {
+        "assetsFolder": "https://drive.google.com/drive/folders/1NkuzgwUCr6866CZvvdpBxUoG-ec-DMNm?usp=drive_link"
+      },
+      "featuredCandidate": true,
+      "sourcePages": [
+        4,
+        5
+      ],
+      "status": "documented",
+      "notes": null
+    },
+    {
+      "id": "bordertown-retail",
+      "title": "Bordertown Retail — AR-Ready Displays",
+      "category": "Retail 3D Modeling & Web AR",
+      "summary": "Photorealistic 3D display racks and retail fixtures prepared as FBX assets for an augmented reality visualization platform.",
+      "details": "Developed 3D model libraries representing retail racks and display systems, working toward assets suitable for use in the client’s AR and online 3D viewing workflow.",
+      "externalLinks": {
+        "clientWebsite": "https://bordertownretail.com/"
+      },
+      "sourceMediaLinks": {
+        "assetsFolder": "https://drive.google.com/drive/folders/1VLxPD8gOAJAkuUjMNWVr0bngN-cxUJ7N?usp=drive_link"
+      },
+      "featuredCandidate": true,
+      "sourcePages": [
+        5
+      ],
+      "status": "documented",
+      "notes": null
+    },
+    {
+      "id": "gooplast",
+      "title": "GooPlast — Construction Product Explainers",
+      "category": "Industrial Product Animation",
+      "summary": "3D animations explaining how plastic formwork and voided-slab construction systems are assembled and used.",
+      "details": "Created sequences illustrating components, installation, reinforcement placement, concrete pouring, and structural application so engineers, contractors, and buyers can understand the workflows.",
+      "externalLinks": {
+        "clientWebsite": "https://gooplast.com/en/"
+      },
+      "sourceMediaLinks": {
+        "video": "https://drive.google.com/open?id=1T2NQzOgKuVF6qYmPxnhCzme8LvDZpc37&usp=drive_copy"
+      },
+      "featuredCandidate": false,
+      "sourcePages": [
+        5,
+        6
+      ],
+      "status": "documented",
+      "notes": null
+    },
+    {
+      "id": "artscapes-ar",
+      "title": "Artscapes — Mobile AR Application",
+      "category": "Unity / AR Development",
+      "summary": "Developed a cross-platform augmented reality application for Android and iOS using Unity and C#.",
+      "details": "Implemented AR scene configuration, tracking, interaction logic, and mobile optimization using Vuforia, ARCore/AR Foundation, and ARKit.",
+      "externalLinks": {
+        "clientWebsite": "https://artscapes.co/",
+        "googlePlay": "https://play.google.com/store/apps/details?id=com.ScanscapesTech.ArtScapesAR&hl=en_US",
+        "appStore": "https://apps.apple.com/us/app/artscapes/id1433059246"
+      },
+      "sourceMediaLinks": {},
+      "featuredCandidate": true,
+      "sourcePages": [
+        6,
+        7
+      ],
+      "status": "documented",
+      "notes": null
+    },
+    {
+      "id": "ai-avatar-blendshapes",
+      "title": "AI Avatar — Blendshapes & Lip Sync",
+      "category": "3D Character / Real-time Avatar",
+      "summary": "Blender avatar / GLB preparation for AI integration, facial blendshapes, and lip-sync compatibility.",
+      "details": "The document contains an Upwork review for this work but no independent detailed project brief, media link, or client brand. Do not invent additional features.",
+      "externalLinks": {},
+      "sourceMediaLinks": {},
+      "featuredCandidate": false,
+      "sourcePages": [
+        6
+      ],
+      "status": "review_evidence_only",
+      "notes": null
+    },
+    {
+      "id": "photorealistic-character-rigging",
+      "title": "Photorealistic Character — Blendshapes & Rigging",
+      "category": "Character Modeling & Rigging",
+      "summary": "Photorealistic 3D character modeling and facial rigging/blendshape work for a Unity/iOS use case.",
+      "details": "The accompanying review mentions matching a reference image, rigging appropriate facial motions, and providing project updates.",
+      "externalLinks": {},
+      "sourceMediaLinks": {
+        "beforeAfter": "https://drive.google.com/open?id=1RoGL62BZ01abPm63Mcu7aPxC_Da-VM3Q&usp=drive_copy",
+        "videoShowcase": "https://drive.google.com/open?id=12hTlOHBFaMhWlL5Wv1FszRI--Y6LzsKf&usp=drive_copy"
+      },
+      "featuredCandidate": false,
+      "sourcePages": [
+        7
+      ],
+      "status": "documented",
+      "notes": "Review refers to character work, not necessarily Artscapes; do not merge them."
+    },
+    {
+      "id": "macrovey-ar-machine",
+      "title": "Macrovey — AR Machine Visualization",
+      "category": "AR / 3D Machine Animation",
+      "summary": "Developed a 3D machine model and animation for an AR presentation demonstrating how the machine works.",
+      "details": "The source names a local video “Macrovey University 2.mp4” without embedding the actual video file.",
+      "externalLinks": {
+        "clientWebsite": "https://www.macrovey.com/"
+      },
+      "sourceMediaLinks": {
+        "localMediaFilename": "Macrovey University 2.mp4"
+      },
+      "featuredCandidate": false,
+      "sourcePages": [
+        7
+      ],
+      "status": "documented",
+      "notes": "The local video filename is not a URL and must not be treated as a loadable asset."
+    },
+    {
+      "id": "ski-patrol-vr",
+      "title": "Ski Patrol — VR Rescue Training",
+      "category": "VR Training Simulation",
+      "summary": "VR training scenario for first responders assisting a person injured while skiing.",
+      "details": "Simulated medical checks, CPR, bandaging, placing the patient on a stretcher, and attaching the stretcher to a helicopter.",
+      "externalLinks": {},
+      "sourceMediaLinks": {
+        "demo": "https://drive.google.com/open?id=1MyqRgAY_qx1XRKk0QSAzEfjXS9mym49q&usp=drive_copy"
+      },
+      "featuredCandidate": false,
+      "sourcePages": [
+        7
+      ],
+      "status": "documented",
+      "notes": null
+    },
+    {
+      "id": "vr-house-walkthrough",
+      "title": "Interactive VR House Walkthrough",
+      "category": "VR Architectural Visualization",
+      "summary": "Immersive house walkthrough with interactive materials and household elements.",
+      "details": "Users can change materials and interact with furniture and items in a virtual residential setting.",
+      "externalLinks": {},
+      "sourceMediaLinks": {
+        "localMediaFilename": "Neil-MR-Walkthrough.mp4"
+      },
+      "featuredCandidate": false,
+      "sourcePages": [
+        8
+      ],
+      "status": "documented",
+      "notes": "The preceding URL https://drive.google.com/open?id=1OLstcnhdnInphB6CCaVGTrwfJ5ouJYNE&usp=drive_copy may belong to the preceding 3D Symbol and Logo review; association with VR house media is unclear."
+    },
+    {
+      "id": "dw-spectrum-showcase",
+      "title": "DW Spectrum — Event Booth Visualization",
+      "category": "3D Product / Event Visualization",
+      "summary": "Pre-rendered booth and event-environment visuals showing how products would appear in an exhibition space.",
+      "details": "Created environmental backgrounds and 3D booth presentation imagery for product showcase needs.",
+      "externalLinks": {
+        "clientWebsite": "https://dwspectrum.com/page/dw-mobile/"
+      },
+      "sourceMediaLinks": {
+        "assetsFolder": "https://drive.google.com/drive/folders/1oBzcHg92ICEtfkg_ffVbGtNp-adNAbCs?usp=drive_link"
+      },
+      "featuredCandidate": false,
+      "sourcePages": [
+        8
+      ],
+      "status": "documented",
+      "notes": null
+    },
+    {
+      "id": "photon-vr-meeting",
+      "title": "Photon VR — Remote Meeting Environment",
+      "category": "Multiplayer VR / Real-time Interaction",
+      "summary": "Shared virtual meeting environment designed to make remote participants feel present in a meeting room.",
+      "details": "The source describes a multi-user VR meeting experience with the ability to showcase material in an immersive space. A named local video is listed but not attached.",
+      "externalLinks": {},
+      "sourceMediaLinks": {
+        "localMediaFilename": "VID-20260127-WA0060.mp4"
+      },
+      "featuredCandidate": false,
+      "sourcePages": [
+        8
+      ],
+      "status": "documented",
+      "notes": "Upwork contract title mentions Photon Engine; do not infer a specific networking implementation beyond the source."
+    },
+    {
+      "id": "dandy-shandy",
+      "title": "Dandy Shandy — Mobile Game",
+      "category": "Unity Mobile Game Development",
+      "summary": "Mobile game developed with Unity, with a demo and Google Play listing provided in the document.",
+      "details": "The client review praises project guidance, implementation, communication, and delivery. Preserve existing project-specific feature details from the codebase rather than inventing gameplay mechanics.",
+      "externalLinks": {
+        "googlePlay": "https://play.google.com/store/apps/details?id=com.DandyShandy.com.unity.template.mobile2D&hl=en_US"
+      },
+      "sourceMediaLinks": {
+        "demo": "https://drive.google.com/open?id=1qhWmaNGUDpF9XWni3fXp137ooMXI9PHp&usp=drive_copy",
+        "screenshotsFolder": "https://drive.google.com/drive/folders/19FMGtKXFW26HB_p6ZRqb7NmF88PEq4aN?usp=drive_link"
+      },
+      "featuredCandidate": false,
+      "sourcePages": [
+        9
+      ],
+      "status": "documented",
+      "notes": null
+    },
+    {
+      "id": "zebra-mascot",
+      "title": "Zebra Mascot — 3D Character",
+      "category": "Character Modeling",
+      "summary": "Freelance 3D zebra mascot modeling.",
+      "details": "Document contains a short project label, a work-file hyperlink, and a five-star client review. Do not add unsupported design specifications.",
+      "externalLinks": {},
+      "sourceMediaLinks": {
+        "referenceOrWork": "https://drive.google.com/open?id=14M6dSqe3yEbP9Fg6rDVv1kY_ljT_sgTI&usp=drive_copy"
+      },
+      "featuredCandidate": false,
+      "sourcePages": [
+        9
+      ],
+      "status": "documented",
+      "notes": null
+    },
+    {
+      "id": "preat-dental",
+      "title": "Preat — Dental Product Visualization",
+      "category": "Medical Product CGI & Animation",
+      "summary": "3D render and animation library for dental technology products, including a polished product-story animation.",
+      "details": "Produced technical product visuals and detailed animations for dental products; the review highlights the artistic presentation of technically accurate subject matter and collaborative production.",
+      "externalLinks": {
+        "clientWebsite": "https://www.preat.com/"
+      },
+      "sourceMediaLinks": {
+        "localMediaFilename": "3. Rachael Dental Product (Final - Correction)_Final 5.mp4",
+        "additionalWork": "https://drive.google.com/open?id=1SAnPqZ3TdIIxZ5JIJ-lWCzD-b2LrWOVH&usp=drive_copy"
+      },
+      "featuredCandidate": true,
+      "sourcePages": [
+        10
+      ],
+      "status": "documented",
+      "notes": null
+    },
+    {
+      "id": "intelliroad-explainer",
+      "title": "IntelliRoad — 3D Tolling Explainer",
+      "category": "3D Explainer Animation",
+      "summary": "3D animation explainer associated with tolling technologies.",
+      "details": "Document supplies the IntelliRoad tolling website, animation showcase, and an Upwork review praising the quality, responsiveness, and turnaround. Avoid adding unverified scene descriptions.",
+      "externalLinks": {
+        "clientWebsite": "https://intelliroad.com/tolling/"
+      },
+      "sourceMediaLinks": {
+        "video": "https://drive.google.com/open?id=1fqZJ0bah0OXDCuWz2KT9o5ifImdu6VjQ&usp=drive_copy"
+      },
+      "featuredCandidate": false,
+      "sourcePages": [
+        10
+      ],
+      "status": "documented",
+      "notes": null
+    },
+    {
+      "id": "engo-bluebird",
+      "title": "Engo Planet — Interactive Solar Products",
+      "category": "Interactive Product Configurator",
+      "summary": "3D solar-product visualization and interactive configurator work, including a Blue Bird solar bench experience.",
+      "details": "The document shows product renders on Engo Planet, an interactive PlayCanvas Blue Bird solar bench configurator, and a five-star client review about turning a 3D model into a website presentation.",
+      "externalLinks": {
+        "clientWebsite": "https://www.engoplanet.com/",
+        "productPage": "https://www.engoplanet.com/engo-custom-solar-products",
+        "blueBirdConfigurator": "https://playcanv.as/e/b/71442ed8"
+      },
+      "sourceMediaLinks": {},
+      "featuredCandidate": true,
+      "sourcePages": [
+        11
+      ],
+      "status": "documented",
+      "notes": null
+    },
+    {
+      "id": "hexanest-production",
+      "title": "HEXANEST PRODUCTION — Client Review",
+      "category": "Unclassified 3D Work",
+      "summary": "Five-star Upwork feedback under the contract title “HEXANEST PRODUCTION”.",
+      "details": "No reliable project-specific description or media is present in the document.",
+      "externalLinks": {},
+      "sourceMediaLinks": {},
+      "featuredCandidate": false,
+      "sourcePages": [
+        4
+      ],
+      "status": "review_evidence_only",
+      "notes": "Do not automatically associate this review with Adam AI."
+    },
+    {
+      "id": "3d-symbol-logo",
+      "title": "3D Symbol and Logo",
+      "category": "3D Logo / Symbol",
+      "summary": "Five-star Upwork contract titled “3D Symbol and Logo”.",
+      "details": "No readable testimonial text or detailed project description is shown.",
+      "externalLinks": {},
+      "sourceMediaLinks": {
+        "possibleUnassignedLink": "https://drive.google.com/open?id=1OLstcnhdnInphB6CCaVGTrwfJ5ouJYNE&usp=drive_copy"
+      },
+      "featuredCandidate": false,
+      "sourcePages": [
+        8
+      ],
+      "status": "review_evidence_only",
+      "notes": null
+    },
+    {
+      "id": "extra-ceilings",
+      "title": "Extra for Ceilings",
+      "category": "Architectural 3D",
+      "summary": "Past architectural-related Upwork contract titled “extra for ceilings”.",
+      "details": "Only a minimal contract note and screenshot of rating are available.",
+      "externalLinks": {},
+      "sourceMediaLinks": {
+        "assetsFolder": "https://drive.google.com/drive/folders/1lYQak5bdDtkM28vec788alzPLkT5UacJ?usp=drive_link"
+      },
+      "featuredCandidate": false,
+      "sourcePages": [
+        11
+      ],
+      "status": "review_evidence_only",
+      "notes": null
+    },
+    {
+      "id": "container-ship-render",
+      "title": "3D Rendering of Container Ship",
+      "category": "Industrial 3D Rendering",
+      "summary": "3D rendering project for a container ship, evidenced by a five-star Upwork contract title.",
+      "details": "The document does not contain enough scope detail or written feedback to build a full case study.",
+      "externalLinks": {},
+      "sourceMediaLinks": {
+        "assetsFolder": "https://drive.google.com/drive/folders/1XBDsHltgAp29R3mwXKNJVkfte-iRwBeE?usp=drive_link"
+      },
+      "featuredCandidate": false,
+      "sourcePages": [
+        11
+      ],
+      "status": "review_evidence_only",
+      "notes": null
+    }
+  ],
+  "reviews": [
+    {
+      "id": "r01",
+      "projectId": "creative-group-events",
+      "contractTitle": "Renders for ballroom",
+      "rating": 5.0,
+      "quote": "I had a fabulous experience working with Zubair! He delivered high quality photo realistic renderings with a quick turn around. I really appreciate how he accepts feedback and makes changes quickly!",
+      "sourceScreenshot": "image1.png",
+      "dates": "Sep 25, 2026 – Oct 19, 2026",
+      "notes": null,
+      "hasWrittenReview": true
+    },
+    {
+      "id": "r02",
+      "projectId": "creative-group-events",
+      "contractTitle": "3D Render Artist for Event Concepts",
+      "rating": 5.0,
+      "quote": "Working with Zubair was easy, and he was able to provide timely updates and revisions - he did great!",
+      "sourceScreenshot": "image2.png",
+      "dates": "Dec 7, 2025 – May 29, 2026",
+      "notes": null,
+      "hasWrittenReview": true
+    },
+    {
+      "id": "r03",
+      "projectId": "stylized-fox-vrm",
+      "contractTitle": "Hyper Realistic Full Body Rigging",
+      "rating": 5.0,
+      "quote": "Zubair did an incredible job with the full body rigging project! The quality of work was outstanding, and everything was completed successfully and on schedule. Communication was smooth throughout the entire process, making it a truly great experience. I highly recommend Zubair for any rigging needs and look forward to working together again in the future!",
+      "sourceScreenshot": "image3.png",
+      "dates": "Sep 7, 2026 – Oct 6, 2026",
+      "notes": "Screenshot says 5.0 of 2 reviews but only one review is shown.",
+      "hasWrittenReview": true
+    },
+    {
+      "id": "r04",
+      "projectId": "zaffiri-precision",
+      "contractTitle": "Seeking Blender Designer to Automate e-Commerce Product Rendering Creation",
+      "rating": 5.0,
+      "quote": "Zubair has great communication and performs his tasks thoroughly and expeditiously without too much direction required.",
+      "sourceScreenshot": "image4.png",
+      "dates": "Jul 30, 2026 – Sep 28, 2026",
+      "notes": "Top review of two shown in image4.",
+      "hasWrittenReview": true
+    },
+    {
+      "id": "r05",
+      "projectId": "zaffiri-precision",
+      "contractTitle": "Seeking Blender Designer to Automate e-Commerce Product Rendering Creation",
+      "rating": 5.0,
+      "quote": "Zubair quickly understood the project’s needs and executed efficiently.",
+      "sourceScreenshot": "image4.png",
+      "dates": "Jul 10, 2026 – Jul 29, 2026",
+      "notes": "Bottom review of two shown in image4.",
+      "hasWrittenReview": true
+    },
+    {
+      "id": "r06",
+      "projectId": "hexanest-production",
+      "contractTitle": "HEXANEST PRODUCTION",
+      "rating": 5.0,
+      "quote": "Amazing work. Did not fail to impress me",
+      "sourceScreenshot": "image5.png",
+      "dates": "Oct 2, 2025 – Jul 15, 2026",
+      "notes": "Project link to Adam AI is NOT proven.",
+      "hasWrittenReview": true
+    },
+    {
+      "id": "r07",
+      "projectId": "mnstr-assoc",
+      "contractTitle": "Blender Expert Needed for Engaging Social Media Animations",
+      "rating": 5.0,
+      "quote": "Zubair was great to work with!",
+      "sourceScreenshot": "image6.png",
+      "dates": "May 4, 2026 – Jul 8, 2026",
+      "notes": null,
+      "hasWrittenReview": true
+    },
+    {
+      "id": "r08",
+      "projectId": "bordertown-retail",
+      "contractTitle": "Convert 3D Retail Display Designs to Photorealistic FBX Models for Web-Based AR (Ongoing Work)",
+      "rating": 5.0,
+      "quote": "Great work on our website viewer files, really appreciate your quick turnarounds and flexibility to work with our files to create exactly what we needed! Really appreciate the help, and will definitely reach out again if any new projects come up.",
+      "sourceScreenshot": "image7.png",
+      "dates": "Nov 7, 2025 – May 1, 2026",
+      "notes": null,
+      "hasWrittenReview": true
+    },
+    {
+      "id": "r09",
+      "projectId": "bordertown-retail",
+      "contractTitle": "Convert 3D Retail Display Designs to Photorealistic FBX Models for Web-Based AR (Ongoing Work)",
+      "rating": 5.0,
+      "quote": "Great work overall, we were provided with exactly what we needed for our website 3D viewers, when we needed it!",
+      "sourceScreenshot": "image8.png",
+      "dates": "Aug 20, 2025 – Nov 7, 2025",
+      "notes": null,
+      "hasWrittenReview": true
+    },
+    {
+      "id": "r10",
+      "projectId": "gooplast",
+      "contractTitle": "New 3d Video",
+      "rating": 5.0,
+      "quote": null,
+      "sourceScreenshot": "image9.png",
+      "dates": "May 29, 2025 – Apr 13, 2026",
+      "notes": "Star rating only. No quote shown.",
+      "hasWrittenReview": false
+    },
+    {
+      "id": "r11",
+      "projectId": "ai-avatar-blendshapes",
+      "contractTitle": "Develo a glb with blendshapes adapted to AI integration and lipsync",
+      "rating": 5.0,
+      "quote": "It has been amazing to work with Zubair. He is really well-prepared and he work very fast with the maximum quality possible. He fits perfectly all the need and requirements of my project. He deployed my blender avatar project at best and with all the correct criteria. Super happy to start to work with him!",
+      "sourceScreenshot": "image10.png",
+      "dates": "Oct 26, 2025 – Jan 15, 2026",
+      "notes": "Transcription lightly normalized only for legibility; retain source image if exact quote punctuation is required.",
+      "hasWrittenReview": true
+    },
+    {
+      "id": "r12",
+      "projectId": "artscapes-ar",
+      "contractTitle": "AR/App Work",
+      "rating": 5.0,
+      "quote": "Working with Zubair was a great experience. He’s knowledgeable, easy to communicate with, and genuinely invested in delivering a solid result. He was flexible with feedback and made sure everything was implemented correctly. Highly recommended!",
+      "sourceScreenshot": "image11.png",
+      "dates": "Dec 23, 2025 – Jan 6, 2026",
+      "notes": null,
+      "hasWrittenReview": true
+    },
+    {
+      "id": "r13",
+      "projectId": "photorealistic-character-rigging",
+      "contractTitle": "3D Photorealistic Character Artist (Unity, iOS, Blendshapes)",
+      "rating": 5.0,
+      "quote": "Zubair was a pleasure to work with and completed our 3D modeling / blendshape rigging project successfully. He was able to model characters from a reference image and rigged the character to have appropriate facial motions. Zubair communicated and provided updates in a timely manner.",
+      "sourceScreenshot": "image12.png",
+      "dates": "Sep 15, 2025 – Nov 3, 2025",
+      "notes": null,
+      "hasWrittenReview": true
+    },
+    {
+      "id": "r14",
+      "projectId": "macrovey-ar-machine",
+      "contractTitle": "3D Model Animation",
+      "rating": 5.0,
+      "quote": null,
+      "sourceScreenshot": "image13.png",
+      "dates": "Nov 27, 2024 – Oct 6, 2025",
+      "notes": "Star rating only.",
+      "hasWrittenReview": false
+    },
+    {
+      "id": "r15",
+      "projectId": "ski-patrol-vr",
+      "contractTitle": "Ski Patrol VR MVP App",
+      "rating": 5.0,
+      "quote": "Zubair did an excellent job on this project. I will use again once I had user feedback.",
+      "sourceScreenshot": "image14.png",
+      "dates": "Feb 28, 2025 – Oct 3, 2025",
+      "notes": null,
+      "hasWrittenReview": true
+    },
+    {
+      "id": "r16",
+      "projectId": "3d-symbol-logo",
+      "contractTitle": "3D Symbol and Logo",
+      "rating": 5.0,
+      "quote": null,
+      "sourceScreenshot": "image15.png",
+      "dates": "Mar 18, 2025 – Oct 3, 2025",
+      "notes": "Star rating only.",
+      "hasWrittenReview": false
+    },
+    {
+      "id": "r17",
+      "projectId": "vr-house-walkthrough",
+      "contractTitle": "Unity Developer for Android VR/AR App",
+      "rating": 5.0,
+      "quote": null,
+      "sourceScreenshot": "image16.png",
+      "dates": "Mar 18, 2025 – Oct 2, 2025",
+      "notes": "Star rating only; linked project inferred from adjacency only.",
+      "hasWrittenReview": false
+    },
+    {
+      "id": "r18",
+      "projectId": "dw-spectrum-showcase",
+      "contractTitle": "3D Pre-rendered Background Artist for Product Showcase Site",
+      "rating": 5.0,
+      "quote": "Zubair is timely, responsive and delivered quality results.",
+      "sourceScreenshot": "image17.png",
+      "dates": "May 12, 2025 – Sep 19, 2025",
+      "notes": null,
+      "hasWrittenReview": true
+    },
+    {
+      "id": "r19",
+      "projectId": "photon-vr-meeting",
+      "contractTitle": "VR Developer Needed with Expertise in Photon Engine",
+      "rating": 4.9,
+      "quote": null,
+      "sourceScreenshot": "image18.png",
+      "dates": "Jul 30, 2025 – Aug 28, 2025",
+      "notes": "Rating only, 4.9 not 5.0.",
+      "hasWrittenReview": false
+    },
+    {
+      "id": "r20",
+      "projectId": "dandy-shandy",
+      "contractTitle": "Mobile Game Developer Needed for Exciting Project",
+      "rating": 5.0,
+      "quote": "It was a pleasure working with Zubair on this project, he was the perfect developer for us as we had very little experience with either game development or mobile app development. He provided clear guidance throughout and he was able to implement our idea to our satisfaction. We definitely recommend him.",
+      "sourceScreenshot": "image19.png",
+      "dates": "Mar 21, 2025 – Aug 26, 2025",
+      "notes": null,
+      "hasWrittenReview": true
+    },
+    {
+      "id": "r21",
+      "projectId": "zebra-mascot",
+      "contractTitle": "3D Modeller Needed for Simple 3D Character",
+      "rating": 5.0,
+      "quote": "Zubair was a pleasure to work with! Communication was smooth throughout the entire project, and the work he produced was great quality and efficient. I highly recommend him as a freelance artist, and would work with him again if the opportunity arose.",
+      "sourceScreenshot": "image20.png",
+      "dates": "Jun 11, 2025 – Aug 25, 2025",
+      "notes": null,
+      "hasWrittenReview": true
+    },
+    {
+      "id": "r22",
+      "projectId": "preat-dental",
+      "contractTitle": "3D Dental Image Renderings",
+      "rating": 5.0,
+      "quote": "Working with Zubair has been an absolute pleasure. As a 3D artist, he brought an exceptional level of skill, creativity, and professionalism to our project at Preat. He produced high-quality product renders that not only showcased our products in stunning detail but also elevated the visual standard of our entire brand. Every image was polished, precise, and visually compelling—perfectly aligned with our technical and marketing goals. Even more impressive was the animation video Zubair created. From the lighting and textures to the pacing and transitions, he delivered a cinematic-quality piece that told our product story beautifully. He was receptive to feedback, collaborative throughout the process, and always met deadlines—often ahead of schedule. Zubair combines artistic talent with technical expertise, and his ability to translate complex product features into sleek, professional visuals makes him an invaluable creative partner. We’re already looking forward to working with him again!",
+      "sourceScreenshot": "image21.png",
+      "dates": "May 29, 2025 – Aug 1, 2025",
+      "notes": "Full long review. Prefer an exact excerpt in a carousel and the entire quote on the project detail.",
+      "hasWrittenReview": true
+    },
+    {
+      "id": "r23",
+      "projectId": "intelliroad-explainer",
+      "contractTitle": "3d animation explainer video",
+      "rating": 5.0,
+      "quote": "Zubair took on this project when I was in a jam. He graciously stepped up and created a very nice result for my client. He completed this project quickly (which was what I needed) and still with care and high quality work. He was easy to work with, communicated in a timely manner and asked good clarifying questions along the way. I highly recommend Zubair for any animation work.",
+      "sourceScreenshot": "image22.png",
+      "dates": "Jan 31, 2025 – Mar 22, 2025",
+      "notes": "Screenshot shows 5.0 of 2 reviews; only one readable review supplied.",
+      "hasWrittenReview": true
+    },
+    {
+      "id": "r24",
+      "projectId": "engo-bluebird",
+      "contractTitle": "Designer Needed to turn 3D Model into Interactive Website Movie",
+      "rating": 5.0,
+      "quote": "Zubair went above and beyond to complete this job. Excellent communication, organization, and quality of work. His attention to detail and understanding of 3D product configurators helped him deliver a finished project beyond our expectations. Now we have a show stopping 3D interactive 3D model to present our product. Would highly recommend Zubair for any 3D modeling work. Exceptional!",
+      "sourceScreenshot": "image23.png",
+      "dates": "Sep 11, 2024 – Nov 19, 2024",
+      "notes": null,
+      "hasWrittenReview": true
+    },
+    {
+      "id": "r25",
+      "projectId": "extra-ceilings",
+      "contractTitle": "extra for ceilings",
+      "rating": 5.0,
+      "quote": "we finished the project. no more need for more work",
+      "sourceScreenshot": "image24.png",
+      "dates": "Oct 3, 2024 – Nov 1, 2024",
+      "notes": "Not an endorsement. Exclude from homepage featured review carousel.",
+      "hasWrittenReview": true
+    },
+    {
+      "id": "r26",
+      "projectId": "container-ship-render",
+      "contractTitle": "3D Rendering of Container Ship",
+      "rating": 5.0,
+      "quote": null,
+      "sourceScreenshot": "image25.png",
+      "dates": "Sep 7, 2023 – Feb 15, 2024",
+      "notes": "Star rating only.",
+      "hasWrittenReview": false
+    }
+  ],
+  "recommendedHomepageReviewIds": [
+    "r22",
+    "r24",
+    "r03",
+    "r08",
+    "r01",
+    "r20",
+    "r12",
+    "r18"
+  ],
+  "implementationNotes": [
+    "Use this file as structured CONTENT INPUT, not as a mandate to create 24 new routes; inspect existing routes and merge by project slug/name.",
+    "Project cards and review cards should be separated from existing core portfolio data only when needed. Reviews must retain verified project mapping, rating, job title, and quote.",
+    "Only render written review cards for reviews with hasWrittenReview=true. Rating-only contracts may be shown as evidence in project pages, but not as quotes.",
+    "Do not use screenshot source filenames as portfolio artwork. Project visuals must come from authentic existing assets or fetched, permission-cleared links.",
+    "Google Drive sharing pages are external source/reference links, not direct image/video URLs; do not embed a drive open URL in an image/video src.",
+    "LocalMediaFilename entries represent filenames cited by the author, not actual uploaded files.",
+    "Keep the existing homepage theme, project routes, section ordering and carousel UI consistent.",
+    "Reviews must be swipeable/arrow navigable with overflow-snap, keyboard navigation, and reduced motion behavior; autoplay disabled.",
+    "If a project already exists, enrich it in place; never create duplicates. Add new case studies only with verified titles, assets, and route availability.",
+    "Audit a few screenshot transcriptions against source if exact punctuation is critical. No client name is inferred from contract title.",
+    "Risky category: Zaffiri Precision involves regulated firearm components. Avoid technical instruction on manufacturing; present only non-actionable visual design scope."
+  ]
+}
