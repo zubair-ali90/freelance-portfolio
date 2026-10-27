@@ -21,11 +21,7 @@ export function ProjectManager({ initialProjects }: Props = {} as Props) {
   const [ready, setReady] = useState(Boolean(initialProjects));
   const [loadError, setLoadError] = useState("");
   useEffect(() => {
-    if (initialProjects) {
-      setRows(initialProjects);
-      setReady(true);
-      return;
-    }
+    if (initialProjects) return;
     let cancelled = false;
     (async () => {
       const response = await fetch("/api/admin/projects");

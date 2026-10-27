@@ -1,13 +1,19 @@
 import Link from "next/link";
-import { formatRating, getWrittenReviews } from "@/lib/portfolio-reviews";
+import { formatRating, getPublicWrittenReviews } from "@/lib/portfolio-reviews";
+import { readSiteConfig } from "@/lib/site-config";
+
+export const instant = false;
 
 export const metadata = {
   title: "Client Feedback | Zubair Ali",
   description: "Verified Upwork client feedback transcribed from studio records.",
 };
 
-export default function ReviewsPage() {
-  const reviews = getWrittenReviews().filter((review) => review.id !== "r25");
+export default async function ReviewsPage() {
+  const config = await readSiteConfig();
+  const reviews = getPublicWrittenReviews(config.reviews.hiddenIds).filter(
+    (review) => review.id !== "r25",
+  );
 
   return (
     <main>
@@ -28,7 +34,9 @@ export default function ReviewsPage() {
             {reviews.map((review) => (
               <article key={review.id} className="reviews-index-card">
                 <p className="review-stars" aria-label={`Rated ${formatRating(review.rating)}`}>
-                  <span aria-hidden>{"★".repeat(review.rating >= 4.95 ? 5 : Math.round(review.rating))}</span>
+                  <span aria-hidden>
+                    {"★".repeat(review.rating >= 4.95 ? 5 : Math.round(review.rating))}
+                  </span>
                   <span className="review-stars-score">{formatRating(review.rating)}</span>
                 </p>
                 <blockquote>

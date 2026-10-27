@@ -3,11 +3,31 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import type { Project } from "@/lib/content";
-import { expertiseItems } from "@/lib/homepage-content";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { HomeMedia } from "./HomeMedia";
 
-export function ExpertiseSection({ mediaBySlug }: { mediaBySlug: Record<string, Project | undefined> }) {
+type ExpertiseItem = {
+  id: string;
+  index: string;
+  title: string;
+  body: string;
+  href: string;
+  mediaSlug: string;
+};
+
+export function ExpertiseSection({
+  mediaBySlug,
+  eyebrow,
+  title,
+  description,
+  items,
+}: {
+  mediaBySlug: Record<string, Project | undefined>;
+  eyebrow: string;
+  title: string;
+  description: string;
+  items: ExpertiseItem[];
+}) {
   const reduced = usePrefersReducedMotion();
   const [active, setActive] = useState(0);
   const itemRefs = useRef<(HTMLElement | null)[]>([]);
@@ -31,24 +51,21 @@ export function ExpertiseSection({ mediaBySlug }: { mediaBySlug: Record<string, 
 
     nodes.forEach((node) => observer.observe(node));
     return () => observer.disconnect();
-  }, [reduced]);
+  }, [reduced, items.length]);
 
   return (
     <section className="home-section home-expertise cream" id="expertise" aria-labelledby="expertise-title">
       <div className="home-wrap home-section-intro">
-        <p className="home-eyebrow">What I Create / 02</p>
+        <p className="home-eyebrow">{eyebrow}</p>
         <h2 id="expertise-title" className="manifesto home-section-title">
-          The right visual for the right idea.
+          {title}
         </h2>
-        <p className="home-section-sub">
-          From the first frame to the final interactive experience, I combine creativity and technology to
-          bring complex ideas to life.
-        </p>
+        <p className="home-section-sub">{description}</p>
       </div>
 
       <div className="home-expertise-layout">
         <div className="home-expertise-visual" aria-hidden>
-          {expertiseItems.map((item, index) => {
+          {items.map((item, index) => {
             const project = mediaBySlug[item.mediaSlug];
             if (!project) return null;
             return (
@@ -65,7 +82,7 @@ export function ExpertiseSection({ mediaBySlug }: { mediaBySlug: Record<string, 
         </div>
 
         <ol className="home-expertise-list">
-          {expertiseItems.map((item, index) => (
+          {items.map((item, index) => (
             <li
               key={item.id}
               data-index={index}

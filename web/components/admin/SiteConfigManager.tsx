@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { categoryGroups, categoryLabel } from "@/lib/content";
 import type { OrderedToggle, SiteConfigStore } from "@/lib/site-config";
@@ -134,11 +135,7 @@ export function SiteConfigManager({ initialConfig }: Props = {} as Props) {
   const [ready, setReady] = useState(Boolean(initialConfig));
   const [loadError, setLoadError] = useState("");
   useEffect(() => {
-    if (initialConfig) {
-      setConfig(initialConfig);
-      setReady(true);
-      return;
-    }
+    if (initialConfig) return;
     let cancelled = false;
     (async () => {
       const response = await fetch("/api/admin/site-config");
@@ -211,10 +208,37 @@ export function SiteConfigManager({ initialConfig }: Props = {} as Props) {
       setMessage(body?.error ?? "Save failed. Try again.");
       return;
     }
-    const data = await response.json();
-    setConfig(data.config);
+    const data = (await response.json()) as { config?: SiteConfigStore; message?: string };
+    if (data.config) setConfig(data.config);
     router.refresh();
-    setMessage("Saved. Public site and /viewer updated on the live deploy.");
+    setMessage(data.message ?? "Draft saved. Publish to update the live site.");
+  }
+
+  async function publish() {
+    setSaving(true);
+    setMessage("");
+    const saveResponse = await fetch("/api/admin/site-config", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ config: activeConfig }),
+    });
+    if (!saveResponse.ok) {
+      setSaving(false);
+      setMessage("Could not save draft before publish.");
+      return;
+    }
+    const response = await fetch("/api/admin/site-config/publish", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "publish" }),
+    });
+    setSaving(false);
+    if (!response.ok) {
+      setMessage("Publish failed.");
+      return;
+    }
+    router.refresh();
+    setMessage("Published. Work layout and viewer settings are live.");
   }
 
   const previewModelSrc =
@@ -235,15 +259,20 @@ export function SiteConfigManager({ initialConfig }: Props = {} as Props) {
     <div className="admin-panel">
       <header className="admin-panel-head">
         <div>
-          <h1>Configuration</h1>
+          <h1>My Work</h1>
           <p className="meta">
             Control categories, work page order, and the shared 3D model viewer on{" "}
-            <a href="/work">/work</a> and <a href="/viewer">/viewer</a>.
+            <Link href="/work">/work</Link> and <Link href="/viewer">/viewer</Link>.
           </p>
         </div>
-        <button type="button" className="pill solid" onClick={save} disabled={saving}>
-          {saving ? "Saving…" : "Save changes"}
-        </button>
+        <div className="admin-quick-actions">
+          <button type="button" className="pill" onClick={save} disabled={saving}>
+            {saving ? "Saving…" : "Save draft"}
+          </button>
+          <button type="button" className="pill solid" onClick={publish} disabled={saving}>
+            Publish
+          </button>
+        </div>
       </header>
 
       {message && <p className="admin-message">{message}</p>}
@@ -282,7 +311,7 @@ export function SiteConfigManager({ initialConfig }: Props = {} as Props) {
         <section className="admin-config-block admin-config-block-panel admin-config-block-wide">
           <h2 className="admin-subtitle">Work page layout</h2>
           <p className="meta">
-            Set the order of main blocks on <a href="/work">/work</a>, then fine-tune categories inside each block.
+            Set the order of main blocks on <Link href="/work">/work</Link>, then fine-tune categories inside each block.
             Unchecked items are hidden on the public site.
           </p>
 

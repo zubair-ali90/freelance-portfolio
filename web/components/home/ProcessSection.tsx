@@ -1,10 +1,21 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { processSteps } from "@/lib/homepage-content";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
-export function ProcessSection() {
+type ProcessStep = { index: string; title: string; body: string };
+
+export function ProcessSection({
+  eyebrow,
+  title,
+  description,
+  steps,
+}: {
+  eyebrow: string;
+  title: string;
+  description: string;
+  steps: ProcessStep[];
+}) {
   const reduced = usePrefersReducedMotion();
   const ref = useRef<HTMLElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -41,7 +52,7 @@ export function ProcessSection() {
   }, [reduced]);
 
   const progress = reduced ? 1 : scrollProgress;
-  const activeStep = Math.min(processSteps.length - 1, Math.floor(progress * processSteps.length));
+  const activeStep = Math.min(Math.max(steps.length - 1, 0), Math.floor(progress * steps.length));
 
   return (
     <section
@@ -51,14 +62,11 @@ export function ProcessSection() {
       aria-labelledby="process-title"
     >
       <div className="home-wrap home-section-intro">
-        <p className="home-eyebrow">My Process / 03</p>
+        <p className="home-eyebrow">{eyebrow}</p>
         <h2 id="process-title" className="manifesto home-section-title">
-          From first idea to final frame.
+          {title}
         </h2>
-        <p className="home-section-sub">
-          Great results start with understanding the idea. I keep the process collaborative, focused, and
-          clear from the first conversation to final delivery.
-        </p>
+        <p className="home-section-sub">{description}</p>
       </div>
 
       <div className="home-process-track">
@@ -66,9 +74,9 @@ export function ProcessSection() {
           <span className="home-process-line-fill" style={{ transform: `scaleX(${progress})` }} />
         </div>
         <ol className="home-process-steps">
-          {processSteps.map((step, index) => (
+          {steps.map((step, index) => (
             <li
-              key={step.index}
+              key={`${step.index}-${step.title}`}
               className={`home-process-step ${index <= activeStep ? "is-active" : ""}`}
             >
               <p className="home-process-num">{step.index}</p>

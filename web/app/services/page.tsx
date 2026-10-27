@@ -1,32 +1,21 @@
+import { readSiteConfig } from "@/lib/site-config";
+
+export const instant = false;
+
 export const metadata = { title: "Services | Zubair" };
 
-const offers = [
-  {
-    title: "Product stills and turntables",
-    detail: "One hero angle, three supporting angles, and a 4–6 second loop. Useful for Shopify, Amazon, and pitch decks.",
-  },
-  {
-    title: "Character and mascot",
-    detail: "A model, a simple rig, and three poses or a short loop. Built so later shots stay on-model.",
-  },
-  {
-    title: "Spaces",
-    detail: "Interior or exterior stills with lighting that matches the brand, not a default studio HDRI.",
-  },
-  {
-    title: "Explainers and app motion",
-    detail: "A short film or UI animation with a storyboard first, so the edit does not wander.",
-  },
-];
+export default async function ServicesPage() {
+  const { pages } = await readSiteConfig();
+  const services = pages.services;
+  const offers = services.offers.filter((offer) => offer.enabled);
 
-export default function ServicesPage() {
   return (
     <main>
       <section className="page-hero">
         <div className="wrap">
-          <p className="kicker">services</p>
-          <h1>what you can hire.</h1>
-          <p>Written the way an Upwork client scans a profile: outcome first, then the files they receive.</p>
+          <p className="kicker">{services.eyebrow}</p>
+          <h1>{services.headline}</h1>
+          <p>{services.intro}</p>
         </div>
       </section>
       <section className="section" style={{ paddingTop: 12 }}>

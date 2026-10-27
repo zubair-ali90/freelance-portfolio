@@ -2,14 +2,20 @@
 
 import { useState } from "react";
 
-export function ContactForm() {
+export function ContactForm({
+  successMessage = "Message saved in this browser only. Hook this form to your Upwork invite or email when you are ready to take real jobs.",
+  errorMessage = "Could not save your message. Please try again.",
+}: {
+  successMessage?: string;
+  errorMessage?: string;
+}) {
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState("");
 
   if (sent) {
     return (
       <p className="success" role="status">
-        Message saved in this browser only. Hook this form to your Upwork invite or email when you
-        are ready to take real jobs.
+        {successMessage}
       </p>
     );
   }
@@ -19,9 +25,15 @@ export function ContactForm() {
       className="form"
       onSubmit={(event) => {
         event.preventDefault();
-        setSent(true);
+        try {
+          setError("");
+          setSent(true);
+        } catch {
+          setError(errorMessage);
+        }
       }}
     >
+      {error && <p className="admin-error">{error}</p>}
       <label>
         Name
         <input name="name" required placeholder="Your name" />
