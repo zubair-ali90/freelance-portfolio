@@ -26,5 +26,6 @@ Desktop.ini
 # public/assets is a local junction to /Assets — track Assets/ only once
 web/public/assets/
 
-# Local Netlify folder
-.netlify
+# Local Netlify CLI cache (legacy)
+.netlify/
+

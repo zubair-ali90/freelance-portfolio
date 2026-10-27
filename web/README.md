@@ -1,6 +1,4 @@
-Live site: [https://zubair-ali.netlify.app/](https://zubair-ali.netlify.app/)
-
-This is a [Next.js](https://nextjs.org) portfolio app. Netlify builds from the repo root (`netlify.toml`); `npm run prepare-assets` copies `Assets/` into `public/assets` before `next build`.
+This is a [Next.js](https://nextjs.org) portfolio app in the `web` directory. Production deploys use **Vercel** (`npm run vercel-build` copies `Assets/` into `public/assets`, then `next build`). See `Docs/branch-rules.md` for `production` / `development` branches.
 
 ## Getting Started
 

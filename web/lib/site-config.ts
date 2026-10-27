@@ -2,7 +2,6 @@ import { cache } from "react";
 import { unstable_noStore as noStore } from "next/cache";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
-import { getStore } from "@netlify/blobs";
 import { categoryGroups, type ProjectCategory } from "./content";
 import {
   isModelViewerEnvironment,
@@ -13,9 +12,6 @@ import {
   type ModelViewerEnvironment,
 } from "./model-viewer";
 import { sanitizeViewerAnimationLoop } from "./viewer-animation";
-import { readBlobJsonWithTimeout } from "./blob-read";
-import { isNetlifyRuntime } from "./netlify-runtime";
-
 export type OrderedToggle<T extends string = string> = {
   id: T;
   enabled: boolean;
@@ -41,8 +37,6 @@ export type SiteConfigStore = {
   viewerAnimationLoop: import("./viewer-animation").ViewerAnimationLoop;
   viewerAutoPlayAnimation: boolean;
 };
-
-const STORE_KEY = "site-config";
 
 export function buildDefaultSiteConfig(): SiteConfigStore {
   const workSections = categoryGroups.flatMap((group) =>
@@ -97,21 +91,6 @@ async function writeLocal(data: SiteConfigStore) {
   await writeFile(localPath(), JSON.stringify(data, null, 2), "utf8");
 }
 
-async function readBlob(): Promise<SiteConfigStore | null> {
-  const data = await readBlobJsonWithTimeout(async () => {
-    const store = getStore("portfolio-admin");
-    const value = await store.get(STORE_KEY, { type: "json" });
-    if (!value) return null;
-    return value as SiteConfigStore;
-  });
-  return data;
-}
-
-async function writeBlob(data: SiteConfigStore) {
-  const store = getStore("portfolio-admin");
-  await store.setJSON(STORE_KEY, data);
-}
-
 export function normalizeSiteConfig(partial: SiteConfigStore | null | undefined): SiteConfigStore {
   const defaults = buildDefaultSiteConfig();
   if (!partial || partial.version !== 1) return defaults;
@@ -160,8 +139,6 @@ function clamp(value: number, min: number, max: number) {
 
 async function readSiteConfigImpl(): Promise<SiteConfigStore> {
   noStore();
-  const blob = await readBlob();
-  if (blob) return normalizeSiteConfig(blob);
   const local = await readLocal();
   return normalizeSiteConfig(local);
 }
@@ -170,30 +147,7 @@ export const readSiteConfig = cache(readSiteConfigImpl);
 
 export async function writeSiteConfig(data: SiteConfigStore) {
   const normalized = normalizeSiteConfig(data);
-  const onNetlify = isNetlifyRuntime();
-
-  if (onNetlify) {
-    await writeBlob(normalized);
-    try {
-      await writeLocal(normalized);
-    } catch {
-      // ephemeral on serverless; blob is source of truth
-    }
-    return normalized;
-  }
-
-  let blobSaved = false;
-  try {
-    await writeBlob(normalized);
-    blobSaved = true;
-  } catch {
-    // local dev without Netlify Blobs
-  }
-  try {
-    await writeLocal(normalized);
-  } catch {
-    if (!blobSaved) throw new Error("Could not save site configuration");
-  }
+  await writeLocal(normalized);
   return normalized;
 }
 

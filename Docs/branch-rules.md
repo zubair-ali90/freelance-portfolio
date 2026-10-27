@@ -15,7 +15,7 @@ There are no other permanent branches. Delete short-lived branches after merge.
 
 1. Do daily work on **`development`** (checkout `development`, commit, push).
 2. Open a PR **`development` → `production`** when ready to go live (or merge locally if you are the sole maintainer).
-3. Deploy the hosting provider from **`production`** only.
+3. Deploy **Vercel** from the **`production`** branch only (root directory: `web`, build: `npm run vercel-build`).
 4. Never force-push **`production`** unless you intentionally recover from a bad deploy and know the impact.
 
 ## Naming
@@ -30,4 +30,4 @@ There are no other permanent branches. Delete short-lived branches after merge.
 
 ## History note
 
-`master` and `netlify-production` were retired when this policy was adopted. Use `production` and `development` only.
+`master`, `netlify-production`, and Netlify hosting were retired. Use `production` and `development` with Vercel only.

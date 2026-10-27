@@ -208,7 +208,7 @@ export function SiteConfigManager({ initialConfig }: Props = {} as Props) {
     setSaving(false);
     if (!response.ok) {
       const body = (await response.json().catch(() => null)) as { error?: string } | null;
-      setMessage(body?.error ?? "Save failed. On Netlify, Blobs must be enabled for live updates.");
+      setMessage(body?.error ?? "Save failed. Try again.");
       return;
     }
     const data = await response.json();

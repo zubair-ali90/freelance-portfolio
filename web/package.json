@@ -9,11 +9,9 @@
     "lint": "eslint",
     "sync-projects": "node scripts/sync-projects.mjs",
     "prepare-assets": "node scripts/prepare-assets.mjs",
-    "netlify-build": "npm run prepare-assets && npm run build",
     "vercel-build": "npm run prepare-assets && npm run build"
   },
   "dependencies": {
-    "@netlify/blobs": "^11.1.6",
     "@react-three/drei": "^10.7.9",
     "@react-three/fiber": "^9.8.2",
     "next": "16.4.3",
@@ -22,7 +20,6 @@
     "three": "^0.186.1"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "^5.16.4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
