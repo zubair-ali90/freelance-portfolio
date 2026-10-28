@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { SiteConfigStore } from "@/lib/site-config";
+import type { SiteConfigStore } from "@/lib/site-config-types";
 import type { FeaturedProjectPlacement } from "@/lib/cms/homepage-defaults";
 
 type ProjectOption = { slug: string; title: string; cover: string; active: boolean };

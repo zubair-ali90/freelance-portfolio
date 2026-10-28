@@ -11,41 +11,18 @@ import {
   type HomepageStore,
   type PagesStore,
 } from "./cms/homepage-defaults";
+import { buildDefaultWorkPage, type WorkPageStore } from "./cms/work-page-defaults";
 import {
   isModelViewerEnvironment,
   sanitizeViewerBackgroundColor,
   sanitizeViewerBackdrop,
   sanitizeViewerHdriSrc,
   sanitizeViewerModelSrc,
-  type ModelViewerEnvironment,
 } from "./model-viewer";
 import { sanitizeViewerAnimationLoop } from "./viewer-animation";
+import type { OrderedToggle, SiteConfigStore, ResolvedWorkGroup } from "./site-config-types";
 
-export type OrderedToggle<T extends string = string> = {
-  id: T;
-  enabled: boolean;
-};
-
-export type SiteConfigStore = {
-  version: 2;
-  /** Legacy: category-priority home picks (still used as fallback). */
-  homeFeatured: OrderedToggle<ProjectCategory>[];
-  maxHomeFeatured: number;
-  workGroups: OrderedToggle<string>[];
-  workSections: OrderedToggle<ProjectCategory>[];
-  viewerModelSrc: string;
-  viewerBackgroundColor: string;
-  viewerEnvironmentPreset: ModelViewerEnvironment;
-  viewerHdriSrc: string;
-  viewerBackdrop: "solid" | "environment";
-  viewerAnimationLoop: import("./viewer-animation").ViewerAnimationLoop;
-  viewerAutoPlayAnimation: boolean;
-  homepage: HomepageStore;
-  pages: PagesStore;
-  reviews: { hiddenIds: string[] };
-  global: GlobalSiteSettings;
-  updatedAt?: string;
-};
+export type { OrderedToggle, SiteConfigStore, ResolvedWorkGroup } from "./site-config-types";
 
 export function buildDefaultSiteConfig(): SiteConfigStore {
   const workSections = categoryGroups.flatMap((group) =>
@@ -80,6 +57,7 @@ export function buildDefaultSiteConfig(): SiteConfigStore {
     viewerAutoPlayAnimation: true,
     homepage: buildDefaultHomepage(),
     pages: buildDefaultPages(),
+    workPage: buildDefaultWorkPage(),
     reviews: { hiddenIds: [] },
     global: buildDefaultGlobal(),
   };
@@ -91,6 +69,10 @@ function publishedPath() {
 
 function draftPath() {
   return path.join(process.cwd(), "data", "site-config.draft.json");
+}
+
+function previousPath() {
+  return path.join(process.cwd(), "data", "site-config.previous.json");
 }
 
 async function readJsonFile(filePath: string): Promise<unknown | null> {
@@ -204,6 +186,37 @@ function mergePages(partial: Partial<PagesStore> | undefined): PagesStore {
   };
 }
 
+function mergeWorkPage(partial: Partial<WorkPageStore> | undefined): WorkPageStore {
+  const defaults = buildDefaultWorkPage();
+  if (!partial) return defaults;
+  const projectOrder: WorkPageStore["projectOrder"] = { ...defaults.projectOrder };
+  if (partial.projectOrder) {
+    for (const [key, value] of Object.entries(partial.projectOrder)) {
+      if (Array.isArray(value)) {
+        projectOrder[key as ProjectCategory] = value.map(String);
+      }
+    }
+  }
+  const categoryMeta: WorkPageStore["categoryMeta"] = { ...defaults.categoryMeta };
+  if (partial.categoryMeta) {
+    for (const [key, value] of Object.entries(partial.categoryMeta)) {
+      if (!value || typeof value !== "object") continue;
+      categoryMeta[key as ProjectCategory] = {
+        description: String(value.description ?? ""),
+        leadProjectSlug: String(value.leadProjectSlug ?? ""),
+      };
+    }
+  }
+  return {
+    ...defaults,
+    ...partial,
+    projectOrder,
+    categoryMeta,
+    groupIntros: { ...defaults.groupIntros, ...partial.groupIntros },
+    showLeadProject: partial.showLeadProject !== false,
+  };
+}
+
 export function normalizeSiteConfig(partial: unknown): SiteConfigStore {
   const defaults = buildDefaultSiteConfig();
   if (!partial || typeof partial !== "object") return defaults;
@@ -226,6 +239,7 @@ export function normalizeSiteConfig(partial: unknown): SiteConfigStore {
     viewerAutoPlayAnimation: raw.viewerAutoPlayAnimation !== false,
     homepage: mergeHomepage(raw.homepage),
     pages: mergePages(raw.pages),
+    workPage: mergeWorkPage(raw.workPage),
     reviews: {
       hiddenIds: Array.isArray(raw.reviews?.hiddenIds)
         ? raw.reviews!.hiddenIds.map(String)
@@ -279,6 +293,8 @@ export async function publishSiteConfigDraft() {
     const published = await readSiteConfig();
     return { config: published, hadDraft: false };
   }
+  const current = await readSiteConfig();
+  await writeJsonFile(previousPath(), current);
   const published = await writeSiteConfig(draft);
   try {
     const { unlink } = await import("node:fs/promises");
@@ -287,6 +303,24 @@ export async function publishSiteConfigDraft() {
     /* ignore */
   }
   return { config: published, hadDraft: true };
+}
+
+export async function hasPreviousSiteConfig() {
+  try {
+    await access(previousPath());
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+export async function rollbackSiteConfig() {
+  const previous = await readJsonFile(previousPath());
+  if (!previous) return null;
+  const current = await readSiteConfig();
+  await writeJsonFile(draftPath(), current);
+  const restored = await writeSiteConfig(normalizeSiteConfig(previous));
+  return restored;
 }
 
 export async function discardSiteConfigDraft() {
@@ -312,18 +346,6 @@ export async function readEditableSiteConfig(): Promise<{
     config: draft ?? published,
   };
 }
-
-export type ResolvedWorkGroup = {
-  id: string;
-  label: string;
-  sections: {
-    id: ProjectCategory;
-    label: string;
-    hue: string;
-    accent: string;
-    kind: import("./content").ProjectKind;
-  }[];
-};
 
 export function resolveWorkLayout(config: SiteConfigStore): ResolvedWorkGroup[] {
   const sectionMeta = new Map(
