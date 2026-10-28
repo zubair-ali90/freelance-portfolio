@@ -4,8 +4,9 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { categoryGroups, categoryLabel } from "@/lib/content";
-import type { OrderedToggle, SiteConfigStore } from "@/lib/site-config";
+import type { OrderedToggle, SiteConfigStore } from "@/lib/site-config-types";
 import type { ProjectCategory } from "@/lib/content";
+import { WorkPageConfigPanel } from "@/components/admin/WorkPageConfigPanel";
 import { ModelViewer } from "@/components/viewer/ModelViewer";
 import {
   isModel3DPath,
@@ -22,8 +23,16 @@ import {
 } from "@/lib/hdri-catalog";
 import { ANIMATION_LOOP_OPTIONS } from "@/lib/viewer-animation";
 
+type ProjectOption = {
+  slug: string;
+  title: string;
+  category: ProjectCategory;
+  active: boolean;
+};
+
 type Props = {
   initialConfig?: SiteConfigStore;
+  projects?: ProjectOption[];
 };
 
 function moveItem<T extends string>(list: OrderedToggle<T>[], index: number, direction: -1 | 1) {
@@ -129,7 +138,7 @@ function OrderList<T extends string>({
   );
 }
 
-export function SiteConfigManager({ initialConfig }: Props = {} as Props) {
+export function SiteConfigManager({ initialConfig, projects = [] }: Props = {} as Props) {
   const router = useRouter();
   const [config, setConfig] = useState<SiteConfigStore | null>(initialConfig ?? null);
   const [ready, setReady] = useState(Boolean(initialConfig));
@@ -241,6 +250,28 @@ export function SiteConfigManager({ initialConfig }: Props = {} as Props) {
     setMessage("Published. Work layout and viewer settings are live.");
   }
 
+  async function rollback() {
+    if (!window.confirm("Restore the previous published configuration? Current live settings become a draft.")) {
+      return;
+    }
+    setSaving(true);
+    setMessage("");
+    const response = await fetch("/api/admin/site-config/publish", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "rollback" }),
+    });
+    setSaving(false);
+    const data = (await response.json()) as { error?: string; config?: SiteConfigStore; message?: string };
+    if (!response.ok) {
+      setMessage(data.error ?? "Rollback failed.");
+      return;
+    }
+    if (data.config) setConfig(data.config);
+    router.refresh();
+    setMessage(data.message ?? "Rolled back to previous published version.");
+  }
+
   const previewModelSrc =
     config.viewerModelSrc.trim() && isModel3DPath(config.viewerModelSrc)
       ? config.viewerModelSrc.trim()
@@ -272,10 +303,18 @@ export function SiteConfigManager({ initialConfig }: Props = {} as Props) {
           <button type="button" className="pill solid" onClick={publish} disabled={saving}>
             Publish
           </button>
+          <button type="button" className="pill" onClick={rollback} disabled={saving}>
+            Rollback
+          </button>
+          <a className="pill" href="/work" target="_blank" rel="noopener noreferrer">
+            Preview /work
+          </a>
         </div>
       </header>
 
       {message && <p className="admin-message">{message}</p>}
+
+      <WorkPageConfigPanel config={config} setConfig={setConfig} projects={projects} />
 
       <div className="admin-config-layout">
         <section className="admin-config-block admin-config-block-panel">

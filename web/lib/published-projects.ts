@@ -4,8 +4,9 @@ import { mergeProjectSummary } from "./project-client-details";
 import { readProjectOverrides, type ProjectOverride } from "./project-overrides";
 import { decorateProjectCategory, getBaseProjects } from "./projects-base";
 import { homeFeaturedCategoryOrder, readSiteConfig } from "./site-config";
+import type { AdminProjectRow } from "./admin-project-types";
 
-export type AdminProjectRow = Project & { active: boolean };
+export type { AdminProjectRow } from "./admin-project-types";
 
 function mergeOne(project: Project, override?: ProjectOverride): AdminProjectRow {
   const active = override?.active ?? true;
@@ -33,9 +34,7 @@ export async function getPublishedProject(slug: string) {
   return projects.find((project) => project.slug === slug);
 }
 
-export function projectsByCategoryList(projects: Project[], category: ProjectCategory) {
-  return projects.filter((project) => project.category === category);
-}
+export { projectsByCategoryList } from "./project-ordering";
 
 export async function getFeaturedPublishedProjects(): Promise<Project[]> {
   const [published, siteConfig] = await Promise.all([getPublishedProjects(), readSiteConfig()]);

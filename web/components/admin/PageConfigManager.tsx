@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { SiteConfigStore } from "@/lib/site-config";
+import type { SiteConfigStore } from "@/lib/site-config-types";
 
 type PageKey = "about" | "services" | "contact";
 

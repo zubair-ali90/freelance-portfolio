@@ -41,21 +41,21 @@ export const categoryGroups: {
 }[] = [
   {
     id: "animation",
-    label: "3D animation",
+    label: "3D",
     sections: [
-      { id: "product-animation", label: "Product animation", hue: "#1c2430", accent: "#e7b15a", kind: "motion" },
-      { id: "character", label: "3D character development", hue: "#241820", accent: "#e07a9a", kind: "character" },
-      { id: "installation", label: "Installation animation", hue: "#1a221c", accent: "#8fbf9f", kind: "motion" },
-      { id: "explainer", label: "Product explainer", hue: "#201c16", accent: "#d4a574", kind: "motion" },
+      { id: "product-animation", label: "Product Animation", hue: "#1c2430", accent: "#e7b15a", kind: "motion" },
+      { id: "character", label: "Character Art & Game Assets", hue: "#241820", accent: "#e07a9a", kind: "character" },
+      { id: "installation", label: "Installation Animation", hue: "#1a221c", accent: "#8fbf9f", kind: "motion" },
+      { id: "explainer", label: "Product Explainer", hue: "#201c16", accent: "#d4a574", kind: "motion" },
     ],
   },
   {
     id: "renders",
     label: "Renders",
     sections: [
-      { id: "product-renders", label: "Product renders", hue: "#1c2430", accent: "#e7b15a", kind: "product" },
-      { id: "hero-renders", label: "Hero renders", hue: "#141820", accent: "#c9a227", kind: "product" },
-      { id: "lifestyle-renders", label: "Lifestyle renders", hue: "#221c18", accent: "#d08a6a", kind: "space" },
+      { id: "product-renders", label: "Product Renders", hue: "#1c2430", accent: "#e7b15a", kind: "product" },
+      { id: "hero-renders", label: "Hero Renders", hue: "#141820", accent: "#c9a227", kind: "product" },
+      { id: "lifestyle-renders", label: "Lifestyle Renders", hue: "#221c18", accent: "#d08a6a", kind: "space" },
       { id: "standalone", label: "Standalone", hue: "#1a1c22", accent: "#9aa4b8", kind: "product" },
     ],
   },
@@ -63,10 +63,10 @@ export const categoryGroups: {
     id: "architectural",
     label: "Architectural",
     sections: [
-      { id: "interior-exterior", label: "Interior exterior", hue: "#1a201c", accent: "#7d9a86", kind: "space" },
+      { id: "interior-exterior", label: "Interior & Exterior", hue: "#1a201c", accent: "#7d9a86", kind: "space" },
       { id: "interior", label: "Interior", hue: "#221c18", accent: "#c4a484", kind: "space" },
       { id: "exterior", label: "Exterior", hue: "#182018", accent: "#8fbf9f", kind: "space" },
-      { id: "arc-viz", label: "Arc viz", hue: "#161c22", accent: "#7aa0b8", kind: "space" },
+      { id: "arc-viz", label: "Arch Viz", hue: "#161c22", accent: "#7aa0b8", kind: "space" },
     ],
   },
   {
@@ -78,6 +78,11 @@ export const categoryGroups: {
     ],
   },
 ];
+
+/** Display parent for leaf categories (stable IDs unchanged). */
+export function categoryGroupFor(category: ProjectCategory) {
+  return categoryGroups.find((group) => group.sections.some((section) => section.id === category));
+}
 
 export const categoryOrder: Leaf[] = categoryGroups.flatMap((group) => group.sections);
 

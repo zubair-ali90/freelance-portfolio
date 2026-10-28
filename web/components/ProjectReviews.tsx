@@ -12,9 +12,8 @@ export function ProjectReviews({
 
   return (
     <div className="project-reviews">
-      <p className="kicker">[ client feedback ]</p>
       <h2 className="manifesto" style={{ fontSize: "clamp(28px, 4vw, 42px)", marginTop: 10 }}>
-        What clients said
+        Client feedback
       </h2>
 
       <div className="project-reviews-list">

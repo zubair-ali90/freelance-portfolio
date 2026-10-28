@@ -9,9 +9,11 @@ import { ProjectMedia } from "@/components/ProjectMedia";
 export function ProjectDetailView({
   project,
   sidebar,
+  galleryLabel = "gallery",
 }: {
   project: Project;
   sidebar: ReactNode;
+  galleryLabel?: string;
 }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
@@ -47,12 +49,15 @@ export function ProjectDetailView({
       </div>
 
       <div className="wrap wrap-wide">
-        <h2 className="manifesto" style={{ fontSize: "clamp(28px, 4vw, 42px)", marginTop: 48 }}>
-          gallery
+        <p className="kicker" style={{ marginTop: 48 }}>
+          {galleryLabel}
+        </p>
+        <h2 className="manifesto" style={{ fontSize: "clamp(28px, 4vw, 42px)", marginTop: 8 }}>
+          Media
         </h2>
         <p className="meta gallery-note">
-          Click a thumbnail to show it in the main view (including the last item). Videos loop silently; open
-          the player for sound and controls.
+          Click a thumbnail to show it in the main view. Videos use posters and metadata preload; open the
+          player for sound and controls. Detail view preserves original aspect ratio.
         </p>
         <div className="gallery">
           {project.media.map((src, index) => (

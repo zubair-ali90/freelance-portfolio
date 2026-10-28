@@ -61,7 +61,7 @@
   "maxHomeFeatured": 6,
   "workGroups": [
     {
-      "id": "animation",
+      "id": "development",
       "enabled": true
     },
     {
@@ -69,11 +69,11 @@
       "enabled": true
     },
     {
-      "id": "architectural",
+      "id": "animation",
       "enabled": true
     },
     {
-      "id": "development",
+      "id": "architectural",
       "enabled": true
     }
   ],
@@ -338,6 +338,28 @@
       "upworkLabel": "Prefer Upwork? Open my profile"
     }
   },
+  "workPage": {
+    "eyebrow": "SELECTED & COMPLETE WORK",
+    "headline": "Work, made to be experienced.",
+    "introduction": "Explore 3D animation, product imagery, architectural visualization, and interactive development. Every project is a different way of making an idea clearer, more engaging, or easier to explore.",
+    "exploreLabel": "EXPLORE BY DISCIPLINE",
+    "searchPlaceholder": "Search projects, clients, or skills",
+    "emptyText": "No projects match these filters. Try a different category or search.",
+    "ctaHeading": "Have something similar in mind?",
+    "ctaDescription": "From a product visualization to an interactive experience, I can help turn your brief into a project worth exploring.",
+    "ctaPrimaryLabel": "Hire Me on Upwork",
+    "ctaPrimaryHref": "https://www.upwork.com/freelancers/zubaira27",
+    "ctaSecondaryLabel": "Back to All Work",
+    "showLeadProject": true,
+    "projectOrder": {},
+    "groupIntros": {
+      "animation": "From the first shape to the final frame. Character work, product animation, technical storytelling, and game-ready assets built with attention to form and motion.",
+      "renders": "Every surface has a story. Carefully composed CGI images for products, campaigns, and visual presentations, where lighting and material detail matter.",
+      "architectural": "Spaces before they exist. Interior, exterior, and spatial visualizations that help people understand a place, explore options, and imagine the result.",
+      "development": "Beyond looking. Into interacting. Unity, Unreal, AR/VR, and browser-based experiences that let users play, explore, configure, and learn."
+    },
+    "categoryMeta": {}
+  },
   "reviews": {
     "hiddenIds": []
   },
@@ -349,5 +371,5 @@
     "footerTagline": "Made with imagination. Built with precision.",
     "siteTitle": "Zubair Ali | 3D Artist & Interactive Developer"
   },
-  "updatedAt": "2026-10-27T18:12:05.190Z"
+  "updatedAt": "2026-10-28T14:24:58.746Z"
 }

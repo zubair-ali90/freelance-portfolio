@@ -2493,3 +2493,134 @@ img {
   font-size: 14px;
   cursor: pointer;
 }
+
+/* Work gallery redesign */
+.work-hero h1 {
+  max-width: 18ch;
+}
+
+.work-filter-bar {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.work-group-chips,
+.work-leaf-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip.chip-active,
+button.chip.chip-active {
+  background: var(--ink);
+  color: var(--cream);
+  border-color: var(--ink);
+}
+
+button.chip {
+  cursor: pointer;
+  font: inherit;
+}
+
+.work-search input {
+  width: min(420px, 100%);
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  font: inherit;
+}
+
+.work-group-intro,
+.work-leaf-desc {
+  max-width: 62ch;
+  margin: 8px 0 22px;
+}
+
+.work-lead-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 28px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  text-decoration: none;
+  color: inherit;
+  background: color-mix(in srgb, var(--paper) 80%, var(--cream));
+}
+
+.work-lead-copy h3 {
+  margin: 8px 0 10px;
+  font-family: var(--font-display), serif;
+  font-size: clamp(28px, 3vw, 40px);
+}
+
+.case-study-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+
+.case-study-breadcrumb a {
+  color: inherit;
+  opacity: 0.75;
+}
+
+.case-study-overview {
+  max-width: 70ch;
+  font-size: 1.05rem;
+}
+
+.case-study-blocks {
+  display: grid;
+  gap: 18px;
+  margin-top: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.case-study-blocks article {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper);
+}
+
+.case-study-blocks h3 {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+}
+
+.case-study-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.admin-project-thumb {
+  width: 56px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: var(--ink);
+}
+
+.media-frame-hero .stage-media,
+.media-lightbox img,
+.media-lightbox video {
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .work-lead-card {
+    grid-template-columns: 1fr;
+  }
+}
