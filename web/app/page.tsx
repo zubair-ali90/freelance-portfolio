@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
 import { HomeExperience } from "@/components/home/HomeExperience";
+import {
+  hiddenMediaSet,
+  readMediaVisibility,
+  sanitizeHomepageMediaSrcs,
+} from "@/lib/media-visibility";
 import { getHomepageReviews } from "@/lib/portfolio-reviews";
 import { getPublishedProjects } from "@/lib/published-projects";
 import { readSiteConfig } from "@/lib/site-config";
@@ -17,12 +22,17 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function HomePage() {
-  const [projects, config] = await Promise.all([getPublishedProjects(), readSiteConfig()]);
+  const [projects, config, visibility] = await Promise.all([
+    getPublishedProjects(),
+    readSiteConfig(),
+    readMediaVisibility(),
+  ]);
   const reviews = getHomepageReviews(config.homepage.trust.reviewIds, config.reviews.hiddenIds);
+  const homepage = sanitizeHomepageMediaSrcs(config.homepage, hiddenMediaSet(visibility));
 
   return (
     <main>
-      <HomeExperience projects={projects} homepage={config.homepage} reviews={reviews} />
+      <HomeExperience projects={projects} homepage={homepage} reviews={reviews} />
     </main>
   );
 }

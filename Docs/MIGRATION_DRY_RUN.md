@@ -29,7 +29,7 @@ stylized-fox-vrm maps to unity-unity-character — merged, not duplicated.
 | mnstr-assoc | character-anime | MNSTR Assoc — 360° Jewelry Animation |
 | bordertown-retail | lifestyle-renders-furniture | Bordertown Retail — AR-Ready Displays |
 | artscapes-ar | explainer-app-animation | Artscapes — Mobile AR Application |
-| macrovey-ar-machine | product-renders-product | Macrovey — AR Machine Visualization |
+| macrovey-ar-machine | product-renders-camera | Macrovey — AR Machine Visualization |
 | ski-patrol-vr | explainer-training-video | Ski Patrol — VR Rescue Training |
 | vr-house-walkthrough | unreal-michaela-environment | Interactive VR House Walkthrough |
 | dw-spectrum-showcase | installation-industrial-visualization | DW Spectrum — Event Booth Visualization |

@@ -101,6 +101,17 @@ export function getReviewsForSlug(slug: string): PortfolioReview[] {
   return getWrittenReviews().filter((review) => sourceIds.has(review.projectId));
 }
 
+/** Resolve written reviews by explicit IDs (preserves order; skips missing/non-written). */
+export function getReviewsByIds(ids: string[]): PortfolioReview[] {
+  const byId = new Map(getWrittenReviews().map((review) => [review.id, review]));
+  const ordered: PortfolioReview[] = [];
+  for (const id of ids) {
+    const review = byId.get(id);
+    if (review?.quote) ordered.push(review);
+  }
+  return ordered;
+}
+
 export function getRatingOnlyForSlug(slug: string): PortfolioReview[] {
   const sourceIds = new Set(sourceIdsForSlug(slug));
   return getAllReviews().filter(

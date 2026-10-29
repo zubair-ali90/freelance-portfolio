@@ -11,8 +11,11 @@ import { ProjectReviews } from "@/components/ProjectReviews";
 import { UpworkHireLink } from "@/components/UpworkHireLink";
 import { categoryGroupFor, categoryLabel } from "@/lib/content";
 import { getProjectClientInfo } from "@/lib/project-client-details";
-import { getRatingOnlyForSlug, getReviewsForSlug } from "@/lib/portfolio-reviews";
-import { getPublishedProject, getPublishedProjects } from "@/lib/published-projects";
+import {
+  getPublishedProject,
+  getPublishedProjects,
+  getProjectPageReviews,
+} from "@/lib/published-projects";
 import { projectsByCategoryList } from "@/lib/project-ordering";
 import { enrichProjectFromSource } from "@/lib/work-source-enrichment";
 import { readSiteConfig } from "@/lib/site-config";
@@ -42,10 +45,14 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const sectionLabel = categoryLabel(project.category);
   const group = categoryGroupFor(project.category);
   const clientInfo = getProjectClientInfo(slug);
-  const reviews = getReviewsForSlug(slug);
-  const ratingOnly = getRatingOnlyForSlug(slug);
+  const { reviews, ratingOnly } = await getProjectPageReviews(slug);
   const enrichment = enrichProjectFromSource(slug);
-  const summary = enrichment?.cardExcerpt || enrichment?.overview || project.summary;
+  // Prefer admin-edited / published project summary; fall back to source excerpt only if needed.
+  const summary =
+    project.summary?.trim() ||
+    enrichment?.cardExcerpt ||
+    enrichment?.overview ||
+    "";
   const related = projectsByCategoryList(
     allProjects,
     project.category,

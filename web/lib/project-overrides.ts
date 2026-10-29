@@ -7,6 +7,16 @@ import type { ProjectCategory } from "./content";
 export type ProjectOverride = {
   active: boolean;
   category?: ProjectCategory;
+  /** Canonical cover/thumbnail. Must be one of the project's media paths. */
+  cover?: string;
+  title?: string;
+  summary?: string;
+  role?: string;
+  /**
+   * Written review IDs to show on the project page.
+   * Omit for automatic source mapping. Empty array hides written reviews.
+   */
+  reviewIds?: string[];
 };
 
 export type ProjectOverridesStore = {

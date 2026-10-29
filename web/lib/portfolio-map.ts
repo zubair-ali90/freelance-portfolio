@@ -14,7 +14,7 @@ export const sourceIdToSlug: Record<string, string | null> = {
   "artscapes-ar": "explainer-app-animation",
   "ai-avatar-blendshapes": null,
   "photorealistic-character-rigging": null,
-  "macrovey-ar-machine": "product-renders-product",
+  "macrovey-ar-machine": "product-renders-camera",
   "ski-patrol-vr": "explainer-training-video",
   "vr-house-walkthrough": "unreal-michaela-environment",
   "dw-spectrum-showcase": "installation-industrial-visualization",
