@@ -170,9 +170,18 @@
     "title": "Mascot",
     "folder": "Mascot",
     "summary": "Mascot — Mascot.",
-    "cover": "/assets/Mascot/Copy%20of%20Head-Variations-2.jpg",
+    "cover": "/assets/Mascot/pose-1.png",
     "media": [
-      "/assets/Mascot/Copy%20of%20Head-Variations-2.jpg"
+      "/assets/Mascot/max-1.jpg",
+      "/assets/Mascot/max-2.jpg",
+      "/assets/Mascot/max-3.jpg",
+      "/assets/Mascot/max-4.jpg",
+      "/assets/Mascot/pose-1.png",
+      "/assets/Mascot/pose-2-1.png",
+      "/assets/Mascot/pose-2.png",
+      "/assets/Mascot/pose-3-1.png",
+      "/assets/Mascot/pose-3.png",
+      "/assets/Mascot/pose-4.png"
     ]
   },
   {
@@ -455,8 +464,7 @@
     "summary": "Packaging — 3D/Packaging.",
     "cover": "/assets/3D/Packaging/Copy%20of%20Omega3Gummies_60_V1.png",
     "media": [
-      "/assets/3D/Packaging/Copy%20of%20Omega3Gummies_60_V1.png",
-      "https://playcanv.as/b/554dd2f3"
+      "/assets/3D/Packaging/Copy%20of%20Omega3Gummies_60_V1.png"
     ]
   },
   {
@@ -655,10 +663,12 @@
     "title": "Unity character",
     "folder": "Untiy/character",
     "summary": "Unity character — Untiy/character.",
-    "cover": "/assets/Untiy/character/After/Screenshot%202026-03-05%20002121%20(1).png",
+    "cover": "/assets/Untiy/character/character.webm",
     "media": [
       "/assets/Untiy/character/After/Screenshot%202026-03-05%20002121%20(1).png",
       "/assets/Untiy/character/After/Screenshot%202026-03-05%20003013%20(1).png",
+      "/assets/Untiy/character/character.png",
+      "/assets/Untiy/character/character.webm",
       "/assets/Untiy/character/WhatsApp%20Image%202026-03-03%20at%2020.30.53(1)%20(2).jpeg"
     ]
   },
