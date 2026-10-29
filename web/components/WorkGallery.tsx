@@ -6,6 +6,7 @@ import type { Project, ProjectCategory } from "@/lib/content";
 import type { WorkPageStore } from "@/lib/cms/work-page-defaults";
 import type { ResolvedWorkGroup } from "@/lib/work-layout-types";
 import { ProjectCover } from "@/components/ProjectMedia";
+import { isEmbed } from "@/lib/media";
 import { UpworkHireLink } from "@/components/UpworkHireLink";
 import { projectsByCategoryList } from "@/lib/project-ordering";
 
@@ -194,39 +195,72 @@ export function WorkGallery({
                     </h2>
                     {meta?.description && <p className="work-leaf-desc">{meta.description}</p>}
 
-                    {lead && (
-                      <Link href={`/work/${lead.slug}`} className="work-lead-card">
-                        <div className="work-lead-media">
-                          <ProjectCover project={lead} />
+                    {lead &&
+                      (isEmbed(lead.cover) ? (
+                        <div className="work-lead-card">
+                          <div className="work-lead-media">
+                            <ProjectCover project={lead} />
+                          </div>
+                          <Link href={`/work/${lead.slug}`} className="work-lead-copy">
+                            <p className="kicker">Featured</p>
+                            <h3>{lead.title}</h3>
+                            {clientCredits[lead.slug] && (
+                              <p className="meta">{clientCredits[lead.slug]}</p>
+                            )}
+                            <p>{lead.summary}</p>
+                            <span className="pill">Explore Project</span>
+                          </Link>
                         </div>
-                        <div className="work-lead-copy">
-                          <p className="kicker">Featured</p>
-                          <h3>{lead.title}</h3>
-                          {clientCredits[lead.slug] && (
-                            <p className="meta">{clientCredits[lead.slug]}</p>
-                          )}
-                          <p>{lead.summary}</p>
-                          <span className="pill">Explore Project</span>
-                        </div>
-                      </Link>
-                    )}
-
-                    <div className="card-grid">
-                      {rest.map((project) => (
-                        <Link
-                          key={project.slug}
-                          href={`/work/${project.slug}`}
-                          className="project-card"
-                        >
-                          <ProjectCover project={project} />
-                          <h3>{project.title}</h3>
-                          {clientCredits[project.slug] && (
-                            <p className="meta">{clientCredits[project.slug]}</p>
-                          )}
-                          <p>{project.summary}</p>
-                          <p className="meta">Explore Project</p>
+                      ) : (
+                        <Link href={`/work/${lead.slug}`} className="work-lead-card">
+                          <div className="work-lead-media">
+                            <ProjectCover project={lead} />
+                          </div>
+                          <div className="work-lead-copy">
+                            <p className="kicker">Featured</p>
+                            <h3>{lead.title}</h3>
+                            {clientCredits[lead.slug] && (
+                              <p className="meta">{clientCredits[lead.slug]}</p>
+                            )}
+                            <p>{lead.summary}</p>
+                            <span className="pill">Explore Project</span>
+                          </div>
                         </Link>
                       ))}
+
+                    <div className="card-grid">
+                      {rest.map((project) => {
+                        const body = (
+                          <>
+                            <h3>{project.title}</h3>
+                            {clientCredits[project.slug] && (
+                              <p className="meta">{clientCredits[project.slug]}</p>
+                            )}
+                            <p>{project.summary}</p>
+                            <p className="meta">Explore Project</p>
+                          </>
+                        );
+                        if (isEmbed(project.cover)) {
+                          return (
+                            <article key={project.slug} className="project-card">
+                              <ProjectCover project={project} />
+                              <Link href={`/work/${project.slug}`} className="project-card-body">
+                                {body}
+                              </Link>
+                            </article>
+                          );
+                        }
+                        return (
+                          <Link
+                            key={project.slug}
+                            href={`/work/${project.slug}`}
+                            className="project-card"
+                          >
+                            <ProjectCover project={project} />
+                            {body}
+                          </Link>
+                        );
+                      })}
                     </div>
                   </div>
                 );

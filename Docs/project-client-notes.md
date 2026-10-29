@@ -12,7 +12,7 @@ Content on the live site is driven by `web/lib/project-client-details.ts`, mappe
 | `lifestyle-renders-furniture` | Bordertown Retail |
 | `product-animation-product-animation` | GooPlast |
 | `explainer-app-animation` | Artscapes AR |
-| `product-renders-product` | Macrovey |
+| `product-renders-camera` | Macrovey |
 | `explainer-training-video` | Medical VR ski-injury training |
 | `unreal-michaela-environment` | Neil MR house walkthrough |
 | `explainer-website-animation` | DW Spectrum meeting room |

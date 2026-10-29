@@ -71,7 +71,7 @@ export function WorkPageConfigPanel({
         published.
       </p>
 
-      <div className="admin-form-stack" style={{ maxWidth: 820, marginBottom: 24 }}>
+      <div className="admin-form-stack admin-form-stack-split" style={{ marginBottom: 24 }}>
         <label>
           Eyebrow
           <input value={work.eyebrow} onChange={(e) => patchWork({ eyebrow: e.target.value })} />
@@ -132,7 +132,7 @@ export function WorkPageConfigPanel({
       </div>
 
       <h3 className="admin-config-kicker">Group introductions</h3>
-      <div className="admin-form-stack" style={{ maxWidth: 820, marginBottom: 24 }}>
+      <div className="admin-form-stack admin-form-stack-split" style={{ marginBottom: 24 }}>
         {categoryGroups.map((group) => (
           <label key={group.id}>
             {group.label}
@@ -172,7 +172,7 @@ export function WorkPageConfigPanel({
         </select>
       </label>
 
-      <div className="admin-form-stack" style={{ maxWidth: 820, marginBottom: 16 }}>
+      <div className="admin-form-stack admin-form-stack-split" style={{ marginBottom: 16 }}>
         <label>
           Lead project for {categoryLabel(selectedLeaf)}
           <select

@@ -13,6 +13,8 @@ const mediaExt = new Set([".mp4", ".webm", ".mov", ".gif", ".png", ".jpg", ".jpe
  * product-renders | hero-renders | lifestyle-renders | standalone
  * interior-exterior | interior | exterior | arc-viz
  * unity | unreal
+ *
+ * Note: 3D/Product is expanded into one project per direct subfolder (not listed here).
  */
 const assignments = [
   // Product animation
@@ -49,8 +51,7 @@ const assignments = [
   ["explainer", "Jon", "Jon"],
   ["explainer", "SaaS films", "SaaS apple style video"],
 
-  // Product renders
-  ["product-renders", "Product", "3D/Product"],
+  // Product renders (3D/Product subfolders are expanded below)
   ["product-renders", "Packaging", "3D/Packaging"],
   ["product-renders", "Sports", "Sports"],
 
@@ -121,10 +122,44 @@ function slugify(cat, name) {
     .replace(/^-|-$/g, "")}`;
 }
 
-const projects = [];
-const missing = [];
+/** One project per direct child folder of 3D/Product that contains media. */
+function expandProductRenderFolders() {
+  const parentRel = "3D/Product";
+  const parent = path.join(root, ...parentRel.split("/"));
+  const next = [];
+  const missing = [];
+  if (!fs.existsSync(parent)) {
+    return { assignments: next, missing: [parentRel] };
+  }
+  for (const entry of fs.readdirSync(parent, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    const folderRel = `${parentRel}/${entry.name}`;
+    const media = listMedia(path.join(parent, entry.name));
+    if (!media.length) {
+      missing.push(`${folderRel} (no media)`);
+      continue;
+    }
+    next.push(["product-renders", entry.name, folderRel]);
+  }
+  // Keep Packaging / Sports after Product children in category order.
+  next.sort((a, b) => a[1].localeCompare(b[1]));
+  return { assignments: next, missing };
+}
 
-for (const [category, title, folderRel] of assignments) {
+const expandedProduct = expandProductRenderFolders();
+const packagingIndex = assignments.findIndex(
+  (row) => row[0] === "product-renders" && row[2] === "3D/Packaging",
+);
+const allAssignments = [
+  ...assignments.slice(0, packagingIndex),
+  ...expandedProduct.assignments,
+  ...assignments.slice(packagingIndex),
+];
+
+const projects = [];
+const missing = [...expandedProduct.missing];
+
+for (const [category, title, folderRel] of allAssignments) {
   const folder = path.join(root, ...folderRel.split("/"));
   if (!fs.existsSync(folder)) {
     missing.push(folderRel);
@@ -148,4 +183,7 @@ for (const [category, title, folderRel] of assignments) {
 
 fs.writeFileSync(out, JSON.stringify(projects, null, 2));
 console.log(`Synced ${projects.length} projects to lib/projects.json`);
+console.log(
+  `Product subfolder projects: ${expandedProduct.assignments.map((row) => row[1]).join(", ") || "(none)"}`,
+);
 if (missing.length) console.log("Missing:\n" + missing.join("\n"));

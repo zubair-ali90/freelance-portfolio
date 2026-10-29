@@ -1,4 +1,54 @@
 {
   "version": 1,
-  "overrides": {}
+  "overrides": {
+    "explainer-jon": {
+      "active": true,
+      "title": "Motion Graphics"
+    },
+    "product-renders-clothing": {
+      "active": false
+    },
+    "product-renders-packaging": {
+      "active": true,
+      "cover": "https://playcanv.as/b/554dd2f3"
+    },
+    "standalone-2d-environments": {
+      "active": false
+    },
+    "interior-game-room": {
+      "active": true,
+      "cover": "/assets/3D/Exterior-Interior/Game%20room/Game%20room%202/game-room-3d-model-4.jpg"
+    },
+    "exterior-exterior": {
+      "active": true,
+      "cover": "/assets/3D/Exterior-Interior/Exterior/Villa-Exterior/Villa-Exterior-4.jpg"
+    },
+    "unity-unity-character": {
+      "active": true,
+      "cover": "/assets/Untiy/character/WhatsApp%20Image%202026-03-03%20at%2020.30.53(1)%20(2).jpeg"
+    },
+    "unity-nature": {
+      "active": true,
+      "cover": "/assets/Untiy/Nature/1/Summer-Forest-4-768x432.webp"
+    },
+    "unity-unity-environment": {
+      "active": true,
+      "cover": "/assets/Untiy/Unity%20environment/Workshop/Workshop-1.png"
+    },
+    "unity-unity-game": {
+      "active": true,
+      "cover": "/assets/Untiy/Unity%20Game/Movie_002.mp4"
+    },
+    "unity-viva-play": {
+      "active": false,
+      "cover": "/assets/Untiy/Viva%20Play/ac14ff48-42f1-48f0-bade-effff98e8ad5.png"
+    },
+    "unreal-fantasy-castle": {
+      "active": true,
+      "cover": "/assets/Unreal/enviornment/Fantasy%20Castle%20Environment/15.jpg"
+    },
+    "unreal-michaela-environment": {
+      "active": false
+    }
+  }
 }

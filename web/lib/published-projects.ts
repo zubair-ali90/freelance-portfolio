@@ -5,6 +5,17 @@ import { readProjectOverrides, type ProjectOverride } from "./project-overrides"
 import { decorateProjectCategory, getBaseProjects } from "./projects-base";
 import { homeFeaturedCategoryOrder, readSiteConfig } from "./site-config";
 import type { AdminProjectRow } from "./admin-project-types";
+import {
+  applyMediaVisibility,
+  hiddenMediaSet,
+  readMediaVisibility,
+} from "./media-visibility";
+import {
+  getRatingOnlyForSlug,
+  getReviewsByIds,
+  getReviewsForSlug,
+  type PortfolioReview,
+} from "./portfolio-reviews";
 
 export type { AdminProjectRow } from "./admin-project-types";
 
@@ -12,7 +23,22 @@ function mergeOne(project: Project, override?: ProjectOverride): AdminProjectRow
   const active = override?.active ?? true;
   const category = override?.category ?? project.category;
   const decorated = category === project.category ? project : decorateProjectCategory(project, category);
-  return { ...decorated, active };
+  const cover =
+    override?.cover && project.media.includes(override.cover) ? override.cover : project.cover;
+  const title = override?.title?.trim() ? override.title.trim() : decorated.title;
+  const summary = override?.summary?.trim() ? override.summary.trim() : decorated.summary;
+  const role = override?.role?.trim() ? override.role.trim() : decorated.role;
+  const reviewIds = Array.isArray(override?.reviewIds) ? override!.reviewIds.map(String) : null;
+
+  return {
+    ...decorated,
+    cover,
+    title,
+    summary,
+    role,
+    active,
+    reviewIds,
+  };
 }
 
 export async function getAdminProjectRows(): Promise<AdminProjectRow[]> {
@@ -20,18 +46,46 @@ export async function getAdminProjectRows(): Promise<AdminProjectRow[]> {
   return getBaseProjects().map((project) => mergeOne(project, overrides[project.slug]));
 }
 
-function publishRow({ active: _a, ...project }: AdminProjectRow): Project {
-  return mergeProjectSummary(project);
+function publishRow(
+  { active: _a, reviewIds: _r, ...project }: AdminProjectRow,
+  hiddenMedia: Set<string>,
+): Project {
+  const visible = applyMediaVisibility(project, hiddenMedia);
+  const base = getBaseProjects().find((entry) => entry.slug === visible.slug);
+  // Keep admin-edited copy; only auto-enrich when summary was left as the base text.
+  if (base && visible.summary === base.summary) {
+    return mergeProjectSummary(visible);
+  }
+  return visible;
 }
 
 export async function getPublishedProjects(): Promise<Project[]> {
-  const rows = await getAdminProjectRows();
-  return rows.filter((project) => project.active).map(publishRow);
+  const [rows, visibility] = await Promise.all([getAdminProjectRows(), readMediaVisibility()]);
+  const hidden = hiddenMediaSet(visibility);
+  return rows.filter((project) => project.active).map((row) => publishRow(row, hidden));
 }
 
 export async function getPublishedProject(slug: string) {
   const projects = await getPublishedProjects();
   return projects.find((project) => project.slug === slug);
+}
+
+export async function getProjectPageReviews(slug: string): Promise<{
+  reviews: PortfolioReview[];
+  ratingOnly: PortfolioReview[];
+}> {
+  const { overrides } = await readProjectOverrides();
+  const override = overrides[slug];
+  if (Array.isArray(override?.reviewIds)) {
+    return {
+      reviews: getReviewsByIds(override.reviewIds),
+      ratingOnly: getRatingOnlyForSlug(slug),
+    };
+  }
+  return {
+    reviews: getReviewsForSlug(slug),
+    ratingOnly: getRatingOnlyForSlug(slug),
+  };
 }
 
 export { projectsByCategoryList } from "./project-ordering";
@@ -68,10 +122,10 @@ export async function getDashboardStats() {
     byCategory[leaf.id] = active.filter((r) => r.category === leaf.id).length;
   }
 
-  const { mediaStats } = await import("./cms/media-catalog");
+  const { buildMediaCatalogWithVisibility, mediaStats } = await import("./cms/media-catalog");
   const { getWrittenReviews, getHomepageReviews } = await import("./portfolio-reviews");
   const { readEditableSiteConfig } = await import("./site-config");
-  const media = mediaStats();
+  const media = mediaStats(await buildMediaCatalogWithVisibility());
   const editable = await readEditableSiteConfig();
   const homepage = editable.config.homepage;
   const featuredSlugs = homepage.featuredProjects.filter((item) => item.enabled).map((item) => item.slug);

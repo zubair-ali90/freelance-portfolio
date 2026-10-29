@@ -46,19 +46,19 @@ export function AdminShell({
           </p>
         </div>
         <div className="admin-topbar-actions">
-          <a className="pill" href="/" target="_blank" rel="noopener noreferrer">
+          <a className="pill ghost-light" href="/" target="_blank" rel="noopener noreferrer">
             Preview website
           </a>
           <a
-            className="pill"
+            className="pill ghost-light"
             href="https://zubarirali.3dverse.io/"
             target="_blank"
             rel="noopener noreferrer"
           >
             Visit live site
           </a>
-          <button type="button" className="pill admin-logout" onClick={logout}>
-            Logout
+          <button type="button" className="pill admin-logout-btn" onClick={logout}>
+            Log out
           </button>
         </div>
       </header>

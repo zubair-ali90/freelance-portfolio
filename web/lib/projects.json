@@ -333,16 +333,26 @@
   },
   {
     "category": "product-renders",
-    "slug": "product-renders-product",
-    "title": "Product",
-    "folder": "3D/Product",
-    "summary": "Product — 3D/Product.",
-    "cover": "/assets/3D/Product/Camera/Panasonic%20LUMIX%20GH6/1.webp",
+    "slug": "product-renders-beauty",
+    "title": "Beauty",
+    "folder": "3D/Product/Beauty",
+    "summary": "Beauty — 3D/Product/Beauty.",
+    "cover": "/assets/3D/Product/Beauty/1/1785495482874.jpg",
     "media": [
       "/assets/3D/Product/Beauty/1/1785495482874.jpg",
       "/assets/3D/Product/Beauty/2/1785676873030.jpg",
       "/assets/3D/Product/Beauty/4/1769460004703.jpg",
-      "/assets/3D/Product/Beauty/Shampoo%20bottles/1776270948340.jpg",
+      "/assets/3D/Product/Beauty/Shampoo%20bottles/1776270948340.jpg"
+    ]
+  },
+  {
+    "category": "product-renders",
+    "slug": "product-renders-camera",
+    "title": "Camera",
+    "folder": "3D/Product/Camera",
+    "summary": "Camera — 3D/Product/Camera.",
+    "cover": "/assets/3D/Product/Camera/Panasonic%20LUMIX%20GH6/1.webp",
+    "media": [
       "/assets/3D/Product/Camera/3/1755451551517.jpg",
       "/assets/3D/Product/Camera/3/1755451552688.jpg",
       "/assets/3D/Product/Camera/3/1755451554277.jpg",
@@ -350,12 +360,52 @@
       "/assets/3D/Product/Camera/Nikon/1.jpg",
       "/assets/3D/Product/Camera/Panasonic%20LUMIX%20GH6/1.webp",
       "/assets/3D/Product/Camera/Panasonic%20LUMIX%20GH6/2.webp",
-      "/assets/3D/Product/Camera/Panasonic%20LUMIX%20GH6/5.webp",
+      "/assets/3D/Product/Camera/Panasonic%20LUMIX%20GH6/5.webp"
+    ]
+  },
+  {
+    "category": "product-renders",
+    "slug": "product-renders-clothing",
+    "title": "Clothing",
+    "folder": "3D/Product/Clothing",
+    "summary": "Clothing — 3D/Product/Clothing.",
+    "cover": "/assets/3D/Product/Clothing/Sweez/references/image1.jpeg",
+    "media": [
       "/assets/3D/Product/Clothing/Sweez/references/image1.jpeg",
       "/assets/3D/Product/Clothing/Sweez/references/image2.jpeg",
-      "/assets/3D/Product/Clothing/Sweez/references/image6.jpeg",
-      "/assets/3D/Product/Coffe%20maker/Coffe%20maker/4.jpg",
-      "/assets/3D/Product/Golf%20sumilator/T2%20Sim%20Photos/T2%20Full%20Sim%20Both%20Hand.jpg",
+      "/assets/3D/Product/Clothing/Sweez/references/image6.jpeg"
+    ]
+  },
+  {
+    "category": "product-renders",
+    "slug": "product-renders-coffe-maker",
+    "title": "Coffe maker",
+    "folder": "3D/Product/Coffe maker",
+    "summary": "Coffe maker — 3D/Product/Coffe maker.",
+    "cover": "/assets/3D/Product/Coffe%20maker/Coffe%20maker/4.jpg",
+    "media": [
+      "/assets/3D/Product/Coffe%20maker/Coffe%20maker/4.jpg"
+    ]
+  },
+  {
+    "category": "product-renders",
+    "slug": "product-renders-golf-sumilator",
+    "title": "Golf sumilator",
+    "folder": "3D/Product/Golf sumilator",
+    "summary": "Golf sumilator — 3D/Product/Golf sumilator.",
+    "cover": "/assets/3D/Product/Golf%20sumilator/T2%20Sim%20Photos/T2%20Full%20Sim%20Both%20Hand.jpg",
+    "media": [
+      "/assets/3D/Product/Golf%20sumilator/T2%20Sim%20Photos/T2%20Full%20Sim%20Both%20Hand.jpg"
+    ]
+  },
+  {
+    "category": "product-renders",
+    "slug": "product-renders-health-and-wellness",
+    "title": "Health and wellness",
+    "folder": "3D/Product/Health and wellness",
+    "summary": "Health and wellness — 3D/Product/Health and wellness.",
+    "cover": "/assets/3D/Product/Health%20and%20wellness/Shampoo%20%26%20disinfectant/Box%202.png",
+    "media": [
       "/assets/3D/Product/Health%20and%20wellness/Biotin/1781104375907.jpg",
       "/assets/3D/Product/Health%20and%20wellness/Biotin/1781104376125.jpg",
       "/assets/3D/Product/Health%20and%20wellness/Serums/3.jpg",
@@ -372,8 +422,28 @@
       "/assets/3D/Product/Health%20and%20wellness/Supplements/6/1.jpg",
       "/assets/3D/Product/Health%20and%20wellness/Supplements/6/3.jpg",
       "/assets/3D/Product/Health%20and%20wellness/Supplements/Seed/render.jpg",
-      "/assets/3D/Product/Health%20and%20wellness/Vials/18.png",
-      "/assets/3D/Product/Iphone/Untitled%20folder/5.jpg",
+      "/assets/3D/Product/Health%20and%20wellness/Vials/18.png"
+    ]
+  },
+  {
+    "category": "product-renders",
+    "slug": "product-renders-iphone",
+    "title": "Iphone",
+    "folder": "3D/Product/Iphone",
+    "summary": "Iphone — 3D/Product/Iphone.",
+    "cover": "/assets/3D/Product/Iphone/Untitled%20folder/5.jpg",
+    "media": [
+      "/assets/3D/Product/Iphone/Untitled%20folder/5.jpg"
+    ]
+  },
+  {
+    "category": "product-renders",
+    "slug": "product-renders-ring",
+    "title": "Ring",
+    "folder": "3D/Product/Ring",
+    "summary": "Ring — 3D/Product/Ring.",
+    "cover": "/assets/3D/Product/Ring/1/5.png",
+    "media": [
       "/assets/3D/Product/Ring/1/5.png"
     ]
   },
@@ -385,7 +455,8 @@
     "summary": "Packaging — 3D/Packaging.",
     "cover": "/assets/3D/Packaging/Copy%20of%20Omega3Gummies_60_V1.png",
     "media": [
-      "/assets/3D/Packaging/Copy%20of%20Omega3Gummies_60_V1.png"
+      "/assets/3D/Packaging/Copy%20of%20Omega3Gummies_60_V1.png",
+      "https://playcanv.as/b/554dd2f3"
     ]
   },
   {

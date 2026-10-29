@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Project, ProjectCategory } from "@/lib/content";
 import type { ResolvedWorkGroup } from "@/lib/work-layout-types";
 import { ProjectCover } from "@/components/ProjectMedia";
+import { isEmbed } from "@/lib/media";
 import { projectsByCategoryList } from "@/lib/project-ordering";
 
 export function WorkSections({
@@ -29,17 +30,34 @@ export function WorkSections({
                     <span>{items.length}</span>
                   </h2>
                   <div className="card-grid">
-                    {items.map((project) => (
-                      <Link key={project.slug} href={`/work/${project.slug}`} className="project-card">
-                        <ProjectCover project={project} />
-                        <h3>{project.title}</h3>
-                        {clientCredits[project.slug] && (
-                          <p className="meta">{clientCredits[project.slug]}</p>
-                        )}
-                        <p>{project.summary}</p>
-                        <p className="meta">{project.media.length} files</p>
-                      </Link>
-                    ))}
+                    {items.map((project) => {
+                      const body = (
+                        <>
+                          <h3>{project.title}</h3>
+                          {clientCredits[project.slug] && (
+                            <p className="meta">{clientCredits[project.slug]}</p>
+                          )}
+                          <p>{project.summary}</p>
+                          <p className="meta">{project.media.length} files</p>
+                        </>
+                      );
+                      if (isEmbed(project.cover)) {
+                        return (
+                          <article key={project.slug} className="project-card">
+                            <ProjectCover project={project} />
+                            <Link href={`/work/${project.slug}`} className="project-card-body">
+                              {body}
+                            </Link>
+                          </article>
+                        );
+                      }
+                      return (
+                        <Link key={project.slug} href={`/work/${project.slug}`} className="project-card">
+                          <ProjectCover project={project} />
+                          {body}
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               );

@@ -67,11 +67,11 @@ export function GlobalSettingsManager({ initialConfig }: { initialConfig: SiteCo
   return (
     <div className="admin-panel">
       <div className="admin-panel-head">
-        <div>
+        <div className="admin-panel-head-copy">
           <h1>Global Settings</h1>
           <p className="meta">Shared site title, Upwork destination, and footer copy.</p>
         </div>
-        <div className="admin-quick-actions">
+        <div className="admin-quick-actions admin-panel-actions">
           <button type="button" className="pill" disabled={saving} onClick={saveDraft}>
             Save draft
           </button>
@@ -83,45 +83,48 @@ export function GlobalSettingsManager({ initialConfig }: { initialConfig: SiteCo
 
       {message && <p className="admin-message">{message}</p>}
 
-      <div className="admin-form-stack" style={{ maxWidth: 720 }}>
-        <label>
-          Site title
-          <input value={global.siteTitle} onChange={(e) => updateGlobal("siteTitle", e.target.value)} />
-        </label>
-        <label>
-          Upwork profile URL
-          <input value={global.upworkUrl} onChange={(e) => updateGlobal("upworkUrl", e.target.value)} />
-        </label>
-        <h2 className="admin-subtitle">Footer</h2>
-        <label>
-          Footer label
-          <input
-            value={global.footerLabel}
-            onChange={(e) => updateGlobal("footerLabel", e.target.value)}
-          />
-        </label>
-        <label>
-          Footer headline
-          <input
-            value={global.footerHeadline}
-            onChange={(e) => updateGlobal("footerHeadline", e.target.value)}
-          />
-        </label>
-        <label>
-          Footer description
-          <textarea
-            rows={3}
-            value={global.footerDescription}
-            onChange={(e) => updateGlobal("footerDescription", e.target.value)}
-          />
-        </label>
-        <label>
-          Closing line
-          <input
-            value={global.footerTagline}
-            onChange={(e) => updateGlobal("footerTagline", e.target.value)}
-          />
-        </label>
+      <div className="admin-config-surface">
+        <div className="admin-form-stack admin-form-stack-split">
+          <label>
+            Site title
+            <input value={global.siteTitle} onChange={(e) => updateGlobal("siteTitle", e.target.value)} />
+          </label>
+          <label>
+            Upwork profile URL
+            <input value={global.upworkUrl} onChange={(e) => updateGlobal("upworkUrl", e.target.value)} />
+          </label>
+
+          <h2 className="admin-subtitle admin-form-span-2">Footer</h2>
+          <label>
+            Footer label
+            <input
+              value={global.footerLabel}
+              onChange={(e) => updateGlobal("footerLabel", e.target.value)}
+            />
+          </label>
+          <label>
+            Footer headline
+            <input
+              value={global.footerHeadline}
+              onChange={(e) => updateGlobal("footerHeadline", e.target.value)}
+            />
+          </label>
+          <label className="admin-form-span-2">
+            Footer description
+            <textarea
+              rows={3}
+              value={global.footerDescription}
+              onChange={(e) => updateGlobal("footerDescription", e.target.value)}
+            />
+          </label>
+          <label className="admin-form-span-2">
+            Closing line
+            <input
+              value={global.footerTagline}
+              onChange={(e) => updateGlobal("footerTagline", e.target.value)}
+            />
+          </label>
+        </div>
       </div>
     </div>
   );
