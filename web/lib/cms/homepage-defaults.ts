@@ -175,12 +175,12 @@ export function buildDefaultPages(): PagesStore {
     contact: {
       eyebrow: "contact",
       headline: "tell me the frame you need.",
-      intro: "Use this while the site is local. It does not email anyone yet.",
-      formVisible: true,
-      formNote: "Messages are stored locally for testing and are not emailed.",
+      intro: "The fastest way to start is on Upwork — share the brief, references, and timeline there.",
+      formVisible: false,
+      formNote: "",
       successMessage: "Message saved locally. This form does not send email yet.",
       errorMessage: "Could not save your message. Please try again.",
-      upworkLabel: "Prefer Upwork? Open my profile",
+      upworkLabel: "Hire Me on Upwork",
     },
   };
 }

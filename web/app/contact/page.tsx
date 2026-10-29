@@ -1,4 +1,3 @@
-import { ContactForm } from "@/components/ContactForm";
 import { UpworkHireLink } from "@/components/UpworkHireLink";
 import { readSiteConfig } from "@/lib/site-config";
 
@@ -12,31 +11,18 @@ export default async function ContactPage() {
 
   return (
     <main>
-      <section className="page-hero">
-        <div className="wrap">
+      <section className="page-hero contact-hero">
+        <div className="wrap contact-hero-inner">
           <p className="kicker">{contact.eyebrow}</p>
           <h1>{contact.headline}</h1>
-          <p>{contact.intro}</p>
-          <p className="meta" style={{ marginTop: 12 }}>
-            {contact.formNote}
-          </p>
-          <p style={{ marginTop: 18 }}>
+          {contact.intro ? <p className="contact-hero-lede">{contact.intro}</p> : null}
+          <div className="contact-hero-actions">
             <UpworkHireLink className="pill solid" href={config.global.upworkUrl}>
               {contact.upworkLabel}
             </UpworkHireLink>
-          </p>
+          </div>
         </div>
       </section>
-      {contact.formVisible && (
-        <section className="section" style={{ paddingTop: 10 }}>
-          <div className="wrap" style={{ maxWidth: 720 }}>
-            <ContactForm
-              successMessage={contact.successMessage}
-              errorMessage={contact.errorMessage}
-            />
-          </div>
-        </section>
-      )}
     </main>
   );
 }
