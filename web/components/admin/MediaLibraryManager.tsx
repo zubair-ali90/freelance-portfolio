@@ -6,7 +6,7 @@ import type { MediaAsset } from "@/lib/cms/media-catalog";
 export function MediaLibraryManager({ assets: initialAssets }: { assets: MediaAsset[] }) {
   const [assets, setAssets] = useState(initialAssets);
   const [query, setQuery] = useState("");
-  const [type, setType] = useState<"all" | "image" | "video">("all");
+  const [type, setType] = useState<"all" | "image" | "video" | "embed">("all");
   const [visibilityFilter, setVisibilityFilter] = useState<"all" | "visible" | "hidden">("all");
   const [copied, setCopied] = useState("");
   const [saving, setSaving] = useState(false);
@@ -111,6 +111,7 @@ export function MediaLibraryManager({ assets: initialAssets }: { assets: MediaAs
           <option value="all">All types</option>
           <option value="image">Images</option>
           <option value="video">Videos</option>
+          <option value="embed">Embeds</option>
         </select>
         <select
           value={visibilityFilter}
@@ -134,6 +135,11 @@ export function MediaLibraryManager({ assets: initialAssets }: { assets: MediaAs
               <div className="admin-media-thumb">
                 {asset.type === "video" ? (
                   <video src={asset.src} muted playsInline preload="metadata" />
+                ) : asset.type === "embed" ? (
+                  <div className="embed-thumb">
+                    <span className="embed-thumb-label">Interactive 3D</span>
+                    <span className="embed-thumb-host">embed</span>
+                  </div>
                 ) : (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={asset.src} alt={asset.projectTitle} loading="lazy" />

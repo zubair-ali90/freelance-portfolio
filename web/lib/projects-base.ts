@@ -1,6 +1,7 @@
 import projectsData from "./projects.json";
 import type { Project, ProjectCategory } from "./content";
 import { categoryGroups } from "./content";
+import { withExtraMedia } from "./project-embeds";
 
 const raw = projectsData as Array<{
   category: ProjectCategory;
@@ -20,7 +21,7 @@ export function getBaseProjects(): Project[] {
   return raw.map((item) => {
     const leaf = leafById.get(item.category);
     const group = categoryGroups.find((entry) => entry.sections.some((section) => section.id === item.category));
-    return {
+    return withExtraMedia({
       ...item,
       year: "2024–2026",
       role: "3D artist · lighting · animation",
@@ -28,7 +29,7 @@ export function getBaseProjects(): Project[] {
       hue: leaf?.hue ?? "#1c2430",
       accent: leaf?.accent ?? "#e7b15a",
       kind: leaf?.kind ?? "product",
-    };
+    });
   });
 }
 

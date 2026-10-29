@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit, Fraunces } from "next/font/google";
+import { DevtoolsConsoleFilter } from "@/components/DevtoolsConsoleFilter";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import "./globals.css";
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body id="top" className={`${body.variable} ${display.variable}`}>
+        {process.env.NODE_ENV === "development" ? <DevtoolsConsoleFilter /> : null}
         <SiteHeader />
         {children}
         <SiteFooter />

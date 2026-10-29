@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { VideoPlayer } from "@/components/VideoPlayer";
-import { isVideo } from "@/lib/media";
+import { isEmbed, isVideo } from "@/lib/media";
 
 type Props = {
   items: string[];
@@ -80,14 +80,25 @@ export function MediaLightbox({ items, index, title, onClose, onChange }: Props)
         <div className="lightbox-toolbar">
           <span className="lightbox-count">
             {index + 1} / {items.length}
-            {isVideo(src) ? " · video" : ""}
+            {isEmbed(src) ? " · interactive" : isVideo(src) ? " · video" : ""}
           </span>
           <button type="button" className="pill" onClick={onClose}>
             close
           </button>
         </div>
-        <div className="lightbox-stage lightbox-stage-player">
-          <VideoPlayer src={src} title={title} />
+        <div
+          className={
+            isEmbed(src)
+              ? "lightbox-stage lightbox-stage-player lightbox-stage-embed"
+              : "lightbox-stage lightbox-stage-player"
+          }
+        >
+          {isVideo(src) ? (
+            <VideoPlayer src={src} title={title} />
+          ) : isEmbed(src) ? null : (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img className="lightbox-media" src={src} alt={title} />
+          )}
         </div>
         <div className="lightbox-nav">
           <button type="button" className="pill" disabled={!hasPrev} onClick={goPrev}>
@@ -98,7 +109,11 @@ export function MediaLightbox({ items, index, title, onClose, onChange }: Props)
           </button>
         </div>
         <p className="lightbox-hint">
-          Use the bar below the video for play, sound, and scrubbing · Arrow keys: prev/next
+          {isEmbed(src)
+            ? "Interact with the 3D viewer · Arrow keys: prev/next"
+            : isVideo(src)
+              ? "Use the bar below the video for play, sound, and scrubbing · Arrow keys: prev/next"
+              : "Arrow keys: prev/next"}
         </p>
       </div>
     </div>

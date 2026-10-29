@@ -8,6 +8,10 @@
     "product-renders-clothing": {
       "active": false
     },
+    "product-renders-packaging": {
+      "active": true,
+      "cover": "https://playcanv.as/b/554dd2f3"
+    },
     "standalone-2d-environments": {
       "active": false
     },
