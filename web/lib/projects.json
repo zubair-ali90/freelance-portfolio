@@ -75,7 +75,8 @@
       "/assets/3D/Anime_/2/turnable.mp4",
       "/assets/3D/Anime_/tsaritsa/tsaritsa-3d-renders(1).webp",
       "/assets/3D/Anime_/tsaritsa/tsaritsa-3d-renders.webp",
-      "/assets/3D/Anime_/tsaritsa/tsaritsa-model-avatar-1.webp"
+      "/assets/3D/Anime_/tsaritsa/tsaritsa-model-avatar-1.webp",
+      "/assets/3D/Anime_/turnable.mp4"
     ]
   },
   {
@@ -149,7 +150,27 @@
     "summary": "Trey anime character — 3D/Trey Anime character.",
     "cover": "/assets/3D/Trey%20Anime%20character/Fox_Girl_Vrm%20Test.mp4",
     "media": [
-      "/assets/3D/Trey%20Anime%20character/Fox_Girl_Vrm%20Test.mp4"
+      "/assets/3D/Trey%20Anime%20character/details/face%20close%20up%20topology.png",
+      "/assets/3D/Trey%20Anime%20character/details/rig%201.png",
+      "/assets/3D/Trey%20Anime%20character/details/rig%202.png",
+      "/assets/3D/Trey%20Anime%20character/details/topology%201.png",
+      "/assets/3D/Trey%20Anime%20character/Fox_Girl_Vrm%20Test.mp4",
+      "/assets/3D/Trey%20Anime%20character/Jersey/forces_away_game.png",
+      "/assets/3D/Trey%20Anime%20character/Jersey/forces_home_game.png",
+      "/assets/3D/Trey%20Anime%20character/Jersey/triplets_away_game.png",
+      "/assets/3D/Trey%20Anime%20character/Jersey/triplets_home_game.png",
+      "/assets/3D/Trey%20Anime%20character/Models/cb_front.png",
+      "/assets/3D/Trey%20Anime%20character/Models/cb_threequarter.png",
+      "/assets/3D/Trey%20Anime%20character/Models/game_character_front_v2.png",
+      "/assets/3D/Trey%20Anime%20character/Models/game_character_threequarter_v2.png",
+      "/assets/3D/Trey%20Anime%20character/Models/lineman_front.png",
+      "/assets/3D/Trey%20Anime%20character/Models/lineman_threequarter.png",
+      "/assets/3D/Trey%20Anime%20character/Models/rb_front.png",
+      "/assets/3D/Trey%20Anime%20character/Models/rb_threequarter.png",
+      "/assets/3D/Trey%20Anime%20character/Models/wr_front%201.png",
+      "/assets/3D/Trey%20Anime%20character/SS%20For%20Fox%20Character/A.png",
+      "/assets/3D/Trey%20Anime%20character/SS%20For%20Fox%20Character/ANGRY.png",
+      "/assets/3D/Trey%20Anime%20character/SS%20For%20Fox%20Character/Blink.png"
     ]
   },
   {
@@ -214,8 +235,12 @@
     "title": "Event visualization",
     "folder": "event visualization",
     "summary": "Event visualization — event visualization.",
-    "cover": "/assets/event%20visualization/stage%202/stage-2-shot_1.png",
+    "cover": "/assets/event%20visualization/OptionA-1-withchair.png",
     "media": [
+      "/assets/event%20visualization/OptionA-1-withchair.png",
+      "/assets/event%20visualization/OptionC-1-with-chair.png",
+      "/assets/event%20visualization/shot_1.png",
+      "/assets/event%20visualization/stage%201_V1_1.png",
       "/assets/event%20visualization/stage%202/stage-2-shot_1.png"
     ]
   },
@@ -318,14 +343,16 @@
     "title": "Jon",
     "folder": "Jon",
     "summary": "Jon — Jon.",
-    "cover": "/assets/Jon/AI%20Obot%20Cards%20Animation%20-%20Without%20Text%20Animation%20(Without%20Preview).mp4",
+    "cover": "/assets/Jon/2.%20John%20Post%20(Text%20Change%20-%20Without%20Preview)%20(1).mp4",
     "media": [
+      "/assets/Jon/2.%20John%20Post%20(Text%20Change%20-%20Without%20Preview)%20(1).mp4",
       "/assets/Jon/AI%20Obot%20Cards%20Animation%20-%20Without%20Text%20Animation%20(Without%20Preview).mp4",
       "/assets/Jon/Card%20Animation%20(Without%20Preview)%20(160%20x%20601).mp4",
       "/assets/Jon/Card%20Animation%20(Without%20Preview)%20(336%20x%20280).mp4",
       "/assets/Jon/GIFs/Card%20Animation%20(160%20x%20601).gif",
       "/assets/Jon/GIFs/Card%20Animation%20(300%20x%20250).gif",
-      "/assets/Jon/Methodology%204K.mp4"
+      "/assets/Jon/Methodology%204K.mp4",
+      "/assets/Jon/stack%20style%20animation%20(1).mp4"
     ]
   },
   {
@@ -458,6 +485,51 @@
   },
   {
     "category": "product-renders",
+    "slug": "product-renders-selected",
+    "title": "selected",
+    "folder": "3D/Product/selected",
+    "summary": "selected — 3D/Product/selected.",
+    "cover": "/assets/3D/Product/selected/alternate_three_quarter.png",
+    "media": [
+      "/assets/3D/Product/selected/alternate_three_quarter.png",
+      "/assets/3D/Product/selected/assembled_detail_angle.png",
+      "/assets/3D/Product/selected/branding_closeup.png",
+      "/assets/3D/Product/selected/front_angle.png",
+      "/assets/3D/Product/selected/hero_three_quarter.png",
+      "/assets/3D/Product/selected/nozzle_closeup.png",
+      "/assets/3D/Product/selected/nozzle_interior_detail.png",
+      "/assets/3D/Product/selected/side_profile.png"
+    ]
+  },
+  {
+    "category": "product-renders",
+    "slug": "product-renders-shades",
+    "title": "Shades",
+    "folder": "3D/Product/Shades",
+    "summary": "Shades — 3D/Product/Shades.",
+    "cover": "/assets/3D/Product/Shades/1.jpg",
+    "media": [
+      "/assets/3D/Product/Shades/1.jpg",
+      "/assets/3D/Product/Shades/2.jpg",
+      "/assets/3D/Product/Shades/3.jpg",
+      "/assets/3D/Product/Shades/4.jpg"
+    ]
+  },
+  {
+    "category": "product-renders",
+    "slug": "product-renders-watch",
+    "title": "Watch",
+    "folder": "3D/Product/Watch",
+    "summary": "Watch — 3D/Product/Watch.",
+    "cover": "/assets/3D/Product/Watch/Login%20watch_3%20.jpg",
+    "media": [
+      "/assets/3D/Product/Watch/Login%20watch_3%20.jpg",
+      "/assets/3D/Product/Watch/Login%20watch_4%20.jpg",
+      "/assets/3D/Product/Watch/Login_Watch_1.jpg"
+    ]
+  },
+  {
+    "category": "product-renders",
     "slug": "product-renders-packaging",
     "title": "Packaging",
     "folder": "3D/Packaging",
@@ -523,9 +595,13 @@
     "title": "Furniture",
     "folder": "3D/Furniture",
     "summary": "Furniture — 3D/Furniture.",
-    "cover": "/assets/3D/Furniture/Appliances/lifestyle/1.jpg",
+    "cover": "/assets/3D/Furniture/5.mp4",
     "media": [
+      "/assets/3D/Furniture/5.mp4",
       "/assets/3D/Furniture/Appliances/lifestyle/1.jpg",
+      "/assets/3D/Furniture/lifestyle/1.jpg",
+      "/assets/3D/Furniture/lifestyle/2.jpg",
+      "/assets/3D/Furniture/lifestyle/3.jpg",
       "/assets/3D/Furniture/lifestyle%20renders/1/1.jpg",
       "/assets/3D/Furniture/lifestyle%20renders/1/5.jpg",
       "/assets/3D/Furniture/lifestyle%20renders/1/8.jpg",
@@ -606,12 +682,29 @@
     "title": "Interior",
     "folder": "3D/Exterior-Interior/Interior",
     "summary": "Interior — 3D/Exterior-Interior/Interior.",
-    "cover": "/assets/3D/Exterior-Interior/Interior/Interior-1/Apartment10.jpg",
+    "cover": "/assets/3D/Exterior-Interior/Interior/Dave%20miller%20house/bathroom%201.png",
     "media": [
+      "/assets/3D/Exterior-Interior/Interior/Dave%20miller%20house/bathroom%201.png",
+      "/assets/3D/Exterior-Interior/Interior/Dave%20miller%20house/bathroom%202.png",
+      "/assets/3D/Exterior-Interior/Interior/Dave%20miller%20house/bathroom3.png",
+      "/assets/3D/Exterior-Interior/Interior/Dave%20miller%20house/closedup1.png",
+      "/assets/3D/Exterior-Interior/Interior/Dave%20miller%20house/closedup2.png",
+      "/assets/3D/Exterior-Interior/Interior/Dave%20miller%20house/render%201.jpg",
+      "/assets/3D/Exterior-Interior/Interior/Dave%20miller%20house/render%202.png.jpg",
+      "/assets/3D/Exterior-Interior/Interior/Dave%20miller%20house/render%203_01.png",
+      "/assets/3D/Exterior-Interior/Interior/Dave%20miller%20house/render%204_01.png",
+      "/assets/3D/Exterior-Interior/Interior/Dave%20miller%20house/render2.png",
+      "/assets/3D/Exterior-Interior/Interior/Dave%20miller%20house/render4.png.jpg",
+      "/assets/3D/Exterior-Interior/Interior/Dave%20miller%20house/utility%20.png",
       "/assets/3D/Exterior-Interior/Interior/Interior-1/Apartment10.jpg",
       "/assets/3D/Exterior-Interior/Interior/Interior-1/Apartment3.jpg",
       "/assets/3D/Exterior-Interior/Interior/interior-3/3.jpg",
-      "/assets/3D/Exterior-Interior/Interior/interior-4/4.jpg"
+      "/assets/3D/Exterior-Interior/Interior/interior-4/4.jpg",
+      "/assets/3D/Exterior-Interior/Interior/Sketchup%20Interior%20Render/bathroom.png",
+      "/assets/3D/Exterior-Interior/Interior/Sketchup%20Interior%20Render/bedroom06.png",
+      "/assets/3D/Exterior-Interior/Interior/Sketchup%20Interior%20Render/kitchen06.png",
+      "/assets/3D/Exterior-Interior/Interior/Sketchup%20Interior%20Render/Office04.png",
+      "/assets/3D/Exterior-Interior/Interior/Sketchup%20Interior%20Render/sofa18.png"
     ]
   },
   {
