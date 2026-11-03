@@ -22,6 +22,12 @@ git checkout "$BRANCH"
 git reset --hard "origin/$BRANCH"
 git clean -fd --exclude=web/node_modules --exclude=web/.next --exclude=web/.env.local --exclude=web/public/assets --exclude=Assets
 
+# Stop the live process before rewriting node_modules / .next (avoids crash loops / EADDRINUSE).
+if pm2 describe "$PM2_APP" >/dev/null 2>&1; then
+  echo "==> Stopping PM2 app during install/build: $PM2_APP"
+  pm2 stop "$PM2_APP" || true
+fi
+
 echo "==> npm ci"
 cd "$WEB"
 npm ci
@@ -30,7 +36,7 @@ echo "==> prepare-assets + build"
 npm run prepare-assets
 npm run build
 
-echo "==> Restart PM2: $PM2_APP"
+echo "==> Start/restart PM2: $PM2_APP"
 if pm2 describe "$PM2_APP" >/dev/null 2>&1; then
   pm2 restart "$PM2_APP" --update-env
 else
