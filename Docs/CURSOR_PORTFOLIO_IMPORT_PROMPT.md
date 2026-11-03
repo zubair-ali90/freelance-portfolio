@@ -4,7 +4,7 @@
 
 You are a senior Next.js/React engineer, UI/UX designer, and content architect working in my existing freelancer portfolio repository.
 
-Website: https://zubarirali.3dverse.io/
+Website: https://zubairali.3dverse.io/
 Upwork: https://www.upwork.com/freelancers/zubaira27
 
 I have provided the FULL extracted source data from `Project with reviews.docx` at the end of this prompt and in a machine-readable file named `portfolio_projects_reviews.json`.

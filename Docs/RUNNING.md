@@ -9,6 +9,7 @@
 | MAC address | `88:51:fb:3f:25:03` |
 | Port | **`3001`** (always on this device) |
 | Local URL | http://localhost:3001 |
+| Public URL | https://zubairali.3dverse.io/ |
 | PM2 process name | **`Zubair-portfolio`** |
 
 Verify MAC:
@@ -89,12 +90,13 @@ Deploy script: `scripts/deploy-production.sh`
 | Secret | Purpose |
 |--------|---------|
 | `DEPLOY_HOOK_SECRET` | Bearer token (same value as in `web/.env.local`) — already set |
-| `DEPLOY_HOOK_URL` | `https://<your-cloudflare-hostname>/api/admin/deploy` — **set this once hostname exists** |
+| `DEPLOY_HOOK_URL` | `https://zubairali.3dverse.io/api/admin/deploy` — already set |
 
 ```bash
 gh secret set DEPLOY_HOOK_URL --repo zubair-ali90/freelance-portfolio \
-  --body 'https://YOUR_HOST/api/admin/deploy'
+  --body 'https://zubairali.3dverse.io/api/admin/deploy'
 ```
+
 
 ### Local fallback watcher
 

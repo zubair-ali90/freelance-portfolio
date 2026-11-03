@@ -51,7 +51,7 @@ export function AdminShell({
           </a>
           <a
             className="pill ghost-light"
-            href="https://zubarirali.3dverse.io/"
+            href="https://zubairali.3dverse.io/"
             target="_blank"
             rel="noopener noreferrer"
           >

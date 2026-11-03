@@ -4,9 +4,9 @@
 
 Act as a principal full-stack architect, senior React/Next.js developer, creative UI designer, CMS engineer, and accessibility/performance specialist. Your task is to audit and upgrade the **real existing implementation** of Zubair Ali's portfolio, with special focus on:
 
-- `https://zubarirali.3dverse.io/admin/configuration`
-- `https://zubarirali.3dverse.io/admin/projects`
-- `https://zubarirali.3dverse.io/work`
+- `https://zubairali.3dverse.io/admin/configuration`
+- `https://zubairali.3dverse.io/admin/projects`
+- `https://zubairali.3dverse.io/work`
 - Existing individual `/work/...` project pages.
 
 ## FIRST: Read ALL of these supplied files
