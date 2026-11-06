@@ -319,8 +319,9 @@
     "title": "AI website animation",
     "folder": "AI/Website animation",
     "summary": "AI website animation — AI/Website animation.",
-    "cover": "/assets/AI/Website%20animation/2.mp4",
+    "cover": "/assets/AI/Website%20animation/1.mp4",
     "media": [
+      "/assets/AI/Website%20animation/1.mp4",
       "/assets/AI/Website%20animation/2.mp4",
       "/assets/AI/Website%20animation/4.mp4"
     ]
@@ -418,8 +419,10 @@
     "title": "Coffe maker",
     "folder": "3D/Product/Coffe maker",
     "summary": "Coffe maker — 3D/Product/Coffe maker.",
-    "cover": "/assets/3D/Product/Coffe%20maker/Coffe%20maker/4.jpg",
+    "cover": "/assets/3D/Product/Coffe%20maker/1.jpg",
     "media": [
+      "/assets/3D/Product/Coffe%20maker/1.jpg",
+      "/assets/3D/Product/Coffe%20maker/2.jpg",
       "/assets/3D/Product/Coffe%20maker/Coffe%20maker/4.jpg"
     ]
   },
@@ -599,6 +602,9 @@
     "media": [
       "/assets/3D/Furniture/5.mp4",
       "/assets/3D/Furniture/Appliances/lifestyle/1.jpg",
+      "/assets/3D/Furniture/drive-new/chair_In_Office.png",
+      "/assets/3D/Furniture/drive-new/chair_In_Office_2_FA.png",
+      "/assets/3D/Furniture/drive-new/Eddie_Sofa_Interior_2.jpg",
       "/assets/3D/Furniture/lifestyle/1.jpg",
       "/assets/3D/Furniture/lifestyle/2.jpg",
       "/assets/3D/Furniture/lifestyle/3.jpg",
@@ -617,6 +623,23 @@
     "cover": "/assets/3D/Luxury-Bridal-Boutique/2.jpg",
     "media": [
       "/assets/3D/Luxury-Bridal-Boutique/2.jpg"
+    ]
+  },
+  {
+    "category": "lifestyle-renders",
+    "slug": "lifestyle-renders-booth-product-render",
+    "title": "Booth product render",
+    "folder": "3D/Booth product render",
+    "summary": "Booth product render — 3D/Booth product render.",
+    "cover": "/assets/3D/Booth%20product%20render/01.png",
+    "media": [
+      "/assets/3D/Booth%20product%20render/01.png",
+      "/assets/3D/Booth%20product%20render/Booth_Render_1.png",
+      "/assets/3D/Booth%20product%20render/Booth_Render_2.png",
+      "/assets/3D/Booth%20product%20render/Booth_Render_3.png",
+      "/assets/3D/Booth%20product%20render/Booth_Render_4.png",
+      "/assets/3D/Booth%20product%20render/Booth_Render_5.png",
+      "/assets/3D/Booth%20product%20render/Booth_Render_6.png"
     ]
   },
   {
@@ -729,13 +752,21 @@
     "title": "Exterior",
     "folder": "3D/Exterior-Interior/Exterior",
     "summary": "Exterior — 3D/Exterior-Interior/Exterior.",
-    "cover": "/assets/3D/Exterior-Interior/Exterior/Exterior-2/10.jpg",
+    "cover": "/assets/3D/Exterior-Interior/Exterior/Irish/irish%20exterior%201%20.png",
     "media": [
       "/assets/3D/Exterior-Interior/Exterior/Exterior-2/10.jpg",
       "/assets/3D/Exterior-Interior/Exterior/Exterior-2/6.jpg",
       "/assets/3D/Exterior-Interior/Exterior/Exterior-3/jagdev-raghav-3-3.jpg",
       "/assets/3D/Exterior-Interior/Exterior/Exterior-3/jagdev-raghav-5.jpg",
       "/assets/3D/Exterior-Interior/Exterior/Exterior-4/1758463677041.jpg",
+      "/assets/3D/Exterior-Interior/Exterior/Irish/irish%20exterior%201%20.png",
+      "/assets/3D/Exterior-Interior/Exterior/Irish/irish%20exterior%202%20.png",
+      "/assets/3D/Exterior-Interior/Exterior/Khalid%20Aquaira/View_01_FA.jpg",
+      "/assets/3D/Exterior-Interior/Exterior/Khalid%20Aquaira/View_02_FA.jpg",
+      "/assets/3D/Exterior-Interior/Exterior/Khalid%20Aquaira/View_03_FA.jpg",
+      "/assets/3D/Exterior-Interior/Exterior/Khalid%20Aquaira/View_04_FA.jpg",
+      "/assets/3D/Exterior-Interior/Exterior/Khalid%20Aquaira/View_05_FA.jpg",
+      "/assets/3D/Exterior-Interior/Exterior/Khalid%20Aquaira/View_06_FA.jpg",
       "/assets/3D/Exterior-Interior/Exterior/Villa-Exterior/Villa-Exterior-4.jpg"
     ]
   },

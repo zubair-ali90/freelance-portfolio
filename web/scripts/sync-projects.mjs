@@ -63,6 +63,7 @@ const assignments = [
   // Lifestyle renders
   ["lifestyle-renders", "Furniture", "3D/Furniture"],
   ["lifestyle-renders", "Luxury bridal boutique", "3D/Luxury-Bridal-Boutique"],
+  ["lifestyle-renders", "Booth product render", "3D/Booth product render"],
 
   // Standalone
   ["standalone", "2D environments", "2d/environment"],
