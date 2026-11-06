@@ -1,28 +1,35 @@
 #!/usr/bin/env bash
-# Poll origin/production and deploy when a new commit appears.
-# Fallback when GitHub Actions cannot reach this host over SSH.
+# Health watchdog only. Full deploys are triggered by GitHub Actions → /api/admin/deploy.
+# If the site stays down, restart PM2 (do not run npm ci here — that raced with Actions).
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-BRANCH="${DEPLOY_BRANCH:-production}"
+PM2_APP="${PM2_APP:-Zubair-portfolio}"
 INTERVAL_SEC="${DEPLOY_POLL_SECONDS:-60}"
-REPO_API="${REPO_API:-https://api.github.com/repos/zubair-ali90/freelance-portfolio/commits/${BRANCH}}"
+URL="${HEALTH_URL:-http://127.0.0.1:3001/}"
 
 export PATH="/usr/local/bin:/usr/bin:/bin:${PATH:-}"
 
-echo "Watching $BRANCH every ${INTERVAL_SEC}s in $ROOT"
+echo "Watching $PM2_APP health every ${INTERVAL_SEC}s ($URL)"
 
+fail_streak=0
 while true; do
-  cd "$ROOT"
-  remote="$(curl -fsSL "$REPO_API" | python3 -c 'import sys,json; print(json.load(sys.stdin)["sha"])' 2>/dev/null || true)"
-  local_sha="$(git rev-parse HEAD 2>/dev/null || true)"
-
-  if [[ -n "$remote" && -n "$local_sha" && "$remote" != "$local_sha" ]]; then
-    echo "$(date -Is) New commit on $BRANCH: $local_sha -> $remote"
-    if "$ROOT/scripts/deploy-production.sh"; then
-      echo "$(date -Is) Deploy OK"
-    else
-      echo "$(date -Is) Deploy FAILED" >&2
+  if curl -fsS -o /dev/null --connect-timeout 5 --max-time 10 "$URL"; then
+    fail_streak=0
+  else
+    fail_streak=$((fail_streak + 1))
+    echo "$(date -Is) Health check failed ($fail_streak)"
+    # Wait through a normal deploy window (~2 fails @ 60s) before healing.
+    if [[ "$fail_streak" -ge 3 ]]; then
+      # Skip heal while a deploy lock is held.
+      if ! flock -n "$ROOT/scripts/deploy.lock" true 2>/dev/null; then
+        echo "$(date -Is) Deploy in progress — not restarting"
+      else
+        echo "$(date -Is) Bringing $PM2_APP back up"
+        pm2 describe "$PM2_APP" >/dev/null 2>&1 && pm2 start "$PM2_APP" || true
+        pm2 restart "$PM2_APP" --update-env >/dev/null 2>&1 || true
+        fail_streak=0
+      fi
     fi
   fi
   sleep "$INTERVAL_SEC"

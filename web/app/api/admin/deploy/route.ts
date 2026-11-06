@@ -19,27 +19,36 @@ function authorize(request: Request) {
   return secretsEqual(bearer, expected) || secretsEqual(alt, expected);
 }
 
-/** GitHub Actions calls this over the public Cloudflare URL to deploy on this host. */
+/**
+ * GitHub Actions calls this over the public Cloudflare URL.
+ * Must fully detach from this Next.js process — deploy script stops PM2,
+ * which would otherwise kill the deploy mid-run and leave a 502.
+ */
 export async function POST(request: Request) {
   if (!authorize(request)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const script = path.resolve(process.cwd(), "..", "scripts", "deploy-production.sh");
-  const logFile = path.resolve(process.cwd(), "..", "scripts", "last-deploy.log");
+  const root = path.resolve(process.cwd(), "..");
+  const script = path.join(root, "scripts", "deploy-production.sh");
+  const logFile = path.join(root, "scripts", "last-deploy.log");
 
-  const child = spawn("bash", [script], {
-    cwd: path.resolve(process.cwd(), ".."),
-    detached: true,
-    stdio: "ignore",
-    env: process.env,
-  });
+  // setsid + nohup: new session, survive when Zubair-portfolio is stopped.
+  const child = spawn(
+    "bash",
+    ["-c", `setsid nohup bash "${script}" >> "${logFile}" 2>&1 < /dev/null & echo $!`],
+    {
+      cwd: root,
+      detached: true,
+      stdio: ["ignore", "pipe", "pipe"],
+      env: process.env,
+    },
+  );
   child.unref();
 
   return NextResponse.json({
     ok: true,
     started: true,
-    pid: child.pid ?? null,
     logHint: logFile,
   });
 }
