@@ -8,6 +8,7 @@ import type { AdminProjectRow } from "./admin-project-types";
 import {
   applyMediaVisibility,
   hiddenMediaSet,
+  isProjectFullyMediaHidden,
   readMediaVisibility,
 } from "./media-visibility";
 import {
@@ -62,7 +63,9 @@ function publishRow(
 export async function getPublishedProjects(): Promise<Project[]> {
   const [rows, visibility] = await Promise.all([getAdminProjectRows(), readMediaVisibility()]);
   const hidden = hiddenMediaSet(visibility);
-  return rows.filter((project) => project.active).map((row) => publishRow(row, hidden));
+  return rows
+    .filter((project) => project.active && !isProjectFullyMediaHidden(project.media, hidden))
+    .map((row) => publishRow(row, hidden));
 }
 
 export async function getPublishedProject(slug: string) {

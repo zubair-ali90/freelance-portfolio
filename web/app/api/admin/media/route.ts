@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { isAdminSession } from "@/lib/admin-auth";
 import { buildMediaCatalogWithVisibility } from "@/lib/cms/media-catalog";
 import { readMediaVisibility, writeMediaVisibility } from "@/lib/media-visibility";
+import { deactivateProjectsWithAllMediaHidden } from "@/lib/project-overrides";
 import { revalidatePublicSite } from "@/lib/revalidate-public-site";
 
 export async function GET() {
@@ -40,13 +41,18 @@ export async function PUT(request: Request) {
     }
 
     const saved = await writeMediaVisibility({ version: 1, hidden });
+    const deactivated = await deactivateProjectsWithAllMediaHidden(saved.hidden);
     revalidatePublicSite();
     const assets = await buildMediaCatalogWithVisibility();
+    const projectNote = deactivated.length
+      ? ` ${deactivated.length} project${deactivated.length === 1 ? "" : "s"} turned off because all media was hidden.`
+      : "";
     return NextResponse.json({
       ok: true,
       hidden: saved.hidden,
       assets,
-      message: "Media visibility saved. Hidden files are removed from the public site.",
+      deactivatedProjects: deactivated,
+      message: `Media visibility saved. Hidden files are removed from the public site.${projectNote}`,
     });
   } catch (error) {
     const message = error instanceof Error ? error.message : "Save failed";

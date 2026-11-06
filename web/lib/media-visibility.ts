@@ -54,6 +54,14 @@ export function hiddenMediaSet(store: MediaVisibilityStore) {
   return new Set(store.hidden);
 }
 
+/** True when the project has media and every asset is in the hidden set. */
+export function isProjectFullyMediaHidden(
+  media: string[],
+  hidden: Set<string>,
+): boolean {
+  return media.length > 0 && media.every((src) => hidden.has(src));
+}
+
 /** Filter project media for public display. Hidden assets are removed everywhere. */
 export function applyMediaVisibility<T extends { cover: string; media: string[] }>(
   project: T,

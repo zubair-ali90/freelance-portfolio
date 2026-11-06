@@ -5,6 +5,7 @@ import type { HomepageStore } from "@/lib/cms/homepage-defaults";
 import type { PortfolioReview } from "@/lib/portfolio-reviews";
 import { HERO_FALLBACK_MEDIA } from "@/lib/homepage-content";
 import { AboutTeaser } from "./AboutTeaser";
+import { ClientLogoMarquee } from "./ClientLogoMarquee";
 import { ExpertiseSection } from "./ExpertiseSection";
 import { FeaturedWorkStage, type FeaturedChapter } from "./FeaturedWorkStage";
 import { FinalCta } from "./FinalCta";
@@ -56,6 +57,7 @@ export function HomeExperience({
     <div className="home-xp">
       <HomeHero mediaSrc={heroSrc} content={homepage.hero} />
       <FeaturedWorkStage chapters={chapters} />
+      <ClientLogoMarquee />
       <ExpertiseSection
         mediaBySlug={mediaBySlug}
         eyebrow={homepage.expertise.eyebrow}

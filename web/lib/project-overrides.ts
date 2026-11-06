@@ -55,3 +55,30 @@ export const readProjectOverrides = cache(readProjectOverridesImpl);
 export async function writeProjectOverrides(data: ProjectOverridesStore) {
   await writeLocal(data);
 }
+
+/**
+ * When every media asset on a project is hidden, turn the project off
+ * (`active: false`) so it leaves the public Work listing automatically.
+ * Does not auto-reactivate if media is shown again.
+ */
+export async function deactivateProjectsWithAllMediaHidden(hiddenPaths: string[]) {
+  const { getBaseProjects } = await import("./projects-base");
+  const hidden = new Set(hiddenPaths);
+  const store = await readLocal();
+  const overrides = { ...store.overrides };
+  const deactivated: string[] = [];
+
+  for (const project of getBaseProjects()) {
+    if (!project.media.length) continue;
+    if (!project.media.every((src) => hidden.has(src))) continue;
+    const existing = overrides[project.slug];
+    if ((existing?.active ?? true) === false) continue;
+    overrides[project.slug] = existing ? { ...existing, active: false } : { active: false };
+    deactivated.push(project.slug);
+  }
+
+  if (deactivated.length) {
+    await writeLocal({ version: 1, overrides });
+  }
+  return deactivated;
+}
